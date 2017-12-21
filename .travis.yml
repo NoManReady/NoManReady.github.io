@@ -2,6 +2,10 @@ language: node_js
 node_js: stable
 
 # S: Build Lifecycle
+cache:
+  yarn:true
+  directories:"node_modules"
+
 before_install:
  - npm install -g yarn
 
@@ -9,7 +13,7 @@ install:
   - yarn install
 
 script:
-  - yarn dev
+  - yarn build
 
 after_script:
   - cd ./dist
