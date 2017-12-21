@@ -10,6 +10,7 @@ Vue.config.productionTip = false
 
 Vue.use(iconPlugin)
 
+import ('@/libs/canvas.min.js')
 /* eslint-disable no-new */
 new Vue({
     el: '#app',

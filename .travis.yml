@@ -28,6 +28,6 @@ notifications:
   email:
     recipients:
       - 453421041@qq.com
-      - qiangkun@ruijie.com.cn
+      # - qiangkun@ruijie.com.cn
     on_success: always
     on_failure: always 
