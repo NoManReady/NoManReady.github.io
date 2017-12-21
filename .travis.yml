@@ -5,7 +5,8 @@ before_install:
   - npm install -g yarn
 install:
   - yarn install
-before_script: '-yarn build:dll'
+before_script:
+  - 'yarn build:dll'
 script:
   - yarn build
 after_script:
