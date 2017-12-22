@@ -6,9 +6,13 @@ import router from './router'
 
 import iconPlugin from './plugins/icons'
 
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
+
 Vue.config.productionTip = false
 
 Vue.use(iconPlugin)
+Vue.use(ElementUI)
 
 import ('@/libs/canvas.min.js')
 /* eslint-disable no-new */

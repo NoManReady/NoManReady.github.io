@@ -1,33 +1,47 @@
 <template>
-  <div id="app">
-    <svg-icon icon-class="success" @click.native="onClick"></svg-icon>
-    <svg-icon icon-class="idcard" @click.native="onClick"></svg-icon>
-    <svg-icon icon-class="share" @click.native="onClick"></svg-icon>
-  </div>
+  <el-container class="app">
+    <el-header>Header</el-header>
+    <el-container>
+      <el-aside width="200px">
+        <Article @art-link="artLink"></Article>
+      </el-aside>
+      <el-main>
+        <pre v-html="content"></pre>
+      </el-main>
+    </el-container>
+  </el-container>
 </template>
-
 <script>
+import Article from "./views/Article";
 export default {
   name: "app",
+  data() {
+    return {
+      content: "Hello,Man!"
+    };
+  },
+  components: {
+    Article
+  },
   methods: {
-    onClick(e) {
-      console.log([...e.target.classList].join(","));
+    artLink(content) {
+      this.content = content;
     }
   }
 };
 </script>
-
 <style>
-#app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+* {
+  padding: 0;
+  margin: 0;
 }
-[class*=" icon-"],
-[class^="icon-"] {
-  margin-left: 10px;
+.app {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 </style>
+
+

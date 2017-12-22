@@ -23,11 +23,9 @@ branches:
 env:
   global:
     - GH_REF: github.com/NoManReady/NoManReady.github.io.git
-
 notifications:
   email:
     recipients:
       - 453421041@qq.com
-      # - qiangkun@ruijie.com.cn
     on_success: always
-    on_failure: always 
+    on_failure: always
