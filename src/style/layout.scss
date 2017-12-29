@@ -1,0 +1,48 @@
+@import './utils/variable';
+@import './utils/mixins';
+.app {
+  @include position-absolute;
+}
+.app-main {
+  @include position-absolute($app-header-height,0,$app-footer-height,0);
+}
+.app-aside {
+  float: left;
+  height: 100%;
+  width: auto;
+  border-right: solid 1px #e6e6e6;
+  overflow: hidden;
+  overflow-y: auto;
+  .el-menu {
+    border-right: none;
+  }
+  .aside-menu:not(.el-menu--collapse) {
+    width: $app-aside-width;
+  }
+}
+.app-content {
+  height: 100%;
+  width: 100%;
+  padding: 15px;
+  padding-left: $app-aside-width + 15px;
+}
+.app-header,
+.app-footer {
+  width: 100%;
+  background: $primary;
+  text-align: center;
+  color: #fff;
+}
+.app-header {
+  height: $app-header-height;
+  box-shadow: 0 1px 5px 0 #999;
+  @include text-middle(60px);
+}
+.app-footer {
+  box-shadow: 0 -1px 5px 0 #999;
+  height: $app-footer-height;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}

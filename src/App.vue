@@ -1,47 +1,30 @@
 <template>
-  <el-container class="app">
-    <el-header>Header</el-header>
-    <el-container>
-      <el-aside width="200px">
-        <Article @art-link="artLink"></Article>
-      </el-aside>
-      <el-main>
-        <pre v-html="content"></pre>
-      </el-main>
-    </el-container>
-  </el-container>
+  <router-view class="app" v-loading.fullscreen.lock="loading" :element-loading-text="loadingText"></router-view>
 </template>
 <script>
-import Article from "./views/Article";
+import { mapActions, mapGetters } from 'vuex'
 export default {
-  name: "app",
+  name: 'App',
   data() {
     return {
-      content: "Hello,Man!"
-    };
+      loadingText:'努力加载中...'
+    }
   },
-  components: {
-    Article
+  created() {
+    this.$bus.$on('lang', this._setLang)
+  },
+  computed: {
+    ...mapGetters(['loading'])
   },
   methods: {
-    artLink(content) {
-      this.content = content;
+    ...mapActions(['setLang']),
+    _setLang(lang = 'zh') {
+      this.setLang(lang)
     }
   }
-};
+}
 </script>
-<style>
-* {
-  padding: 0;
-  margin: 0;
-}
-.app {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-}
+<style lang="scss">
+@import './style/common.scss';
+@import './style/layout.scss';
 </style>
-
-
