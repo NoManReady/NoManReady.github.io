@@ -1,15 +1,19 @@
 <template>
 <div class="welcome">
   <div class="app-header tc fc-6 fs24 welcome-tit">欢迎访问</div>
-  <div class="app-main mt20 mb20 sc-y plr20">
+  <div class="app-main mt20 mb20 sc-y plr20" style="bottom:60px;">
     <div class="welcome-box">
       <transition name="fade" mode="out-in">
+        <div>
+          <h2 class="logo-txt">NoManReady</h2>
+          <p class="tr fs24 f-green">-- Learn a little every day!</p>
+        </div>
       </transition>
     </div>
   </div>
   <div class="app-footer tc welcome-footer">
     <transition name="fade" mode="out-in">
-      <div class="welcome-box">
+      <div class="welcome-box mb20">
         <el-button type="primary" @click.native="goEntry">进入访问</el-button>
       </div>
     </transition>
@@ -41,6 +45,7 @@ export default {
     window.removeEventListener('resize', this._onResize)
   },
   methods: {
+    ...mapActions(['setInit']),
     // 浏览器收缩
     _onResize() {
       let _innerWidth = document.documentElement.offsetWidth
@@ -51,6 +56,7 @@ export default {
       }
     },
     goEntry() {
+      this.setInit()
       this.$router.push({ name: 'admin' })
     }
   }
@@ -73,11 +79,20 @@ export default {
   .welcome-box {
     width: 50%;
     margin: 0 auto;
+    .logo-txt {
+      font-size: 40px;
+      text-align: center;
+      color: #666;
+      margin-top: 30%;
+    }
   }
   .welcome-footer {
     .el-button {
       width: 80%;
     }
+    height: auto;
+    background-color: transparent;
+    box-shadow: none;
   }
   @media screen and (max-width: 768px) {
     .welcome-box {

@@ -3,7 +3,7 @@
     <app-header></app-header>
     <div class="app-main">
       <app-aside :menus="menus" @select-item="selectItem"></app-aside>
-      <div class="app-content">
+      <div class="app-content" :style="contentStyl">
         <transition name="fade" mode="out-in">
           <router-view></router-view>
         </transition>
@@ -26,6 +26,16 @@ export default {
     AppAside,
     AppHeader,
     AppFooter
+  },
+  created() {
+    if (!this.$store.state.app.init) {
+      this.$router.replace({ name: 'welcome' })
+    }
+  },
+  computed: {
+    contentStyl() {
+      return this.$store.getters.collapse ? { left: '75px' } : { left: '160px' }
+    }
   },
   methods: {
     selectItem(menu) {

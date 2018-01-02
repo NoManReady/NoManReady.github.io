@@ -3,7 +3,7 @@ import qs from 'qs'
 import axios from 'axios'
 import store from '@/store'
 import router from '@/router'
-import { Loading, Message } from 'element-ui'
+import { Message } from 'element-ui'
 import { log } from '@/utils'
 
 // 加载最小时间
@@ -17,8 +17,6 @@ let _apiHost = '/'
 // 请求组（判断当前请求数）
 let _requests = []
 
-let LOADING = null
-
 /**
  * 添加请求，显示loading
  * @param {请求配置} config
@@ -26,7 +24,6 @@ let LOADING = null
 function pushRequest(config) {
   log(`${config.url}--begin`)
   _requests.push(config)
-  // LOADING = Loading.service({ fullscreen: true, text: '努力加载中...' })
   store.dispatch('loading')
 }
 
@@ -45,7 +42,7 @@ function popRequest(config) {
   if (!_requests.length) {
     setTimeout(() => {
       store.dispatch('loading', false)
-    }, 50)
+    }, 100)
   }
 }
 

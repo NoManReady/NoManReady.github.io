@@ -27,7 +27,7 @@ import lang from '@/lang'
 Vue.use(VueI18n)
 let i18n = null
 window.I18N = i18n = new VueI18n({
-  locale: store.state.lang || 'en',
+  locale: store.state.app.lang || 'en',
   messages: lang
 })
 Vue.use(ElementUI, {
@@ -88,7 +88,7 @@ router.afterEach((to, from) => {
   NProgress.done()
 })
 
-import('@/libs/canvas.min.js')
+// import('@/libs/canvas.min.js')
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

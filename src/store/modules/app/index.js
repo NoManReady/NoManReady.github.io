@@ -17,7 +17,7 @@ export default {
     // 语言
     lang: loadFromLocal(types.APP_LANG) || 'zh',
     // 侧边栏是否打开
-    collapse: loadFromLocal(types.APP_ASIDE_OPEN) || true
+    collapse: Boolean(loadFromLocal(types.APP_ASIDE_OPEN))
   },
   actions: {
     title({ commit }, title) {
@@ -38,7 +38,7 @@ export default {
       saveToLocal(types.APP_LANG, lang)
       commit(types.APP_LANG, lang)
     },
-    setCollpse({ commit }, collpse = true) {
+    setCollapse({ commit }, collpse = true) {
       saveToLocal(types.APP_ASIDE_OPEN, collpse)
       commit(types.APP_ASIDE_OPEN, collpse)
     }

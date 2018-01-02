@@ -12,7 +12,6 @@
   width: auto;
   border-right: solid 1px #e6e6e6;
   overflow: hidden;
-  overflow-y: auto;
   .el-menu {
     border-right: none;
   }
@@ -21,16 +20,20 @@
   }
 }
 .app-content {
-  height: 100%;
-  width: 100%;
+  position: absolute;
+  top:0;
+  right: 0;
+  bottom: 0;
+  left:$app-aside-width;
   padding: 15px;
-  padding-left: $app-aside-width + 15px;
+  transition: all .3s ease-in-out;
+  overflow: hidden;
+  overflow-y: auto;
 }
 .app-header,
 .app-footer {
   width: 100%;
   background: $primary;
-  text-align: center;
   color: #fff;
 }
 .app-header {

@@ -85,8 +85,7 @@ export default {
               onClick={this.onItemClick.bind(this, menu)}
             >
               <i class={menu.icon} />
-              <span title={_lab}>{_lab}</span>
-              <span slot="title">{_lab}</span>
+              <span slot="title" title={_lab}>{_lab}</span>
             </el-menu-item>
           )
         }

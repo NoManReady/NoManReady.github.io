@@ -1,5 +1,5 @@
 <template>
-  <router-view class="app" v-loading.fullscreen.lock="loading" :element-loading-text="loadingText"></router-view>
+  <router-view class="app" v-loading.lock="loading" :element-loading-text="loadingText"></router-view>
 </template>
 <script>
 import { mapActions, mapGetters } from 'vuex'
@@ -7,14 +7,17 @@ export default {
   name: 'App',
   data() {
     return {
-      loadingText:'努力加载中...'
+      // loadingText: this.$t('common.loading')
     }
   },
   created() {
     this.$bus.$on('lang', this._setLang)
   },
   computed: {
-    ...mapGetters(['loading'])
+    ...mapGetters(['loading']),
+    loadingText(){
+      return this.$t('common.loading')
+    }
   },
   methods: {
     ...mapActions(['setLang']),
