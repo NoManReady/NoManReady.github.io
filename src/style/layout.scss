@@ -6,12 +6,14 @@
 .app-main {
   @include position-absolute($app-header-height,0,$app-footer-height,0);
 }
+.el-submenu .el-menu-item{
+  min-width: auto;
+}
 .app-aside {
   float: left;
   height: 100%;
   width: auto;
   border-right: solid 1px #e6e6e6;
-  overflow: hidden;
   .el-menu {
     border-right: none;
   }

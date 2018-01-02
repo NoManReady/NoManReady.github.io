@@ -1,10 +1,9 @@
 ## 1、背景
 
-* 在项目开发中ajax请求是必不可缺少
-* 一部分ajax请求不需要loading或则请求时间少于多少是不显示loading
-* 项目中对请求的同一化处理（错误处理，返回数据格式化处理，loading处理，token处理）
-* 配置基于个人vue项目进行配置，已加载vux相关组件，会进行一些依赖的import（可以按需配置）
-
+* 在项目开发中 ajax 请求是必不可缺少
+* 一部分 ajax 请求不需要 loading 或则请求时间少于多少是不显示 loading
+* 项目中对请求的同一化处理（错误处理，返回数据格式化处理，loading 处理，token 处理）
+* 配置基于个人 vue 项目进行配置，已加载 vux 相关组件，会进行一些依赖的 import（可以按需配置）
 
 ```
 import Vue from 'vue'
@@ -20,7 +19,8 @@ import { log } from '@/utils'
 ```
 
 ## 2、解决方案
-对于axios的封装中我们定义几个参数进行申明
+
+对于 axios 的封装中我们定义几个参数进行申明
 
 ```
 // 加载最小时间
@@ -34,18 +34,20 @@ let _apiHost = config.api
 // 请求组（判断当前请求数）
 let _requests = []
 ```
-一般一个项目中的根host和Content-Type都是统一的，这里对axios进行统一的配置（如果这个后端需要formData格式的表单即content-type='application/x-www-form-urlencoded;charset=utf-8'数据，需要对请求数据进行表单序列化，比较快的方式就是引入qs库qs.stringify进行处理后传输）
+
+一般一个项目中的根 host 和 Content-Type 都是统一的，这里对 axios 进行统一的配置（如果这个后端需要 formData 格式的表单即 content-type='application/x-www-form-urlencoded;charset=utf-8'数据，需要对请求数据进行表单序列化，比较快的方式就是引入 qs 库 qs.stringify 进行处理后传输）
 
 ```
 axios.defaults.headers.common['Content-Type'] = 'application/json'
 axios.defaults.baseURL = _apiHost
 ```
-一般情况下项目中同一时刻都会有不止一个请求在进行（还没有返回），要判断当前是否还存在进行中的ajax，就需要对_requests这个数组进行维护；
+
+一般情况下项目中同一时刻都会有不止一个请求在进行（还没有返回），要判断当前是否还存在进行中的 ajax，就需要对\_requests 这个数组进行维护；
 
 ```
 /**
  * 添加请求，显示loading
- * @param {请求配置} config 
+ * @param {请求配置} config
  */
 function pushRequest(config) {
   log(`${config.url}--begin`)
@@ -58,7 +60,7 @@ function pushRequest(config) {
 
 /**
  * 移除请求，无请求时关闭loading
- * @param {请求配置} config 
+ * @param {请求配置} config
  */
 function popRequest(config) {
   log(`${config.url}--end`)
@@ -75,7 +77,7 @@ function popRequest(config) {
 }
 ```
 
-接下来对axios基于上面的准备进行处理
+接下来对 axios 基于上面的准备进行处理
 
 ```
 /**
@@ -168,6 +170,6 @@ export default (url, data = {}, isSilence = false, method = 'POST') => {
       })
   })
 }
-
 ```
+
 [源文件路径](https://github.com/NoManReady/Tide/blob/master/src/utils/fetch.js)

@@ -1,6 +1,8 @@
-## 1、根据input获取用户选取的图片文件
+## 1、根据 input 获取用户选取的图片文件
+
 `let _file = this.$refs.input.files[0]`
-## 2、将_file文件流通过FileReader转化成base64
+
+## 2、将\_file 文件流通过 FileReader 转化成 base64
 
 ```
 /**
@@ -27,7 +29,8 @@ export const fileToBase64ByQuality = (file, quality) => {
   })
 }
 ```
-#### 3、处理base64数据通过canvas（toDataURL）进行压缩绘制，然后输出压缩后的base64图片数据
+
+#### 3、处理 base64 数据通过 canvas（toDataURL）进行压缩绘制，然后输出压缩后的 base64 图片数据
 
 ```
 //  图片最大宽度
@@ -64,12 +67,13 @@ export const compress = (base64, quality, mimeType) => {
   })
 }
 ```
-#### 4、最后base64数据转成blob文件流
+
+#### 4、最后 base64 数据转成 blob 文件流
 
 ```
 /**
  * base64转文件流
- * @param {base64} base64数据 
+ * @param {base64} base64数据
  * @param {string} format格式
  * @return {file}  文件blob
  */
@@ -84,7 +88,8 @@ export const convertBase64UrlToBlob = (base64, mimeType) => {
   return _blob
 }
 ```
-#### 5、构造FormData数据进行文件的上传
+
+#### 5、构造 FormData 数据进行文件的上传
 
 ```
 let formData = new window.FormData()

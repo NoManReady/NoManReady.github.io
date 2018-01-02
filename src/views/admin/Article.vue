@@ -1,10 +1,12 @@
 <template>
   <div class="article">
-    <div class="article-lis">
-      <a href="javascript:;" :class="{active:activeItem===item}" class="article-item" v-for="(item,index) in acticles" :key="item" @click="onClick(item,index+1)">{{item}}</a>
-    </div>
-    <transition name="fade">
-      <div class="article-content" v-html="content"></div>
+    <transition name="fade" mode="out-in">
+      <div class="article-lis" v-show="acticles.length">
+        <a href="javascript:;" :class="{active:activeItem===item.name}" class="article-item" v-for="item in acticles" :key="item.name" @click="onClick(item)">{{item.name}}</a>
+      </div>
+    </transition>
+    <transition name="el-fade-in" mode="out-in">
+      <div class="article-content" v-html="content" :key="content"></div>
     </transition>
   </div>
 </template>
@@ -12,39 +14,55 @@
 import ARTICLES from '@/post'
 import hljs from '@/utils/hljs'
 import { loadFromLocal, saveToLocal } from '@/utils/localStorage'
-const ART_INDEX = 'ART_INDEX'
+const ART_NAME = 'ART_NAME'
 export default {
   name: 'Article',
   data() {
     return {
-      acticles: ARTICLES,
+      acticles: [],
       content: '',
       activeItem: ''
     }
   },
   created() {
-    if (!ARTICLES || !ARTICLES.length) {
-      this.content = 'The article list is empty -_-'
-      return
+    this.initPage()
+  },
+  watch: {
+    $route() {
+      this.initPage()
     }
-    let _art = loadFromLocal(ART_INDEX)
-    let _index = ARTICLES.indexOf(_art) > -1 ? ARTICLES.indexOf(_art) : 0
-    this.activeItem = ARTICLES[_index]
-    this.load(_index + 1)
   },
   methods: {
-    load(index) {
-      let _artName = `${index}@${this.activeItem}`
+    initPage() {
+      let _type = this.$route.params.type
+      this.acticles = ARTICLES.filter(art => {
+        return art.type === _type
+      })
+      if (!this.acticles.length) {
+        this.content = `<p class="no-data">${this.$t('common.nodata')}</p>`
+        return
+      } else {
+        this.content = `<p class="no-data">${this.$t('common.loading')}</p>`
+      }
+      let _art = loadFromLocal(ART_NAME)
+      let _index = this.acticles.findIndex(art => {
+        return art.name === _art
+      })
+      this.activeItem = this.acticles[_index > -1 ? _index : 0].name
+      this.load()
+    },
+    load() {
+      let _artName = `${this.activeItem}@${this.$route.params.type}`
       this.$api.getArticle(_artName).then(d => {
         hljs(d).then(content => {
           this.content = content
         })
       })
     },
-    onClick(item, index) {
-      saveToLocal(ART_INDEX, item)
-      this.activeItem = item
-      this.load(index)
+    onClick(item) {
+      saveToLocal(ART_NAME, item.name)
+      this.activeItem = item.name
+      this.load()
     }
   }
 }
@@ -64,6 +82,7 @@ export default {
     display: inline-block;
     vertical-align: middle;
     cursor: pointer;
+    margin-top: 8px;
     & + & {
       margin-left: 10px;
     }

@@ -1,4 +1,5 @@
 import * as types from './constant'
+import router from '@/router'
 import { loadFromLocal, saveToLocal } from '@/utils/localStorage'
 
 /**
@@ -21,6 +22,7 @@ export default {
   },
   actions: {
     title({ commit }, title) {
+      document.title = title
       commit(types.APP_TITLE, title)
     },
     direction({ commit }, direction) {
@@ -36,6 +38,7 @@ export default {
     setLang({ commit }, lang = 'zh') {
       window.I18N.locale = lang
       saveToLocal(types.APP_LANG, lang)
+      // router.go(0)
       commit(types.APP_LANG, lang)
     },
     setCollapse({ commit }, collpse = true) {
@@ -45,7 +48,6 @@ export default {
   },
   mutations: {
     [types.APP_TITLE](state, payload) {
-      document.title = payload
       state.title = payload
     },
     [types.APP_DIRECTION](state, payload) {

@@ -4,10 +4,21 @@ export default [
   {
     path: 'article',
     name: 'article',
-    component: Article,
     meta: {
       auth: true,
       name: 'article',
+      t: 'nav.article'
+    },
+    redirect: 'article/vue',
+    children: null
+  },
+  {
+    path: 'article/:type',
+    name: 'article-type',
+    component: Article,
+    meta: {
+      auth: true,
+      name: 'article-type',
       t: 'nav.article'
     }
   },
