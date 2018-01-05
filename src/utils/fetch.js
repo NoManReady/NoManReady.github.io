@@ -9,7 +9,7 @@ import { log } from '@/utils'
 // 加载最小时间
 const MINI_TIME = 300
 // 超时时间
-let TIME_OUT_MAX = 10000
+let TIME_OUT_MAX = 5000
 // 环境value
 let _dev = process.env.NODE_ENV !== 'production'
 // 请求接口host
@@ -82,7 +82,7 @@ export default (url, data = {}, method = 'GET', isSilence = false) => {
     }
     _instance(_opts)
       .then(res => {
-        let responseData = res.data || {}
+        let responseData = res.data || null
         clearTimeout(_timer)
         popRequest(_random)
         resolve(responseData)

@@ -2,7 +2,7 @@
   <div class="article">
     <transition name="fade" mode="out-in">
       <div class="article-lis" v-show="acticles.length">
-        <a href="javascript:;" :class="{active:activeItem===item.name}" class="article-item" v-for="item in acticles" :key="item.name" @click="onClick(item)">{{item.name}}</a>
+        <a href="javascript:;" :class="{active:activeItem.path===item.path}" class="article-item" v-for="item in acticles" :key="item.path" @click="onClick(item)">{{item.name}}</a>
       </div>
     </transition>
     <transition name="el-fade-in" mode="out-in">
@@ -14,7 +14,7 @@
 import ARTICLES from '@/post'
 import hljs from '@/utils/hljs'
 import { loadFromLocal, saveToLocal } from '@/utils/localStorage'
-const ART_NAME = 'ART_NAME'
+const ART_ITEM = 'ART_ITEM'
 export default {
   name: 'Article',
   data() {
@@ -44,24 +44,31 @@ export default {
       } else {
         this.content = `<p class="no-data">${this.$t('common.loading')}</p>`
       }
-      let _art = loadFromLocal(ART_NAME)
-      let _index = this.acticles.findIndex(art => {
-        return art.name === _art
-      })
-      this.activeItem = this.acticles[_index > -1 ? _index : 0].name
+      let _art = loadFromLocal(ART_ITEM)
+      let _item = this.acticles[0]
+      if (_art) {
+        _item =
+          this.acticles.find(art => {
+            return art.path === _art.path
+          }) || _item
+      }
+      this.activeItem = _item
       this.load()
     },
     load() {
-      let _artName = `${this.activeItem}@${this.$route.params.type}`
-      this.$api.getArticle(_artName).then(d => {
+      this.$api.getArticle(this.activeItem.path).then(d => {
+        if (!d) {
+          this.content = `<p class="no-data">${this.$t('common.nodata')}</p>`
+          return
+        }
         hljs(d).then(content => {
           this.content = content
         })
       })
     },
     onClick(item) {
-      saveToLocal(ART_NAME, item.name)
-      this.activeItem = item.name
+      saveToLocal(ART_ITEM, item)
+      this.activeItem = item
       this.load()
     }
   }

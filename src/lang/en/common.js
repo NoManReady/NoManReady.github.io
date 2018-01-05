@@ -13,6 +13,8 @@ export default {
     vue: 'VUE',
     js: 'JAVASCRIPT',
     css: 'CSS',
+    lua: 'LUA',
+    eg: 'EG',
     other: 'Other'
   }
 }

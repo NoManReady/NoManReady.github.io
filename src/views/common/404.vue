@@ -2,7 +2,7 @@
   <div class="error 404">
     <div class="error-inner">
       <i class="el-icon-info"></i>
-      <p class="error-msg fs20">404,功能开发中</p>
+      <p class="error-msg fs20 f-green">404,功能开发中</p>
     </div>
   </div>
 </template>
@@ -20,7 +20,7 @@ export default {
   color: #666;
   text-align: center;
   .el-icon-info {
-    font-size: 56px;
+    font-size: 64px;
   }
   .error-msg {
     margin-top: 15px;

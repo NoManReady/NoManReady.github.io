@@ -77,7 +77,7 @@ function popRequest(config) {
 }
 ```
 
-接下来对 axios 基于上面的准备进行处理
+## 3、接下来对 axios 基于上面的准备进行处理
 
 ```
 /**
@@ -117,7 +117,7 @@ export default (url, data = {}, isSilence = false, method = 'POST') => {
     }
     //axios实例发送当前请求
     //请求完成：1、取消当前请求的定时器；2、在当前请求标识队列中移除当前标识；
-    3、成功的话返回统一处理后的数据，失败则对状态码进行判断
+    //成功的话返回统一处理后的数据，失败则对状态码进行判断
     _instance(_opts)
       .then(res => {
         let responseData = res.data

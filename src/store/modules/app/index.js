@@ -38,7 +38,6 @@ export default {
     setLang({ commit }, lang = 'zh') {
       window.I18N.locale = lang
       saveToLocal(types.APP_LANG, lang)
-      // router.go(0)
       commit(types.APP_LANG, lang)
     },
     setCollapse({ commit }, collpse = true) {

@@ -30,7 +30,7 @@ export const fileToBase64ByQuality = (file, quality) => {
 }
 ```
 
-#### 3、处理 base64 数据通过 canvas（toDataURL）进行压缩绘制，然后输出压缩后的 base64 图片数据
+## 3、处理 base64 数据通过 canvas（toDataURL）进行压缩绘制，然后输出压缩后的 base64 图片数据
 
 ```
 //  图片最大宽度
@@ -68,7 +68,7 @@ export const compress = (base64, quality, mimeType) => {
 }
 ```
 
-#### 4、最后 base64 数据转成 blob 文件流
+## 4、最后 base64 数据转成 blob 文件流
 
 ```
 /**
@@ -89,7 +89,7 @@ export const convertBase64UrlToBlob = (base64, mimeType) => {
 }
 ```
 
-#### 5、构造 FormData 数据进行文件的上传
+## 5、构造 FormData 数据进行文件的上传
 
 ```
 let formData = new window.FormData()
