@@ -59,7 +59,7 @@ HISTORY_CACHE['/'] = 0
 router.beforeEach((to, from, next) => {
   // 设置title，开启加载条
   NProgress.start()
-  to.meta && to.meta.t && store.dispatch('title', i18n.t(to.meta.t) || 'AP')
+  to.meta && to.meta.t && store.dispatch('title', i18n.t(to.meta.t))
   /*页面级animated--begin*/
   let toName = to.name || to.path
   let fromName = from.name || from.path

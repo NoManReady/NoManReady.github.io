@@ -3,7 +3,8 @@ export default {
   common: {
     404: 404,
     loading: '努力加载中...',
-    nodata: '无此类型文章 -_-'
+    nodata: '无此类型文章 -_-',
+    empty: '文章内容为空 -_-'
   },
   app: {
     header: 'APP-页头'

@@ -58,7 +58,7 @@ export default {
     load() {
       this.$api.getArticle(this.activeItem.path).then(d => {
         if (!d) {
-          this.content = `<p class="no-data">${this.$t('common.nodata')}</p>`
+          this.content = `<p class="no-data">${this.$t('common.empty')}</p>`
           return
         }
         hljs(d).then(content => {

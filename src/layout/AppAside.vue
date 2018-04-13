@@ -67,7 +67,7 @@ export default {
     // 生成菜单
     _generator(menus) {
       return menus.map((menu, index) => {
-        let _lab = this.$t(menu.label)
+        let _lab = this.$t(menu.label) || menu.label
         if (menu.children && menu.children.length) {
           return (
             <el-submenu index={menu.id}>
