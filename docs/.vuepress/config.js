@@ -3,6 +3,9 @@ module.exports = {
   description: 'Enjoy Vue',
   host: 'localhost',
   port: '9999',
+  head: [
+    ['link', { rel: 'icon', href: `/favicon.ico` }]
+  ],
   themeConfig: {
     sidebarDepth: 1,
     sidebar: {
