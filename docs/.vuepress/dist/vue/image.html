@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <title>NoManReady | 图片上传</title>
+    <meta name="description" content="Enjoy Vue">
+    
+    <link rel="preload" href="/assets/css/0.styles.8195ad57.css" as="style"><link rel="preload" href="/assets/js/app.f8077f9d.js" as="script"><link rel="preload" href="/assets/js/2.e5f3c352.js" as="script"><link rel="prefetch" href="/assets/js/4.ab88de4b.js"><link rel="prefetch" href="/assets/js/1.c98c51d3.js"><link rel="prefetch" href="/assets/js/3.c6838802.js"><link rel="prefetch" href="/assets/js/5.1a3ea821.js"><link rel="prefetch" href="/assets/js/6.fd2801c8.js"><link rel="prefetch" href="/assets/js/7.56baffeb.js"><link rel="prefetch" href="/assets/js/8.4f5067f2.js"><link rel="prefetch" href="/assets/js/9.baddb318.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.8195ad57.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div><a href="/" class="router-link-active"><!----><span class="site-name">
+      NoManReady
+    </span></a><div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""><!----></div><nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">Home</a></div><div class="nav-item"><a href="/vue/" class="nav-link router-link-active">Vue</a></div><div class="nav-item"><a href="/react/" class="nav-link">React</a></div><div class="nav-item"><a href="/ow/" class="nav-link">Ow</a></div><!----></nav></div></header><div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">Home</a></div><div class="nav-item"><a href="/vue/" class="nav-link router-link-active">Vue</a></div><div class="nav-item"><a href="/react/" class="nav-link">React</a></div><div class="nav-item"><a href="/ow/" class="nav-link">Ow</a></div><!----></nav><ul class="sidebar-links"><li><a href="/vue/axios.html" class="sidebar-link">Axios配置</a></li><li><a href="/vue/image.html" class="active sidebar-link">图片上传</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/vue/image.html#根据-input-获取用户选取的图片文件" class="sidebar-link">根据 input 获取用户选取的图片文件</a></li><li class="sidebar-sub-header"><a href="/vue/image.html#将file-文件流通过-filereader-转化成-base64" class="sidebar-link">将file 文件流通过 FileReader 转化成 base64</a></li><li class="sidebar-sub-header"><a href="/vue/image.html#处理-base64-数据通过-canvas（todataurl）进行压缩绘制，然后输出压缩后的-base64-图片数据" class="sidebar-link">处理 base64 数据通过 canvas（toDataURL）进行压缩绘制，然后输出压缩后的 base64 图片数据</a></li><li class="sidebar-sub-header"><a href="/vue/image.html#base64-数据转成-blob-文件流" class="sidebar-link">base64 数据转成 blob 文件流</a></li><li class="sidebar-sub-header"><a href="/vue/image.html#构造-formdata-数据进行文件的上传" class="sidebar-link">构造 FormData 数据进行文件的上传</a></li></ul></li></ul></div><div class="page"><div class="content"><h1 id="图片上传"><a href="#图片上传" aria-hidden="true" class="header-anchor">#</a> 图片上传</h1><h2 id="根据-input-获取用户选取的图片文件"><a href="#根据-input-获取用户选取的图片文件" aria-hidden="true" class="header-anchor">#</a> 根据 input 获取用户选取的图片文件</h2><p><code>let _file = this.$refs.input.files[0]</code></p><h2 id="将file-文件流通过-filereader-转化成-base64"><a href="#将file-文件流通过-filereader-转化成-base64" aria-hidden="true" class="header-anchor">#</a> 将file 文件流通过 FileReader 转化成 base64</h2><pre class="language-text"><code>/**
+ * 文件流转base64
+ * @param {file} source 图片对象
+ * @param {number} quality 图片质量
+ * @return {promise} promise 图片处理promise
+ */
+export const fileToBase64ByQuality = (file, quality) =&gt; {
+  let fileReader = new FileReader()
+  let type = file.type
+  return new Promise((resolve, reject) =&gt; {
+    if (window.URL || window.webkitURL) {
+      resolve(compress(URL.createObjectURL(file), quality, type))
+    } else {
+      fileReader.onload = () =&gt; {
+        resolve(compress(fileReader.result, quality, type))
+      }
+      fileReader.onerror = (e) =&gt; {
+        reject(e)
+      }
+      fileReader.readAsDataURL(file)
+    }
+  })
+}
+</code></pre><h2 id="处理-base64-数据通过-canvas（todataurl）进行压缩绘制，然后输出压缩后的-base64-图片数据"><a href="#处理-base64-数据通过-canvas（todataurl）进行压缩绘制，然后输出压缩后的-base64-图片数据" aria-hidden="true" class="header-anchor">#</a> 处理 base64 数据通过 canvas（toDataURL）进行压缩绘制，然后输出压缩后的 base64 图片数据</h2><pre class="language-text"><code>//  图片最大宽度
+const MAX_WIDTH = 800
+
+/**
+ * base64压缩（图片-canvas互转）
+ * @param {file} base64 base64图片数据
+ * @param {number} quality 图片质量
+ * @param {string} format 输出图片格式
+ * @return {base64} data 图片处理完成后的base64
+ */
+export const compress = (base64, quality, mimeType) =&gt; {
+  let cvs = document.createElement('canvas')
+  let img = document.createElement('img')
+  img.crossOrigin = 'anonymous'
+  return new Promise((resolve, reject) =&gt; {
+    img.src = base64
+    // 图片偏移值
+    let offetX = 0
+    img.onload = () =&gt; {
+      if (img.width &gt; MAX_WIDTH) {
+        cvs.width = MAX_WIDTH
+        cvs.height = img.height * MAX_WIDTH / img.width
+        offetX = (img.width - MAX_WIDTH) / 2
+      } else {
+        cvs.width = img.width
+        cvs.height = img.height
+      }
+      let ctx = cvs.getContext(&quot;2d&quot;).drawImage(img, 0, 0, cvs.width, cvs.height)
+      let imageData = cvs.toDataURL(mimeType, quality / 100)
+      resolve(imageData)
+    }
+  })
+}
+</code></pre><h2 id="base64-数据转成-blob-文件流"><a href="#base64-数据转成-blob-文件流" aria-hidden="true" class="header-anchor">#</a> base64 数据转成 blob 文件流</h2><pre class="language-text"><code>/**
+ * base64转文件流
+ * @param {base64} base64数据
+ * @param {string} format格式
+ * @return {file}  文件blob
+ */
+export const convertBase64UrlToBlob = (base64, mimeType) =&gt; {
+  let bytes = window.atob(base64.split(',')[1])
+  let ab = new ArrayBuffer(bytes.length)
+  let ia = new Uint8Array(ab)
+  for (let i = 0; i &lt; bytes.length; i++) {
+    ia[i] = bytes.charCodeAt(i)
+  }
+  let _blob = new Blob([ab], { type: mimeType })
+  return _blob
+}
+</code></pre><h2 id="构造-formdata-数据进行文件的上传"><a href="#构造-formdata-数据进行文件的上传" aria-hidden="true" class="header-anchor">#</a> 构造 FormData 数据进行文件的上传</h2><pre class="language-text"><code>let formData = new window.FormData()
+formData.append('file', _blob)
+</code></pre></div><!----><div class="content page-nav"><p class="inner"><span class="prev">
+        ← <a href="/vue/axios.html" class="prev">
+          Axios配置
+        </a></span><!----></p></div></div></div></div>
+    <script src="/assets/js/2.e5f3c352.js" defer></script><script src="/assets/js/app.f8077f9d.js" defer></script>
+  </body>
+</html>

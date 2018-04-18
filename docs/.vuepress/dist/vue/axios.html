@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <title>NoManReady | Axios</title>
+    <meta name="description" content="Enjoy Vue">
+    
+    <link rel="preload" href="/assets/css/0.styles.8195ad57.css" as="style"><link rel="preload" href="/assets/js/app.f8077f9d.js" as="script"><link rel="preload" href="/assets/js/3.c6838802.js" as="script"><link rel="prefetch" href="/assets/js/4.ab88de4b.js"><link rel="prefetch" href="/assets/js/1.c98c51d3.js"><link rel="prefetch" href="/assets/js/2.e5f3c352.js"><link rel="prefetch" href="/assets/js/5.1a3ea821.js"><link rel="prefetch" href="/assets/js/6.fd2801c8.js"><link rel="prefetch" href="/assets/js/7.56baffeb.js"><link rel="prefetch" href="/assets/js/8.4f5067f2.js"><link rel="prefetch" href="/assets/js/9.baddb318.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.8195ad57.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div><a href="/" class="router-link-active"><!----><span class="site-name">
+      NoManReady
+    </span></a><div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""><!----></div><nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">Home</a></div><div class="nav-item"><a href="/vue/" class="nav-link router-link-active">Vue</a></div><div class="nav-item"><a href="/react/" class="nav-link">React</a></div><div class="nav-item"><a href="/ow/" class="nav-link">Ow</a></div><!----></nav></div></header><div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">Home</a></div><div class="nav-item"><a href="/vue/" class="nav-link router-link-active">Vue</a></div><div class="nav-item"><a href="/react/" class="nav-link">React</a></div><div class="nav-item"><a href="/ow/" class="nav-link">Ow</a></div><!----></nav><ul class="sidebar-links"><li><a href="/vue/axios.html" class="active sidebar-link">Axios配置</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/vue/axios.html#1、背景" class="sidebar-link">1、背景</a></li><li class="sidebar-sub-header"><a href="/vue/axios.html#2、解决方案" class="sidebar-link">2、解决方案</a></li><li class="sidebar-sub-header"><a href="/vue/axios.html#3、接下来对-axios-基于上面的准备进行处理" class="sidebar-link">3、接下来对 axios 基于上面的准备进行处理</a></li></ul></li><li><a href="/vue/image.html" class="sidebar-link">图片上传</a></li></ul></div><div class="page"><div class="content"><h1 id="axios"><a href="#axios" aria-hidden="true" class="header-anchor">#</a> Axios</h1><h2 id="1、背景"><a href="#1、背景" aria-hidden="true" class="header-anchor">#</a> 1、背景</h2><ul><li>在项目开发中 ajax 请求是必不可缺少</li><li>一部分 ajax 请求不需要 loading 或则请求时间少于多少是不显示 loading</li><li>项目中对请求的同一化处理（错误处理，返回数据格式化处理，loading 处理，token 处理）</li><li>配置基于个人 vue 项目进行配置，已加载 vux 相关组件，会进行一些依赖的 import（可以按需配置）</li></ul><pre class="language-text"><code>import Vue from 'vue'
+import axios from 'axios'
+//项目的一些环境配置参数，读取host
+import config from '@/config'
+//vuex状态管理，这里主要进行对全局loading的控制
+import store from '@/store'
+//vue-router对相应状态码的页面操作（router实例）
+import router from '@/router'
+//console对应封装
+import { log } from '@/utils'
+</code></pre><h2 id="2、解决方案"><a href="#2、解决方案" aria-hidden="true" class="header-anchor">#</a> 2、解决方案</h2><p>对于 axios 的封装中我们定义几个参数进行申明</p><pre class="language-text"><code>// 加载最小时间
+const MINI_TIME = 300
+// 超时时间（超时时间）
+let TIME_OUT_MAX = 5000
+// 环境value
+let _env = process.env.NODE_ENV
+// 请求接口host
+let _apiHost = config.api
+// 请求组（判断当前请求数）
+let _requests = []
+</code></pre><p>一般一个项目中的根 host 和 Content-Type 都是统一的，这里对 axios 进行统一的配置（如果这个后端需要 formData 格式的表单即 content-type='application/x-www-form-urlencoded;charset=utf-8’数据，需要对请求数据进行表单序列化，比较快的方式就是引入 qs 库 qs.stringify 进行处理后传输）</p><pre class="language-text"><code>axios.defaults.headers.common['Content-Type'] = 'application/json'
+axios.defaults.baseURL = _apiHost
+</code></pre><p>一般情况下项目中同一时刻都会有不止一个请求在进行（还没有返回），要判断当前是否还存在进行中的 ajax，就需要对requests 这个数组进行维护；</p><pre class="language-text"><code>/**
+ * 添加请求，显示loading
+ * @param {请求配置} config
+ */
+function pushRequest(config) {
+  log(`${config.url}--begin`)
+  _requests.push(config)
+  Vue.$vux.loading.show({
+    text: 'Loading'
+  })
+  store.dispatch('loading')
+}
+
+/**
+ * 移除请求，无请求时关闭loading
+ * @param {请求配置} config
+ */
+function popRequest(config) {
+  log(`${config.url}--end`)
+  let _index = _requests.findIndex(r =&gt; {
+    return r === config
+  })
+  if (_index &gt; -1) {
+    _requests.splice(_index, 1)
+  }
+  if (!_requests.length) {
+    Vue.$vux.loading.hide(0)
+    store.dispatch('loading', false)
+  }
+}
+</code></pre><h2 id="3、接下来对-axios-基于上面的准备进行处理"><a href="#3、接下来对-axios-基于上面的准备进行处理" aria-hidden="true" class="header-anchor">#</a> 3、接下来对 axios 基于上面的准备进行处理</h2><pre class="language-text"><code>/**
+ * 请求地址，请求数据，是否静默，请求方法
+ */
+export default (url, data = {}, isSilence = false, method = 'POST') =&gt; {
+  let _opts = { method, url }
+  //通用数据的合并（token）
+  let _data = Object.assign({}, data, { token: store.getters.token })
+  const _query = {}
+  for (let _key in _data) {
+    if (_data.hasOwnProperty(_key) &amp;&amp; _data[_key] !== '') {
+      _query[_key] = _data[_key]
+    }
+  }
+  //axios实例请求定时器ID
+  let _timer = null
+  //判断请求类型
+  if (method.toLocaleUpperCase() === 'POST') {
+    _opts.data = _query
+  } else {
+    _opts.params = _query
+  }
+  //返回一个promise
+  return new Promise((resolve, reject) =&gt; {
+    //实例化axios
+    const _instance = axios.create({
+      timeout: TIME_OUT_MAX
+    })
+    //定义请求的唯一标识
+    let _random = { stamp: Date.now(), url: `${_apiHost + url}` }
+    //判断是否静默（静默的话就不加入请求标识队列，不是则申明此请求实例的定时器）
+    if (!isSilence) {
+      _timer = setTimeout(() =&gt; {
+        pushRequest(_random)
+      }, MINI_TIME)
+    }
+    //axios实例发送当前请求
+    //请求完成：1、取消当前请求的定时器；2、在当前请求标识队列中移除当前标识；
+    //成功的话返回统一处理后的数据，失败则对状态码进行判断
+    _instance(_opts)
+      .then(res =&gt; {
+        let responseData = res.data
+        clearTimeout(_timer)
+        popRequest(_random)
+        resolve(res.data)
+      })
+      .catch(res =&gt; {
+        let _response = res.response
+        let _message = null
+        clearTimeout(_timer)
+        popRequest(_random)
+        switch (_response.status) {
+          case 404:
+            _message = '404,错误请求'
+            break
+          case 401:
+            router.push({ path: '/login', query: { redirect: router.currentRoute.fullPath } })
+            _message = '未授权'
+            break
+          case 403:
+            _message = '禁止访问'
+            break
+          case 408:
+            _message = '请求超时'
+            break
+          case 500:
+            _message = '服务器内部错误'
+            break
+          case 501:
+            _message = '功能未实现'
+            break
+          case 503:
+            _message = '服务不可用'
+            break
+          case 504:
+            _message = '网关错误'
+            break
+          default:
+            _message = '未知错误'
+        }
+        if (!isSilence) {
+          Vue.$vux.toast.show({
+            text: _response.data &amp;&amp; _response.data.error ? _response.data.error : _message,
+            type: 'warn',
+            width: '10em'
+          })
+        }
+        reject(res)
+      })
+  })
+}
+</code></pre><p><a href="https://github.com/NoManReady/Tide/blob/master/src/utils/fetch.js" target="_blank" rel="noopener noreferrer">源文件路径</a></p></div><!----><div class="content page-nav"><p class="inner"><!----><span class="next"><a href="/vue/image.html">
+          图片上传
+        </a> →
+      </span></p></div></div></div></div>
+    <script src="/assets/js/3.c6838802.js" defer></script><script src="/assets/js/app.f8077f9d.js" defer></script>
+  </body>
+</html>

@@ -5,12 +5,10 @@ before_install:
   - npm install -g yarn
 install:
   - yarn install
-before_script:
-  - 'yarn build:dll'
 script:
   - yarn build
 after_script:
-  - cd ./dist
+  - cd ./vuepress/dist
   - git init
   - git config user.name "NoManReady"
   - git config user.email "453421041@qq.com"

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <title>NoManReady | Eweb项目结构</title>
+    <meta name="description" content="Enjoy Vue">
+    
+    <link rel="preload" href="/assets/css/0.styles.8195ad57.css" as="style"><link rel="preload" href="/assets/js/app.f8077f9d.js" as="script"><link rel="preload" href="/assets/js/7.56baffeb.js" as="script"><link rel="prefetch" href="/assets/js/4.ab88de4b.js"><link rel="prefetch" href="/assets/js/1.c98c51d3.js"><link rel="prefetch" href="/assets/js/2.e5f3c352.js"><link rel="prefetch" href="/assets/js/3.c6838802.js"><link rel="prefetch" href="/assets/js/5.1a3ea821.js"><link rel="prefetch" href="/assets/js/6.fd2801c8.js"><link rel="prefetch" href="/assets/js/8.4f5067f2.js"><link rel="prefetch" href="/assets/js/9.baddb318.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.8195ad57.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div><a href="/" class="router-link-active"><!----><span class="site-name">
+      NoManReady
+    </span></a><div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""><!----></div><nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">Home</a></div><div class="nav-item"><a href="/vue/" class="nav-link">Vue</a></div><div class="nav-item"><a href="/react/" class="nav-link">React</a></div><div class="nav-item"><a href="/ow/" class="nav-link router-link-active">Ow</a></div><!----></nav></div></header><div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">Home</a></div><div class="nav-item"><a href="/vue/" class="nav-link">Vue</a></div><div class="nav-item"><a href="/react/" class="nav-link">React</a></div><div class="nav-item"><a href="/ow/" class="nav-link router-link-active">Ow</a></div><!----></nav><ul class="sidebar-links"><li><a href="/ow/eweb.html" class="active sidebar-link">Eweb项目结构</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/ow/eweb.html#概述" class="sidebar-link">概述</a></li><li class="sidebar-sub-header"><a href="/ow/eweb.html#规范" class="sidebar-link">规范</a></li><li class="sidebar-sub-header"><a href="/ow/eweb.html#web前端" class="sidebar-link">web前端</a></li><li class="sidebar-sub-header"><a href="/ow/eweb.html#luci后端" class="sidebar-link">luci后端</a></li></ul></li></ul></div><div class="page"><div class="content"><h1 id="eweb项目结构"><a href="#eweb项目结构" aria-hidden="true" class="header-anchor">#</a> Eweb项目结构</h1><hr><h2 id="概述"><a href="#概述" aria-hidden="true" class="header-anchor">#</a> 概述</h2><pre><code>简要介绍易网络web前端代码框架及ow-luci框架及开发流程
+</code></pre><h2 id="规范"><a href="#规范" aria-hidden="true" class="header-anchor">#</a> 规范</h2><h4 id="命名："><a href="#命名：" aria-hidden="true" class="header-anchor">#</a> 命名：</h4><ul><li>vue组件-&gt;首字母大写的驼峰：比如Package.vue（每个组件name属性标识组件所在模块名称及组件名称，组件模板类名响应的以小写单词标识，多个单词以中横线分开，如：name:‘DiagnosePackage’-&gt;class:diagnose-package）;</li><li>全局静态-&gt;大写单词，多单词以下横线分开，如：const APP_STATUS=1</li><li>局部变量-&gt;以下横线开头首字母小写的驼峰，如：let _count=0，local _lua=‘xxx’</li><li>css-&gt;小写单词，多单词以中横线分开，如：box-tit</li></ul><h4 id="路由及菜单"><a href="#路由及菜单" aria-hidden="true" class="header-anchor">#</a> 路由及菜单</h4><ul><li>路由-&gt;path,name,t都是以下横线分开的多个单词，如：</li></ul><pre class="language-text"><code>{
+    path: 'diagnose_package',
+    name: 'diagnose_package',
+    component: Package,
+    meta: {
+      roles:[],
+      t: 'diagnose_package'
+    }
+  }
+</code></pre><ul><li>菜单-&gt;格式如下：</li></ul><pre class="language-text"><code>{
+    &quot;label&quot;: &quot;故障诊断&quot;,
+    &quot;icon&quot;: &quot;eweb-diagnosis&quot;,
+    &quot;t&quot;: &quot;nav.diagnose&quot;,
+    &quot;children&quot;: [
+      {
+        &quot;label&quot;: &quot;抓包网络&quot;,
+        &quot;icon&quot;: &quot;eweb-star&quot;,
+        &quot;t&quot;: &quot;nav.diagnose_package&quot;,
+        &quot;path&quot;: &quot;/admin/diagnose_package&quot;,
+        &quot;roles&quot;: [],
+        &quot;children&quot;: null
+      }
+}
+</code></pre><ul><li>国际化-&gt;以模块划分，多层级对象展示，如：</li></ul><pre class="language-text"><code>{
+  author: 'NoManready',
+  brand: 'EG',
+  header: {
+    guide: '快速配置',
+    logout: '注销',
+    lang: 'English'
+  },
+  nav: {
+    notfound: '404',
+    quickset: '快速配置',
+    // 首页
+    home: '首页',
+    home_overview: '运行状态'
+   }
+}
+</code></pre><h2 id="web前端"><a href="#web前端" aria-hidden="true" class="header-anchor">#</a> web前端</h2><h4 id="3-1-框架介绍"><a href="#3-1-框架介绍" aria-hidden="true" class="header-anchor">#</a> 3.1 框架介绍</h4><p>web前端采用vue全家桶进行单页面web开发（<a href="https://webpack.js.org/guides/getting-started/" title="webpack" target="_blank" rel="noopener noreferrer">webpack</a>+<a href="https://cn.vuejs.org/v2/guide/" title="vue" target="_blank" rel="noopener noreferrer">vue2.0</a>+<a href="https://vuex.vuejs.org/zh-cn/" title="vuex" target="_blank" rel="noopener noreferrer">vuex</a>+<a href="https://router.vuejs.org/zh-cn/" title="vue-router" target="_blank" rel="noopener noreferrer">vue-router</a>+<a href="https://www.kancloud.cn/yunye/axios/234845" title="axios" target="_blank" rel="noopener noreferrer">axios</a>+<a href="http://element-cn.eleme.io/#/zh-CN" title="Element-UI" target="_blank" rel="noopener noreferrer">element-ui</a>等）；app采用<a href="http://element-cn.eleme.io/#/zh-CN" title="Element-UI" target="_blank" rel="noopener noreferrer">element-ui</a>为前端UI框架，<a href="http://kazupon.github.io/vue-i18n/en/" title="i18n" target="_blank" rel="noopener noreferrer">vue-i18n</a>作为国际化处理方式。前端数据请求以application/json格式提交。</p><h4 id="3-2-目录结构"><a href="#3-2-目录结构" aria-hidden="true" class="header-anchor">#</a> 3.2 目录结构</h4><pre><code>代码目录以功能结构划分。
+</code></pre><ul><li>src
+<ul><li>api  —<em>后台接口（去中心化）</em></li><li>assets  —<em>app资源文件</em></li><li>common  —<em>通用组件</em></li><li>components  —<em>通用业务组件</em></li><li>config  —<em>app全局配置文件（移至外层config文件）</em></li><li>directives  —<em>指令目录</em></li><li>fiters  —<em>过滤器</em></li><li>lang  —<em>国际化目录（去中心化）</em></li><li>layout  —<em>app结构布局</em></li><li>libs  —<em>第三方插件</em></li><li>mixins  —<em>公用混合目录</em></li><li>model  —<em>web端数据模型（去中心化）</em></li><li>plugins  —<em>vue插件</em></li><li>router  —<em>路由目录（去中心化）</em></li><li>store  —<em>app共享数据源（vuex）</em></li><li>style  —<em>本地样式文件</em></li><li>theme  —<em>element-ui皮肤定制</em></li><li>tips  —<em>页面帮助说明（静态文本）</em></li><li>utils  —<em>app工具函数（包括fetch、debug等）</em></li><li>views  —<em>页面组件</em></li><li>app.vue  —<em>入口组件</em></li><li>main.js  —<em>入口启动脚本</em></li></ul></li></ul><blockquote><h3 id="store-vuex"><a href="#store-vuex" aria-hidden="true" class="header-anchor">#</a> store(vuex)</h3><p>store主要存放eweb全局的状态，其中包含页面自身状态–appModule、路由权限状态–authorityModule、设备信息状态–systemModule</p><h3 id="main-js（入口）"><a href="#main-js（入口）" aria-hidden="true" class="header-anchor">#</a> main.js（入口）</h3><p>main.js作为程序的入口，包含各个全局插件的应用（vue-router,vue-i18n,element-ui等）以及对vue实例全局变量的绑定（如：$api-api代理，$bus-事件总线，$dev-设备型号，$roles-设备角色列表），loadRoutes–动态路由的注册实现</p></blockquote><pre class="language-text"><code>function loadRoutes(next, to) {
+  return new Promise((resolve, reject) =&gt; {
+    if (!store.getters.dynamicRoutes.length) {
+      store.dispatch('getDynamicRoute').then(d =&gt; {
+        router.addRoutes(d)
+        next(to.path)
+      })
+    } else {
+      next()
+    }
+    resolve()
+  })
+}
+</code></pre><blockquote><h4 id="router"><a href="#router" aria-hidden="true" class="header-anchor">#</a> router</h4><p>router作为前端路由模块，包含vue-router的初始化（行为及注册），声明静态路由与动态路由（包含路由的条件行为及权限–roles）</p><h4 id="api"><a href="#api" aria-hidden="true" class="header-anchor">#</a> api</h4><p>对fetch.js的功能模块化封装（api.js包含全部接口的基础实现，其他文件都是对api.js的功能化封装）</p></blockquote><h6 id="3-3-开发模式-生产模式"><a href="#3-3-开发模式-生产模式" aria-hidden="true" class="header-anchor">#</a> 3.3 开发模式&amp;生产模式</h6><p>开发环境针对本地开发配置一系列线上初始化参数及自动登录；
+app启动时，如果判断是开发环境，则进行登录login操作，完成后进行动态路由的注册加载，代码如下（登录操作具体见debug.js）：</p><pre class="language-text"><code>if (dev) {
+    login().then(() =&gt; {
+      loadRoutes(next, to)
+    })
+  } else {
+    loadRoutes(next, to)
+  }
+  
+  //debug.js登陆操作
+  export const login = () =&gt; {
+  if (window.sid) {
+    return Promise.resolve()
+  }
+  return new Promise((resolve, reject) =&gt; {
+    api
+      .auth('login', {
+        username: 'admin',
+        password: 'admin',
+        time: parseInt(Date.now() / 1000)
+      })
+</code></pre><p>生产环境针对线上版本及编译代码目标进行操作，主要配置代码在外层config-&gt;index.js文件：</p><pre class="language-text"><code>const pathConstant = {
+//目标基础路径
+  proPath: path.join(__dirname, '../../code'),
+  //生成目标入口页面路径
+  entryPath: 'themes/eweb/luasrc/view/entry.htm',
+  //生成目标静态资源路径
+  staticPath: 'themes/eweb/htdocs/luci-static/eweb'
+}
+</code></pre><h6 id="3-4-开发流程"><a href="#3-4-开发流程" aria-hidden="true" class="header-anchor">#</a> 3.4 开发流程</h6><blockquote><p>讲解如何在一个特定菜单下创建一个页面并显示（以Package.vue诊断抓包页面为例）：</p></blockquote><ul><li>1、在特定模块下新建一个页面组件-》在views-&gt;admin-&gt;diagnose下创建Package.vue单页面组件</li><li>2、在特定模块下新建一个路由-》router-&gt;dynamic-&gt;diagnose.js下增加对Package.vue的路由引用</li></ul><pre class="language-text"><code>const Package = () =&gt; import(/* webpackChunkName: &quot;group-diagnose&quot; */ '@/views/admin/diagnose/Package')
+{
+    path: 'diagnose_package',
+    name: 'diagnose_package',
+    component: Package,
+    meta: {
+      roles:[],
+      t: 'diagnose_package'
+    }
+  }
+</code></pre><ul><li>3、后台菜单新增抓包诊断菜单-》后台目录themes-&gt;eweb-&gt;luasrc-&gt;webconfig-&gt;menus.json的故障诊断下新增页面菜单</li></ul><pre class="language-text"><code>{
+        &quot;label&quot;: &quot;抓包网络&quot;,
+        &quot;icon&quot;: &quot;eweb-star&quot;,
+        &quot;t&quot;: &quot;nav.diagnose_package&quot;,
+        &quot;path&quot;: &quot;/admin/diagnose_package&quot;,
+        &quot;children&quot;: null
+      }
+</code></pre><ul><li>4、刷新页面，左侧菜单就会出现抓包诊断菜单，点击页面主区域就会切换成Package.vue页面</li></ul><h2 id="luci后端"><a href="#luci后端" aria-hidden="true" class="header-anchor">#</a> luci后端</h2><blockquote><p>OpenWRT是一个高度模块化、高度自动化的嵌入式Linux系统，拥有强大的网络组件和扩展性,是一个从零开始编写的、功能齐全的、容易修改的路由器操作系统。
+　　首页采用target-template的方式输出（index.lua后端渲染），其他所有的数据请求都是以rpc（原生rpc稍作修改，json数据支持）的方式进行请求交互（api.lua,application/json格式）《由于rpc只支持json格式数据，所以上传文件操作走的是luci通用注册路由的方式（upload.lua）》。
+　　lua接口大体归为两类，一类是对应对设备端接口的统一封装，见cmd.lua文件；一类为用户对设配配置（原生方式）及设备接口的再次封装接口实现，见modules下其他文件
+　　调用设备端接口是需要传递device参数标识着请求的来源，比如：eweb为’pc’，app为’mobile’</p></blockquote><h4 id="4-1-目录"><a href="#4-1-目录" aria-hidden="true" class="header-anchor">#</a> 4.1 目录</h4><blockquote><p>开发是以一个luci主题的方式进行，在themes下新建一个主题包eweb，编译时menu中选择eweb主题进行编译</p></blockquote><ul><li>eweb
+<ul><li>htdocs
+<ul><li>luci-static   <em>静态文件夹</em><ul><li>eweb   <em>eweb主题静态文件夹</em></li></ul></li></ul></li><li>ipkg</li><li>luasrc   <em>lua代码目录</em><ul><li>controller   <em>控制器目录（luci初始化会索引该目录生成节点树）</em><ul><li>eweb   <em>eweb主题控制器目录</em></li></ul></li><li>modules   <em>各模块接口及通用rpc接口</em></li><li>utils   <em>工具模块（debug.lua，jsonrpc.lua）</em></li><li>view   <em>入口页面及登录认证页面</em></li><li>webconfig   <em>菜单文件</em></li></ul></li><li>root</li><li>Makefile</li></ul></li></ul><blockquote><p>后端代码主要存放在luasrc目录底下，对应主题的静态文件及页面文件根据前端代码编译生成至该目录。</p></blockquote><h4 id="4-2-dispatcher流程"><a href="#4-2-dispatcher流程" aria-hidden="true" class="header-anchor">#</a> 4.2 dispatcher流程</h4><p>1、uhttp接收一个请求，生成一个新的req，然后创建一个httpdispatch协程，轮询执行resume直到协程执行结束</p><p>2、执行dispatch操作（设置语言，判断是否已构建路由节点，req.tree,没有则遍历controller目录递归生成tree）
+　　2.1 根据请求路径找到对应的tree所在节点，当node.leaf为true时不再向下寻找，整理参数args(传给执行的函数),freq(最全的路径节点)，preq(请求的有效路径)《preq+args=freq》</p><p>2.2 声明模板引擎</p><p>2.3 判断当前节点是否需要认证sysauth=true，获取cookie-sysauth值进行认证，不通过如果form-params中存在正确的用户和密码则重新写入sid，以上两步都不通过则直接返回403认证失败。</p><p>2.4 认证成功，判断node.target的类型进行相应的操作（这里只有入口页面是template,其他的都是走call调用函数方式）</p><h4 id="4-3-rpc流程"><a href="#4-3-rpc流程" aria-hidden="true" class="header-anchor">#</a> 4.3 RPC流程</h4><p>RPC的主要区别是它做注册的treenode不适用template引擎，即node.notemplate=false，借助luci.json.Decoder解析器解析并返回请求的json数据，RPC请求的json数据有一定的格式，包含method键，指明请求所要操作的入口方法，params指明请求的参数：</p><pre class="language-text"><code>前端请求的数据格式如下：
+{
+	method:'wireless',
+	params:{xxx}
+}
+</code></pre><p>键值method可以[.]分割，可以调用多层次的方法体，比如cmd.lua文件</p><pre class="language-text"><code>acConfig = {
+    get = function(params)
+        params.method = &quot;get&quot;
+        return forkCommand(&quot;ac_config&quot;, params)
+    end,
+    set = function(params)
+        params.method = &quot;set&quot;
+        return forkCommand(&quot;ac_config&quot;, params)
+    end,
+    clear = function(params)
+        params.method = &quot;clear&quot;
+        return forkCommand(&quot;ac_config&quot;, params)
+    end
+}
+</code></pre></div><!----><!----></div></div></div>
+    <script src="/assets/js/7.56baffeb.js" defer></script><script src="/assets/js/app.f8077f9d.js" defer></script>
+  </body>
+</html>
