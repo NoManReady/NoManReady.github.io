@@ -8,7 +8,7 @@ install:
 script:
   - yarn build
 after_script:
-  - cd ./vuepress/dist
+  - cd ./docs/vuepress/dist
   - git init
   - git config user.name "NoManReady"
   - git config user.email "453421041@qq.com"
