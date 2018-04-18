@@ -1,4 +1,3 @@
 ---
-sidebar: false
 layout: theme
 ---

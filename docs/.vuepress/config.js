@@ -19,6 +19,10 @@ module.exports = {
       { text: 'Vue', link: '/vue/' },
       { text: 'React', link: '/react/' },
       { text: 'Ow', link: '/ow/' }
-    ]
+    ],
+    repo: 'NoManReady/NoManReady.github.io/tree/dev',
+    docsDir: 'docs',
+    docsBranch: 'dev',
+    editLinks: true
   }
 }
