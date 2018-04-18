@@ -1,5 +1,5 @@
 # Axios
-## 1、背景
+## 背景
 
 * 在项目开发中 ajax 请求是必不可缺少
 * 一部分 ajax 请求不需要 loading 或则请求时间少于多少是不显示 loading
@@ -19,7 +19,7 @@ import router from '@/router'
 import { log } from '@/utils'
 ```
 
-## 2、解决方案
+## 解决方案
 
 对于 axios 的封装中我们定义几个参数进行申明
 
@@ -78,7 +78,7 @@ function popRequest(config) {
 }
 ```
 
-## 3、接下来对 axios 基于上面的准备进行处理
+## 接下来对 axios 基于上面的准备进行处理
 
 ```
 /**

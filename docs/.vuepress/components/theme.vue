@@ -4,6 +4,7 @@
 </div>
 </template>
 <script>
+import '../libs/canvas.min'
 export default {
   name: 'Theme',
   data() {
@@ -31,7 +32,7 @@ export default {
   display: inline-block;
   color: #42b983;
   padding: 0.2em 0.5em;
-  transition: all .3 ease-in-out;
+  transition: all 0.3 ease-in-out;
 }
 .item:hover {
   color: #2e7756;
