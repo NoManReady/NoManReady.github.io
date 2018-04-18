@@ -4,7 +4,6 @@
 </div>
 </template>
 <script>
-import '../libs/canvas.min'
 export default {
   name: 'Theme',
   data() {
