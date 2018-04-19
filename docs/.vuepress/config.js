@@ -24,5 +24,16 @@ module.exports = {
     docsDir: 'docs',
     docsBranch: 'dev',
     editLinks: true
+  },
+  configureWebpack: (config, isServer) => {
+    if (!isServer) {
+      // config.module.rules.unshift(
+      //   ...styleConfig.styleLoaders({
+      //     sourceMap: true,
+      //     usePostCSS: false
+      //   })
+      // )
+    }
+    console.log(config.module.rules)
   }
 }

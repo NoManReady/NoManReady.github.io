@@ -1,6 +1,8 @@
 <template>
-<div class="theme content">
-    <a class="item" v-for="itm in items" :key="itm.path" :href="itm.path">{{itm.title}}</a>
+<div class="theme flex-box">
+    <div class="flex-item" v-for="itm in items" :key="itm.path">
+      <a class="tit" :href="itm.path">{{itm.title}}</a>
+    </div>
 </div>
 </template>
 <script>
@@ -24,17 +26,28 @@ export default {
   }
 }
 </script>
-<style scoped>
-.item {
-  text-decoration: none;
-  cursor: pointer;
-  display: inline-block;
-  color: #42b983;
-  padding: 0.2em 0.5em;
-  transition: all 0.3 ease-in-out;
+<style lang="scss" scoped>
+.theme {
+  padding: 3rem;
 }
-.item:hover {
-  color: #2e7756;
-  text-decoration: none !important;
+.flex-box {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  .flex-item {
+    padding: 1em;
+    border-radius: 0.2em;
+    box-shadow: 0 0 .2em darken(#42b983, 8%);
+    cursor: pointer;
+    transition: all 0.3 ease-in-out;
+    color: #42b983;
+    &:not(:first-child){
+      margin-left: 1em;
+    }
+    &:hover{
+      box-shadow: 0 0 .5em darken(#42b983, 12%);
+    }
+  }
 }
 </style>
