@@ -1,6 +1,7 @@
 <template>
   <div class="page">
     <Content :custom="false"/>
+    <Top/>
     <div class="content edit-link" v-if="editLink">
       <a :href="editLink" target="_blank">Edit this page</a>
       <OutboundLink/>
@@ -25,12 +26,12 @@
 <script>
 import OutboundLink from './OutboundLink.vue'
 import { resolvePage, normalize, outboundRE, endingSlashRE } from './util'
-
+import Top from './Top.vue'
 export default {
-  components: { OutboundLink },
+  components: { OutboundLink, Top },
   props: ['sidebarItems'],
   computed: {
-    prev () {
+    prev() {
       const prev = this.$page.frontmatter.prev
       if (prev === false) {
         return
@@ -40,7 +41,7 @@ export default {
         return resolvePrev(this.$page, this.sidebarItems)
       }
     },
-    next () {
+    next() {
       const next = this.$page.frontmatter.next
       if (next === false) {
         return
@@ -50,7 +51,7 @@ export default {
         return resolveNext(this.$page, this.sidebarItems)
       }
     },
-    editLink () {
+    editLink() {
       const {
         repo,
         editLinks,
@@ -66,9 +67,7 @@ export default {
       }
 
       if (repo && editLinks) {
-        const base = outboundRE.test(repo)
-          ? repo
-          : `https://github.com/${repo}`
+        const base = outboundRE.test(repo) ? repo : `https://github.com/${repo}`
         return (
           base.replace(endingSlashRE, '') +
           `/edit/${docsBranch}/` +
@@ -80,19 +79,19 @@ export default {
   }
 }
 
-function resolvePrev (page, items) {
+function resolvePrev(page, items) {
   return find(page, items, -1)
 }
 
-function resolveNext (page, items) {
+function resolveNext(page, items) {
   return find(page, items, 1)
 }
 
-function find (page, items, offset) {
+function find(page, items, offset) {
   const res = []
   items.forEach(item => {
     if (item.type === 'group') {
-      res.push(...item.children || [])
+      res.push(...(item.children || []))
     } else {
       res.push(item)
     }
@@ -107,25 +106,34 @@ function find (page, items, offset) {
 </script>
 
 <style lang="stylus">
-@import './styles/config.styl'
+@import './styles/config.styl';
 
-.page
-  padding-bottom 2rem
+.page {
+  padding-bottom: 2rem;
+}
 
-.edit-link.content
-  padding-top 0 !important
-  a
-    color lighten($textColor, 25%)
-    margin-right 0.25rem
+.edit-link.content {
+  padding-top: 0 !important;
 
-.page-nav.content
-  padding-top 1rem !important
-  padding-bottom 0 !important
-  .inner
-    min-height 2rem
-    margin-top 0 !important
-    border-top 1px solid $borderColor
-    padding-top 1rem
-  .next
-    float right
+  a {
+    color: lighten($textColor, 25%);
+    margin-right: 0.25rem;
+  }
+}
+
+.page-nav.content {
+  padding-top: 1rem !important;
+  padding-bottom: 0 !important;
+
+  .inner {
+    min-height: 2rem;
+    margin-top: 0 !important;
+    border-top: 1px solid $borderColor;
+    padding-top: 1rem;
+  }
+
+  .next {
+    float: right;
+  }
+}
 </style>
