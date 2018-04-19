@@ -11,8 +11,8 @@ module.exports = {
     sidebarDepth: 1,
     sidebar: {
       '/vue/': [['axios', 'Axios配置'], ['image', '图片上传']],
-      '/react/': [['todo', '演示项目']],
-      '/ow/': [['eweb', 'Eweb项目结构']]
+      '/react/': ['todo'],
+      '/ow/': ['eweb', 'lua']
     },
     nav: [
       { text: 'Home', link: '/' },
