@@ -26,28 +26,6 @@ export default {
   }
 }
 </script>
-<style lang="scss" scoped>
-.theme {
-  padding: 3rem;
-}
-.flex-box {
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  .flex-item {
-    padding: 1em;
-    border-radius: 0.2em;
-    box-shadow: 0 0 .2em darken(#42b983, 8%);
-    cursor: pointer;
-    transition: all 0.3 ease-in-out;
-    color: #42b983;
-    &:not(:first-child){
-      margin-left: 1em;
-    }
-    &:hover{
-      box-shadow: 0 0 .5em darken(#42b983, 12%);
-    }
-  }
-}
+<style lang="stylus" scoped>
+
 </style>

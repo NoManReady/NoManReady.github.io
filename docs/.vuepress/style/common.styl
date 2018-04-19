@@ -1,0 +1,23 @@
+@import './variable.styl'
+@import './mixins.styl'
+#app
+    position-absolute()
+.theme 
+  padding 3em
+.flex-box 
+  box-sizing border-box
+  display flex
+  flex-direction row
+  justify-content flex-start
+  .flex-item 
+    padding 1em
+    flex 1
+    border-radius 0.2em
+    box-shadow 0 0 .2em lighten($accentColor,10%)
+    cursor pointer
+    transition all 0.3 ease-in-out
+    color $accentColor
+    &:not(:first-child)
+      margin-left 1em
+    &:hover
+      box-shadow 0 0 .5em darken($accentColor,10%)
