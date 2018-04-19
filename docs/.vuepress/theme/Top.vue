@@ -1,5 +1,7 @@
 <template>
-    <div :class="classes" :style="styles" @click="back">Top</div>
+    <div :class="classes" :style="styles" @click="back">
+        <span>Top</span>
+    </div>
 </template>
 <script>
 const prefixCls = 'vuepress'
@@ -103,7 +105,22 @@ export default {
     padding .8em
     cursor pointer
     border-radius 5px
+    width 3em
+    height 3em
+    justify-content center
+    align-items center
     display none
+    &:hover
+        color darken(#fff,10%)
+        box-shadow 0 0 4px $accentColor
     &-show
-        display block
+        display flex
+@media (max-width: $MQNarrow)
+    .vuepress
+        border-radius 50%
+        font-size 80%
+        padding .5em
+        width 2em
+        height 2em
+
 </style>
