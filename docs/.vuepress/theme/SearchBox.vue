@@ -1,11 +1,13 @@
 <template>
   <div class="search-box">
     <input
+      :class="inputClass"
       @input="query = $event.target.value"
       aria-label="Search"
       :value="query"
       autocomplete="off"
       spellcheck="false"
+      :placeholder="placeholder"
       @focus="focused = true"
       @blur="focused = false"
       @keyup.enter="go(focusIndex)"
@@ -30,11 +32,20 @@
 
 <script>
 export default {
+  props:['dataSource','value','inputClass','placeholder'],
   data () {
     return {
       query: '',
       focused: false,
       focusIndex: 0
+    }
+  },
+  watch:{
+    value:{
+      handler(v){
+        this.query=v
+      },
+      immediate:true
     }
   },
   computed: {
@@ -50,7 +61,9 @@ export default {
       if (!query) {
         return
       }
-
+      if(this.dataSource&&this.dataSource.length){
+        return this.dataSource.filter(d=>d.value.indexOf(query)>-1||d.title.indexOf(query)>-1)
+      }
       const max = 5
       const { pages } = this.$site
       const matches = item => (
@@ -86,9 +99,6 @@ export default {
     }
   },
   methods: {
-    onClick () {
-      console.log('clicked')
-    },
     onUp () {
       if (this.showSuggestions) {
         if (this.focusIndex > 0) {
@@ -108,13 +118,17 @@ export default {
       }
     },
     go (i) {
-      if(!this.suggestions[i]||!this.suggestions[i].path){
-        this.query = ''
-        return 
+      if(this.suggestions[i]){
+        if(this.dataSource&&this.dataSource.length){
+          this.$emit('input',this.suggestions[i].value)
+        }else{
+          if(this.suggestions[i].path){
+            this.$router.push(this.suggestions[i].path)
+            this.query = ''
+            this.focusIndex = 0
+          }
+        }
       }
-      this.$router.push(this.suggestions[i].path)
-      this.query = ''
-      this.focusIndex = 0
     },
     focus (i) {
       this.focusIndex = i

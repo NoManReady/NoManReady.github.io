@@ -18,7 +18,8 @@ module.exports = {
       { text: 'Home', link: '/' },
       { text: 'Vue', link: '/vue/' },
       { text: 'React', link: '/react/' },
-      { text: 'Ow', link: '/ow/' }
+      { text: 'Ow', link: '/ow/' },
+      { text: '开源库', link: '/gist/' }
     ],
     repo: 'NoManReady/NoManReady.github.io',
     docsDir: 'docs',

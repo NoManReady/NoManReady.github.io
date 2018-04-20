@@ -1,5 +1,25 @@
 @import './variable.styl'
 @import './mixins.styl'
+$base=10/16*1rem
+*
+*:before
+*:after
+  margin 0
+  padding 0
+for i in 1..10
+  .w{i*10}
+    width i*$base
+  .w{i*100}
+    width i*10*$base
+  .mt{i*10}
+    margin-top:i*$base
+  .ml{i*10}
+    margin-left:i*$base
+  .mr{i*10}
+    margin-right:i*$base
+  .mb{i*10}
+    margin-bottom:i*$base
+
 #app
     position-absolute()
 .theme 
@@ -23,3 +43,16 @@
       box-shadow 0 0 .5em darken($accentColor,10%)
 .tc
   text-align center
+
+.c-theme
+  color $accentColor
+.vm
+  v-pos()
+.vt
+  v-pos(top)
+.clearfix
+  clearfix()
+
+.aquare
+  border-radius .3em !important
+  

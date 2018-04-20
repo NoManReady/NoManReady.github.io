@@ -9,5 +9,8 @@
   "scripts": {
     "dev": "vuepress dev docs",
     "build": "vuepress build docs"
+  },
+  "dependencies": {
+    "axios": "^0.18.0"
   }
 }
