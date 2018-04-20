@@ -20,7 +20,7 @@ module.exports = {
       { text: 'React', link: '/react/' },
       { text: 'Ow', link: '/ow/' }
     ],
-    repo: 'NoManReady/NoManReady.github.io/tree/dev',
+    repo: 'NoManReady/NoManReady.github.io',
     docsDir: 'docs',
     docsBranch: 'dev',
     editLinks: true

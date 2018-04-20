@@ -1,7 +1,7 @@
 <template>
 <div class="theme flex-box">
-    <div class="flex-item" v-for="itm in items" :key="itm.path">
-      <a class="tit" :href="itm.path">{{itm.title}}</a>
+    <div class="flex-item tc" v-for="itm in items" :key="itm.path" @click="goPath(itm.path)">
+      <a href="javascript:;">{{itm.title}}</a>
     </div>
 </div>
 </template>
@@ -22,6 +22,11 @@ export default {
       return this.$site.pages.filter(p => {
         return p.path.indexOf(this.path) === 0 && p.path.indexOf('.html') > -1
       })
+    }
+  },
+  methods:{
+    goPath(path){
+      window.location.href=path
     }
   }
 }

@@ -13,11 +13,11 @@ export default {
     },
     bottom: {
       type: Number,
-      default: 2
+      default: 1.5
     },
     right: {
       type: Number,
-      default: 2
+      default: 1
     },
     duration: {
       type: Number,
@@ -104,9 +104,9 @@ export default {
     color #fff
     padding .8em
     cursor pointer
-    border-radius 5px
-    width 3em
-    height 3em
+    border-radius .5em
+    width 2em
+    height 2em
     justify-content center
     align-items center
     display none
@@ -120,7 +120,5 @@ export default {
         border-radius 50%
         font-size 80%
         padding .5em
-        width 2em
-        height 2em
 
 </style>
