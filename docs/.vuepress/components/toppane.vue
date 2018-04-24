@@ -1,13 +1,17 @@
 <template>
-<div class="top-pane">
+  <div class="top-pane">
     <div class="top-pane--bar">
-        <SearchBox class="vm" v-model="language" :data-source="dataSource" input-class="aquare" placeholder="语言名称"/>
+      <SearchBox class="vm" v-model="language" :data-source="dataSource" input-class="aquare" placeholder="语言名称" />
     </div>
-    <p class="top-pane--result">本页面展示搜索语言<span class="c-theme">{{loading?'查找中...':language}}</span>的前30名开源库<span v-show="!loading">（搜索到<b class="c-theme">{{total}}</b>个结果）</span></p>
+    <p class="top-pane--result">本页面展示搜索语言
+      <span class="c-theme">{{loading?'查找中...':language}}</span>的前30名开源库
+      <span v-show="!loading">（搜索到
+        <b class="c-theme">{{total}}</b>个结果）</span>
+    </p>
     <div class="top-pane-list">
-        <TopPaneItem v-for="item in list" :key="item.id" :item="item"/>
+      <TopPaneItem v-for="item in list" :key="item.id" :item="item" />
     </div>
-</div>
+  </div>
 </template>
 <script>
 import fetch from '../utils/fetch'
@@ -38,6 +42,10 @@ export default {
         {
           value: 'node',
           title: 'node'
+        },
+        {
+          value: 'react',
+          title: 'react'
         }
       ]
     }
@@ -49,10 +57,10 @@ export default {
     SearchBox,
     TopPaneItem
   },
-  watch:{
-      language(){
-          this._onSearch()
-      }
+  watch: {
+    language() {
+      this._onSearch()
+    }
   },
   methods: {
     _loadList() {
@@ -79,5 +87,5 @@ export default {
 }
 </script>
 <style lang="stylus">
-@import '../style/toppane.styl';
+@import '../style/toppane.styl'
 </style>

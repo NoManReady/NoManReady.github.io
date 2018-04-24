@@ -1,15 +1,14 @@
 <template>
-<div class="top-pane-item">
+  <div class="top-pane-item">
     <a :href="item.html_url" class="top-pane-item--tit" target="_blank">{{item.name}}</a>
-</div>
+  </div>
 </template>
 <script>
 export default {
-  props:['item'],
-  name: "TopPaneItem",
-  data () {
-    return {
-    }
+  props: ['item'],
+  name: 'TopPaneItem',
+  data() {
+    return {}
   }
 }
 </script>
