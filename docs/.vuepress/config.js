@@ -44,6 +44,6 @@ module.exports = {
       //   })
       // )
     }
-    console.log(config.module.rules)
+    // console.log(config.module.rules)
   }
 }
