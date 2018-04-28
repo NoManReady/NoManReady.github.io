@@ -21,8 +21,8 @@
         </div>
       </div>
     </div>
-    <div class="following box">
-      <h4 class="box-title c-theme">Following</h4>
+    <div class="following box mt20">
+      <h4 class="box-title c-theme tc">Following</h4>
       <div class="box-content">
         <ul class="users clearfix">
           <li v-for="follow in following" :key="follow.id">
@@ -41,7 +41,7 @@
       </div>
     </div>
     <div class="followers box">
-      <h4 class="box-title c-theme">Followers</h4>
+      <h4 class="box-title c-theme tc">Followers</h4>
       <div class="box-content">
         <ul class="users clearfix">
           <li v-for="follow in followers" :key="follow.id">
@@ -109,8 +109,9 @@ export default {
   padding 3rem 6rem
   .hero
     text-align center
-    border 1px solid $borderColor
-    border-radius 3px
+    min-height 13rem
+    box-shadow 0 0 0.2rem $borderColor
+    border-radius 2rem
     padding 1rem
     width 16rem
     margin 0 auto
@@ -147,26 +148,30 @@ export default {
     width 5rem
     border-radius 50%
   .users
-    .user-item
-      text-align center
-      text-align left
-      font-size 0
+    max-width 640px
+    margin 0 auto
+    padding 0
+    line-height 1
+  .user-item
+    text-align center
+    font-size 0
+    display block
+    .desc
+      padding 0.5rem
       display block
-      .desc
-        padding 0.5rem
-        display block
-        span
-          font-size 13px
-          display inline-block
-          width 70%
-      .avatar
-        width 3rem
-        border-radius 50%
-    li
-      float left
-      list-style none
-      margin-bottom 1rem
-      width 33%
+      span
+        font-size 13px
+        display inline-block
+        max-width 70%
+        margin-right 3px
+    .avatar
+      width 3rem
+      border-radius 50%
+  li
+    float left
+    list-style none
+    margin-bottom 1rem
+    width 33%
 @media (max-width: $MQMobile)
   .sub-theme
     padding 1rem

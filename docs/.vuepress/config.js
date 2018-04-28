@@ -13,14 +13,21 @@ module.exports = {
       '/vue/': [['axios', 'Axios配置'], ['image', '图片上传']],
       '/react/': ['todo'],
       '/ow/': ['eweb', 'lua'],
-      '/javascript/': ['pluginmode']
+      '/javascript/': ['pluginmode'],
+      '/other/': ['mockjs']
     },
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Vue', link: '/vue/' },
-      { text: 'React', link: '/react/' },
-      { text: 'Ow', link: '/ow/' },
-      { text: 'Javascript', link: '/javascript/' },
+      {
+        text: '文章',
+        items: [
+          { text: 'Vue', link: '/vue/' },
+          // { text: 'React', link: '/react/' },
+          { text: 'Ow', link: '/ow/' },
+          { text: 'Javascript', link: '/javascript/' },
+          { text: 'Other', link: '/other/' }
+        ]
+      },
       { text: '开源库', link: '/gist/' }
     ],
     repo: 'NoManReady/NoManReady.github.io',
