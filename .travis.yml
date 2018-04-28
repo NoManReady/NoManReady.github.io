@@ -1,9 +1,10 @@
 language: node_js
 node_js: stable
+cache: 'yarn:true directories:"node_modules"'
 before_install:
-  - npm install -g yarn
+  - npm install yarn 
 install:
-  - yarn install
+  - yarn install --ignore-engines
 script:
   - yarn build
 after_script:
