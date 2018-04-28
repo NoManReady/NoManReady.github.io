@@ -1,13 +1,13 @@
 <template>
   <div class="home">
     <div class="hero">
-      <img v-if="data.heroImage" :src="$withBase(data.heroImage)" alt="hero">
-      <h1>{{ data.heroText || $site.title }}</h1>
+      <img :src="$withBase(data.hero)" alt="hero">
+      <h1>{{data.heroText || $site.title }}</h1>
       <p class="description">
         {{ data.tagline || $site.description }}
       </p>
       <p class="action" v-if="data.actionText && data.actionLink">
-        <NavLink class="action-button" :item="actionLink"/>
+        <NavLink class="action-button" :item="actionLink" />
       </p>
     </div>
     <div class="features">
@@ -25,14 +25,14 @@
 
 <script>
 import NavLink from './NavLink.vue'
-
+import fetch from '../utils/fetch'
 export default {
   components: { NavLink },
   computed: {
-    data () {
+    data() {
       return this.$page.frontmatter
     },
-    actionLink () {
+    actionLink() {
       return {
         link: this.data.actionLink,
         text: this.data.actionText
@@ -44,7 +44,6 @@ export default {
 
 <style lang="stylus">
 @import './styles/config.styl'
-
 .home
   padding $navbarHeight 2rem 0
   max-width 960px
@@ -55,6 +54,14 @@ export default {
       max-height 280px
       display block
       margin 3rem auto 1.5rem
+      border-radius 50%
+      width 8rem
+      height 8rem
+      cursor pointer
+      transition all 0.3s ease-in-out
+      &:hover
+        transform-origin center center
+        transform rotate(30deg)
     h1
       font-size 3rem
     h1, .description, .action
@@ -71,7 +78,7 @@ export default {
       background-color $accentColor
       padding 0.8rem 1.6rem
       border-radius 4px
-      transition background-color .1s ease
+      transition background-color 0.1s ease
       box-sizing border-box
       border-bottom 1px solid darken($accentColor, 10%)
       &:hover
@@ -102,7 +109,6 @@ export default {
     border-top 1px solid $borderColor
     text-align center
     color lighten($textColor, 25%)
-
 @media (max-width: $MQMobile)
   .home
     .features
@@ -110,7 +116,6 @@ export default {
     .feature
       max-width 100%
       padding 0 2.5rem
-
 @media (max-width: $MQMobileNarrow)
   .home
     padding-left 1.5rem

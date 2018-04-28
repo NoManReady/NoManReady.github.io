@@ -1,7 +1,10 @@
 <template>
   <div class="top-pane">
     <div class="top-pane--bar">
-      <SearchBox class="vm" v-model="language" :data-source="dataSource" input-class="aquare" placeholder="语言名称" />
+      <span class="vm mr10">Language</span>
+      <select class="vm top-pane--select" v-model="language">
+        <option v-for="data in dataSource" :value="data.value">{{data.title}}</option>
+      </select>
     </div>
     <p class="top-pane--result">本页面展示搜索语言
       <span class="c-theme">{{loading?'查找中...':language}}</span>的前30名开源库
@@ -88,4 +91,10 @@ export default {
 </script>
 <style lang="stylus">
 @import '../style/toppane.styl'
+.top-pane--select
+  padding 0.4rem
+  border-radius 4px
+  outline none
+  &:focus
+    outline none
 </style>

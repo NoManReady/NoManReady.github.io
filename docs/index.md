@@ -1,9 +1,9 @@
 ---
 home: true
-# heroImage: /hero.png
+hero: /img/github.jpg
 sidebar: false
-actionText: Get Started →
-actionLink: /vue/
+actionText: Home
+actionLink: /home/
 features:
 - title: Core
   details: 分享技术性的文章。

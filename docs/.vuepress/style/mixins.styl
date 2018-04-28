@@ -16,3 +16,9 @@ clearfix()
     &:after
         clear both
         overflow hidden
+
+text-overflow($width= 0) 
+    overflow hidden
+    width 100%-$width
+    white-space nowrap
+    text-overflow ellipsis

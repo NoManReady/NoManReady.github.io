@@ -12,13 +12,15 @@ module.exports = {
     sidebar: {
       '/vue/': [['axios', 'Axios配置'], ['image', '图片上传']],
       '/react/': ['todo'],
-      '/ow/': ['eweb', 'lua']
+      '/ow/': ['eweb', 'lua'],
+      '/javascript/': ['pluginmode']
     },
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Vue', link: '/vue/' },
       { text: 'React', link: '/react/' },
       { text: 'Ow', link: '/ow/' },
+      { text: 'Javascript', link: '/javascript/' },
       { text: '开源库', link: '/gist/' }
     ],
     repo: 'NoManReady/NoManReady.github.io',

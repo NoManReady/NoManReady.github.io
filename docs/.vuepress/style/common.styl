@@ -29,6 +29,8 @@ for i in 1..10
   display flex
   flex-direction row
   justify-content flex-start
+  .flex-box-item
+    flex 1
   .flex-item 
     padding 1em
     flex 1
@@ -52,7 +54,17 @@ for i in 1..10
   v-pos(top)
 .clearfix
   clearfix()
-
+.overflow
+  text-overflow()
 .aquare
   border-radius .3em !important
+
+.box
+  margin-bottom: 2rem;
+  padding: 1rem;
+  &-title
+    font-size: 1.5rem;
+    margin-bottom: .8rem;
+  &-content
+    position relative
   

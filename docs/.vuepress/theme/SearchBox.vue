@@ -25,7 +25,7 @@ export default {
   watch: {
     value: {
       handler(v) {
-        this.query = v
+        this.query = v || ''
       },
       immediate: true
     },
@@ -84,7 +84,6 @@ export default {
   },
   methods: {
     scrollTop(el, from = 0, to, duration = 500) {
-      console.log(from)
       if (!window.requestAnimationFrame) {
         window.requestAnimationFrame =
           window.webkitRequestAnimationFrame ||
@@ -207,21 +206,21 @@ export default {
       background-color #f3f4f5
       a
         color $accentColor
-// @media (max-width: $MQNarrow)
-//   .search-box input
-//     width 0
-//     border-color transparent
-//     position relative
-//     left 1rem
-//     &:focus
-//       left 0
-//       width 10rem
-// @media (max-width: $MQMobile)
-//   .search-box
-//     margin-right 0
-//     .suggestions
-//       right 0
-// @media (max-width: $MQMobileNarrow)
-//   .search-box .suggestions
-//     width calc(100vw - 4rem)
+@media (max-width: $MQNarrow)
+  .search-box input
+    width 0
+    border-color transparent
+    position relative
+    left 1rem
+    &:focus
+      left 0
+      width 10rem
+@media (max-width: $MQMobile)
+  .search-box
+    margin-right 0
+    .suggestions
+      right 0
+@media (max-width: $MQMobileNarrow)
+  .search-box .suggestions
+    width calc(100vw - 4rem)
 </style>

@@ -13,7 +13,7 @@ let _requests = []
 
 let LOADING = null
 
-let TOKEN = '70d96dc2034624f1b1c43263baa73569fe1f9ca7'
+let TOKEN = '6b0cfaa3102c4263087fb05df069d937c98be054'
 
 /**
  * 添加请求
