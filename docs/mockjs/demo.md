@@ -66,3 +66,7 @@ _easyMock() {
 * easymock 接口数据模拟，由于 api 存放在第三方站点界面 UI 好看，团队间更好维护，接口根据 host 进行目标定位，可以实现多 host
 
 **_所以为了项目的多人协作及后续 api 文档的输出，一般选用第三种 mock 方式（easymock)。_**
+
+## Edit
+
+<mockjs-edit/>

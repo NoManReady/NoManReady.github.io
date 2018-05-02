@@ -71,4 +71,24 @@ for i in 1..10
     padding-bottom 1rem
   &-content
     position relative
+
+.btn
+    padding 0.5rem 1rem
+    border-radius 3px
+    border 1px solid $accentColor
+    cursor pointer
+    background #fff
+    color $accentColor
+    &[disabled]
+      pointer-events none
+      cursor not-allowed
+      background $borderColor
+      color $textColor
+      border 1px solid $textColor
+    &:hover
+      color #fff
+      background $accentColor
+      border 1px solid darken($accentColor, 10%)
+    &:focus
+      outline none
   

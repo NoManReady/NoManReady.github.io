@@ -2,9 +2,10 @@
   <div class="mockjs-demo1">
     <a v-show="users.length" href="javascript:;" @click="isShow=!isShow">{{isShow?'收起':'展开'}}</a>
     <div class="tool mt10">
-      <button class="mr10" @click="_mockAdapter">MockAdapter</button>(切换时axios将被全部接管，需刷新页面进行其他demo的查看)<br/>
-      <button class="mr10" @click="_mockjsBase">MockjsBase</button>
-      <button class="mr10" @click="_easyMock">EasyMock</button>
+      <button class="mr10 btn" @click="_mockAdapter">MockAdapter</button>
+      <button class="mr10 btn" @click="_mockjsBase">MockjsBase</button>
+      <button class="mr10 btn" @click="_easyMock">EasyMock</button>
+      <p class="mt10"><small style="color:#a00">(切换MockAdapter时axios将被全部接管，需刷新页面进行其他demo的查看)</small></p>
     </div>
     <table v-show="isShow&&users.length">
       <thead>
