@@ -74,9 +74,9 @@ const _person=Mock.mock({
 
 ```
 <!-- 表示请求的响应时间 -->
-Mock.setup({
+<!-- Mock.setup({
   timeout:{数值或以中横线划分的数值范围}
-})
+}) -->
 ```
 
 ## Mockjs 数据生成
