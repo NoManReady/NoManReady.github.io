@@ -94,7 +94,7 @@ const _person=Mock.mock({
 
 [Easy Mock][easymock]
 
-[mockjs-demo]: /other/mockdemo 'mockjs-demo'
+[mockjs-demo]: /mockjs/demo.html 'mockjs-demo'
 [mockjs-wiki]: https://github.com/nuysoft/Mock/wiki 'mockjs-wiki'
 [mockjs]: http://mockjs.com/ 'mockjs'
 [easymock]: https://www.easy-mock.com/ 'easymock'
