@@ -14,7 +14,7 @@ module.exports = {
       '/react/': ['todo'],
       '/ow/': ['eweb', 'lua'],
       '/javascript/': ['pluginmode'],
-      '/other/': ['mockjs']
+      '/mockjs/': ['mockjs', 'demo']
     },
     nav: [
       { text: 'Home', link: '/' },
@@ -22,10 +22,9 @@ module.exports = {
         text: '文章',
         items: [
           { text: 'Vue', link: '/vue/' },
-          // { text: 'React', link: '/react/' },
           { text: 'Ow', link: '/ow/' },
           { text: 'Javascript', link: '/javascript/' },
-          { text: 'Other', link: '/other/' }
+          { text: 'Mockjs', link: '/mockjs/' }
         ]
       },
       { text: '开源库', link: '/gist/' }
@@ -44,6 +43,6 @@ module.exports = {
       //   })
       // )
     }
-    console.log(config.module.rules)
+    // console.log(config.module.rules)
   }
 }

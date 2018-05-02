@@ -21,7 +21,7 @@ import fetch from '../utils/fetch'
 import SearchBox from '../theme/SearchBox'
 import TopPaneItem from '../common/TopPaneItem'
 export default {
-  name: 'component_name',
+  name: 'toppane',
   data() {
     return {
       language: 'vue',

@@ -1,5 +1,6 @@
 import axios from 'axios'
-
+import mockAdapter from '../mock/api'
+import mockjsBase from '../mock/apimock'
 // 加载最小时间
 const MINI_TIME = 300
 // 超时时间
@@ -20,6 +21,9 @@ let TOKEN = '6b0cfaa3102c4263087fb05df069d937c98be054'
  * @param {请求配置} config
  */
 function pushRequest(config) {
+  if (process.env.NODE_ENV !== 'production') {
+    console.log(`${config.url}----begin`)
+  }
   _requests.push(config)
 }
 
@@ -32,6 +36,9 @@ function popRequest(config) {
     return r === config
   })
   if (_index > -1) {
+    if (process.env.NODE_ENV !== 'production') {
+      console.log(`${config.url}----end`)
+    }
     _requests.splice(_index, 1)
   }
 }
@@ -46,6 +53,12 @@ axios.defaults.baseURL = _apiHosts['github']
  * 请求地址，请求数据，是否静默，请求方法
  */
 export default (url, data = {}, setting = {}) => {
+  if (setting.mockAdapter) {
+    mockAdapter()
+  }
+  if (setting.mockjsBase) {
+    mockjsBase()
+  }
   if (setting.timeout === 0) {
     setting.timeout = Infinity
   }
@@ -60,11 +73,13 @@ export default (url, data = {}, setting = {}) => {
   }
   return new Promise((resolve, reject) => {
     const _instance = axios.create({
-      timeout: setting.timeout
+      ...setting
     })
     let _random = {
       stamp: Date.now(),
-      url: `${_apiHosts['github'] + url}`
+      url: `${(setting.baseURL
+        ? window.location.protocol + '//' + window.location.host
+        : _apiHosts['github']) + url}`
     }
     _timer = setTimeout(() => {
       pushRequest(_random)
@@ -74,6 +89,7 @@ export default (url, data = {}, setting = {}) => {
         let responseData = res.data || {}
         clearTimeout(_timer)
         popRequest(_random)
+        console.log(responseData)
         if (!responseData.error) {
           resolve(responseData)
         } else {
