@@ -1,4 +1,5 @@
-let data = []
+let GLOBAL_DATA = []
+importScripts('/ajax.js')
 onmessage = function(e) {
   switch (e.data.type) {
     case 'data-begin':
@@ -12,32 +13,55 @@ onmessage = function(e) {
   }
 }
 function _beginData(e) {
-  for (let i = 0; i < (e.data.size || 10000); i++) {
-    data.push({
-      name: '成员' + i
-    })
+  let _type = e.data.from || 'local'
+  let _promise = null
+  if (_type === 'local') {
+    _promise = _genDataLocal(e)
+  } else {
+    _promise = ajaxGet(
+      'https://www.easy-mock.com/mock/59dec7acc09842759ae666da/mock/bigdata'
+    )
   }
-  postMessage({ type: 'data-end' })
+  _promise.then(d => {
+    if (typeof d === 'string') {
+      d = JSON.parse(d).data
+    }
+    GLOBAL_DATA = d
+    postMessage({ type: 'data-end' })
+  })
 }
 
+function _genDataLocal(e) {
+  return new Promise(resolve => {
+    for (let i = 0; i < (e.data.size || 10000); i++) {
+      data.push({
+        name: '成员' + i,
+        id: i
+      })
+    }
+    resolve(data)
+  })
+}
 function _filterData(e, i = 0) {
   let _size = e.data.size
-  let _count = Math.ceil(data.length / _size)
+  let _count = Math.ceil(GLOBAL_DATA.length / _size)
   setTimeout(() => {
     if (i < _count) {
-      _postData(i, _size)
+      _postData(i, _size, e.data.key)
       i = i + 1
-      _filterData({ data: { size: _size } }, i)
+      _filterData({ data: { ...e.data } }, i)
     }
   }, 100)
 }
 
-function _postData(index, size) {
+function _postData(index, size, key) {
   let _index = (index + 1) * size
-  let _end = data.length <= _index
+  let _end = GLOBAL_DATA.length <= _index
+  let _blockData = GLOBAL_DATA.slice(index * size, (index + 1) * size)
+  let _filterData = _blockData.filter(block => block.name.includes(key))
   postMessage({
     type: 'data-filter',
     end: _end,
-    data: data.slice(index * size, (index + 1) * size)
+    data: _filterData
   })
 }
