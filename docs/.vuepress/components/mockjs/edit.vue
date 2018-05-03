@@ -1,5 +1,5 @@
 <template>
-  <div class="mockjs-edit mt20">
+  <div class="mockjs-edit box mt10">
     <div class="flex-box-item">
       <textarea class="mockjs-edit--edit" name="mockjs" cols="30" rows="10" v-model="value" placeholder="Please enter mockjs template here."></textarea>
     </div>

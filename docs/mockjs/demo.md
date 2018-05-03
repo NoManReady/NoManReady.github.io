@@ -70,3 +70,5 @@ _easyMock() {
 ## Edit
 
 <mockjs-edit/>
+
+<mockjs-bigdata/>

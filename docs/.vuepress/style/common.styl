@@ -71,7 +71,14 @@ for i in 1..10
     padding-bottom 1rem
   &-content
     position relative
-
+input,
+textarea
+  padding 0.5rem 1rem
+  border-radius 3px
+  border 1px solid $borderColor
+  &:focus
+    outline none
+    border-color $accentColor
 .btn
     padding 0.5rem 1rem
     border-radius 3px
@@ -85,7 +92,8 @@ for i in 1..10
       background $borderColor
       color $textColor
       border 1px solid $textColor
-    &:hover
+    &:hover,
+    &.active
       color #fff
       background $accentColor
       border 1px solid darken($accentColor, 10%)

@@ -5,4 +5,5 @@ import * as mockData from './mockData'
 // })
 export default () => {
   Mock.mock('/users', 'get', options => mockData.usersMockjs('mockjsBase'))
+  Mock.mock('/bigdata', 'get', options => mockData.bigdata('mockjsBase'))
 }

@@ -15,3 +15,13 @@ export const usersMockjs = ver => {
     ]
   })
 }
+// 大数据测试
+export const bigdata = ver => {
+  return Mock.mock({
+    'list|5000': [
+      {
+        name: '@first@last'
+      }
+    ]
+  })
+}

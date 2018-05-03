@@ -1,11 +1,13 @@
 <template>
-  <div class="mockjs-demo1">
+  <div class="mockjs-demo1 box">
     <a v-show="users.length" href="javascript:;" @click="isShow=!isShow">{{isShow?'收起':'展开'}}</a>
     <div class="tool mt10">
-      <button class="mr10 btn" @click="_mockAdapter">MockAdapter</button>
-      <button class="mr10 btn" @click="_mockjsBase">MockjsBase</button>
-      <button class="mr10 btn" @click="_easyMock">EasyMock</button>
-      <p class="mt10"><small style="color:#a00">(切换MockAdapter时axios将被全部接管，需刷新页面进行其他demo的查看)</small></p>
+      <button class="mr10 btn" :class="{'active':active==='MockAdapter'}" @click="_mockAdapter">MockAdapter</button>
+      <button class="mr10 btn" :class="{'active':active==='MockjsBase'}" @click="_mockjsBase">MockjsBase</button>
+      <button class="mr10 btn" :class="{'active':active==='EasyMock'}" @click="_easyMock">EasyMock</button>
+      <p class="mt10">
+        <small style="color:#a00">(切换MockAdapter时axios将被全部接管，需刷新页面进行其他demo的查看)</small>
+      </p>
     </div>
     <table v-show="isShow&&users.length">
       <thead>
@@ -40,16 +42,19 @@ export default {
   data() {
     return {
       users: [],
-      isShow: true
+      isShow: true,
+      active: ''
     }
   },
   methods: {
     _mockAdapter() {
+      this.active = 'MockAdapter'
       fetch('/users', {}, { mockAdapter: true }).then(d => {
         this.users = Object.freeze(d.list)
       })
     },
     _mockjsBase() {
+      this.active = 'MockjsBase'
       fetch('/users', {}, { baseURL: '/', mockjsBase: true }).then(d => {
         this.users = Object.freeze(d.list)
       })
@@ -59,6 +64,7 @@ export default {
       // })
     },
     _easyMock() {
+      this.active = 'EasyMock'
       fetch(
         '/users',
         {},
