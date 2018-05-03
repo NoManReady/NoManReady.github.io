@@ -16,10 +16,10 @@
       <input class="mr10 w50" type="text" v-model="filterKey">
       <button class="btn" @click="_onDataFilterBegin" :disabled="btnDisabled||dataStatus<2">开始过滤</button>
     </div>
-    <div class="box mt10" style="max-height:20rem;overflow:auto;">
+    <div class=" mt10">
       <h4>搜索到的数据：</h4>
-      <ul v-show="list.length">
-        <li v-for="lis in list" :key="lis.name">{{lis.name}}</li>
+      <ul class="mt20 box" v-show="list.length" style="max-height:20rem;overflow:auto;list-style:none;">
+        <li v-for="(lis,index) in list" :key="lis.name">{{index+1}}:{{lis.name}}</li>
       </ul>
       <p class="tc" v-show="!list.length"><small>暂无匹配数据！</small></p>
     </div>
