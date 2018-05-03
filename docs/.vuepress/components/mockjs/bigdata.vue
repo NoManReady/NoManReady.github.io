@@ -5,20 +5,23 @@
       <span v-show="!btnDisabled&&dataStatus!==0">：{{`${this.beginTime}-${this.endTime}`}}={{this.endTime-this.beginTime}}</span>
     </div>
     <div class="mb10">
-      <span class="mr10">数据size:</span>
+      <span class="mr10 w100">数据size:</span>
       <input class="mr10" type="number" v-model="dataSize" />
       <button class="btn" @click="_onGeneratorBegin" :disabled="btnDisabled">开始生成数据</button>
     </div>
     <div class="mb10">
       <span class="mr10">分片size:</span>
-      <input class="mr10" type="number" v-model="pageSize">
+      <input class="mr10 w50" type="number" v-model="pageSize">
+      <span class="mr10">filter:</span>
+      <input class="mr10 w50" type="text" v-model="filterKey">
       <button class="btn" @click="_onDataFilterBegin" :disabled="btnDisabled||dataStatus<2">开始过滤</button>
     </div>
-    <div class="box mt10" v-show="list.length" style="max-height:20rem;overflow:auto;">
-      <span>搜索到的数据：</span>
-      <ul>
+    <div class="box mt10" style="max-height:20rem;overflow:auto;">
+      <h4>搜索到的数据：</h4>
+      <ul v-show="list.length">
         <li v-for="lis in list" :key="lis.name">{{lis.name}}</li>
       </ul>
+      <p class="tc" v-show="!list.length"><small>暂无匹配数据！</small></p>
     </div>
   </section>
 </template>
@@ -36,6 +39,7 @@ export default {
   data() {
     return {
       dataSize: 10000,
+      filterKey: '123',
       list: [],
       worker: null,
       dataStatus: 0,
@@ -86,7 +90,10 @@ export default {
         this.dataStatus = 4
         this.endTime = Date.now()
       }
-      this.list.push(...e.data.data)
+      let _data = e.data.data.filter(d => d.name.includes(this.filterKey))
+      if (_data && _data.length) {
+        this.list.push(..._data)
+      }
     },
     _onMessage(e) {
       switch (e.data.type) {
