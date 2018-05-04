@@ -2,7 +2,7 @@
   <section class="mockjs-bigdata box">
     <div class="mb10">
       <strong>{{dataStatusText}}</strong>
-      <span v-show="!btnDisabled&&dataStatus!==0">：{{`${this.beginTime}-${this.endTime}`}}={{this.endTime-this.beginTime}}</span>
+      <span v-show="!btnDisabled&&dataStatus!==0&&dataStatus!==5">：{{`${this.beginTime}-${this.endTime}`}}={{this.endTime-this.beginTime}}</span>
     </div>
     <div class="mb10">
       <span class="mr10 w100">数据size:</span>
