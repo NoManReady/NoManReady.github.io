@@ -38,7 +38,8 @@ const MAP = {
   1: '数据生成中...',
   2: '数据生成完毕',
   3: '开始过滤数据',
-  4: '数据过滤完成'
+  4: '数据过滤完成',
+  5: '数据植入完成'
 }
 let _scrollTimer = null
 export default {
@@ -89,6 +90,8 @@ export default {
   methods: {
     _onAddFilterData() {
       this.list = Object.freeze([...this.list, ...this.temp])
+      this.temp = []
+      this.dataStatus = 5
     },
     _onGeneratorBegin() {
       if (this.worker) {
