@@ -18,7 +18,8 @@
       <input class="mr10 w50" type="number" v-model="pageSize" :disabled="btnDisabled||dataStatus<2">
       <span class="mr10">filter:</span>
       <input class="mr10 w50" type="text" v-model="filterKey" :disabled="btnDisabled||dataStatus<2">
-      <button class="btn" @click="_onDataFilterBegin" :disabled="btnDisabled||dataStatus<2">开始过滤</button>
+      <button class="btn mr10" @click="_onDataFilterBegin" :disabled="btnDisabled||dataStatus<2">开始过滤</button>
+      <button class="btn" @click="_onAddFilterData" :disabled="temp.length&&dataStatus!==4">加入数据({{temp.length}})</button>
     </div>
     <div class=" mt10">
       <h4>搜索到的数据({{list.length}})：</h4>
@@ -47,6 +48,7 @@ export default {
       dataSize: 10000,
       filterKey: '123',
       list: [],
+      temp: [],
       worker: null,
       dataStatus: 0,
       beginTime: 0,
@@ -85,6 +87,9 @@ export default {
     }
   },
   methods: {
+    _onAddFilterData() {
+      this.list = Object.freeze([...this.list, ...this.temp])
+    },
     _onGeneratorBegin() {
       if (this.worker) {
         this.dataStatus = 1
@@ -104,7 +109,8 @@ export default {
       if (!this.pageSize) {
         return
       }
-      this.list = []
+      // this.list = []
+      this.temp = []
       this.dataStatus = 3
       this.beginTime = Date.now()
       this.worker.postMessage({
@@ -119,6 +125,10 @@ export default {
         this.endTime = Date.now()
       }
       let _data = e.data.data
+      if (this.list.length > 1000) {
+        this.temp = Object.freeze([...this.temp, ..._data])
+        return
+      }
       // let _data = e.data.data.filter(d => d.name.includes(this.filterKey))
       if (_data && _data.length) {
         this.list.push(..._data)
