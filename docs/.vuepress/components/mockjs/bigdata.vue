@@ -109,7 +109,7 @@ export default {
       if (!this.pageSize) {
         return
       }
-      // this.list = []
+      this.list = []
       this.temp = []
       this.dataStatus = 3
       this.beginTime = Date.now()
