@@ -81,7 +81,7 @@ export default {
         let _target = document.querySelector('#filterRef')
         _target.scrollTop = _target.scrollHeight
         _scrollTimer = null
-      }, 50)
+      }, 100)
     }
   },
   methods: {

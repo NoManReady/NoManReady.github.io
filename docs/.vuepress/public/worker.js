@@ -58,7 +58,9 @@ function _postData(index, size, key) {
   let _index = (index + 1) * size
   let _end = GLOBAL_DATA.length <= _index
   let _blockData = GLOBAL_DATA.slice(index * size, (index + 1) * size)
-  let _filterData = _blockData.filter(block => block.name.includes(key))
+  let _filterData = _blockData.filter(block =>
+    JSON.stringify(block).includes(key)
+  )
   postMessage({
     type: 'data-filter',
     end: _end,
