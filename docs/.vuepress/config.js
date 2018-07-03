@@ -13,8 +13,9 @@ module.exports = {
       '/vue/': [['axios', 'Axios配置'], ['image', '图片上传']],
       '/react/': ['todo'],
       '/ow/': ['eweb', 'lua'],
-      '/javascript/': ['pluginmode'],
-      '/mockjs/': ['mockjs', 'demo']
+      '/javascript/': ['pluginmode', 'mobile'],
+      '/mockjs/': ['mockjs', 'demo'],
+      '/other/': ['papper']
     },
     nav: [
       { text: 'Home', link: '/' },
@@ -24,7 +25,8 @@ module.exports = {
           { text: 'Vue', link: '/vue/' },
           { text: 'Ow', link: '/ow/' },
           { text: 'Javascript', link: '/javascript/' },
-          { text: 'Mockjs', link: '/mockjs/' }
+          { text: 'Mockjs', link: '/mockjs/' },
+          { text: '其他', link: '/other/' }
         ]
       },
       { text: '开源库', link: '/gist/' }

@@ -1,6 +1,6 @@
 # js 插件开发方式
 
-完成的 js 插件格式
+## 完成的 js 插件格式
 
 ```
 ;(function(undefined) {
