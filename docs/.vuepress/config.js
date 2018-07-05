@@ -1,7 +1,7 @@
 module.exports = {
   title: 'NoManReady',
   description: 'Enjoy Vue',
-  host: 'localhost',
+  host: '172.30.111.12',
   port: '9999',
   head: [
     ['link', { rel: 'icon', href: `/favicon.ico` }],
@@ -10,7 +10,7 @@ module.exports = {
   themeConfig: {
     sidebarDepth: 1,
     sidebar: {
-      '/vue/': [['axios', 'Axios配置'], ['image', '图片上传']],
+      '/vue/': [['axios', 'Axios配置'], ['image', '图片上传'], ['timeSelected', '选区组件']],
       '/react/': ['todo'],
       '/ow/': ['eweb', 'lua'],
       '/javascript/': ['pluginmode', 'mobile'],
