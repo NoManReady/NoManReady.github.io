@@ -420,4 +420,4 @@ _hasInWrap(e) {
 ```
 ## DEMO
 <br/>
-<timeselected :show-header="false"/>
+<mockjs-timeselected :show-header="false"/>

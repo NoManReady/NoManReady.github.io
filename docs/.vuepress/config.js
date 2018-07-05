@@ -10,12 +10,12 @@ module.exports = {
   themeConfig: {
     sidebarDepth: 1,
     sidebar: {
-      '/vue/': [['axios', 'Axios配置'], ['image', '图片上传'], ['timeSelected', '选区组件']],
+      '/vue/': [['axios', 'Axios配置'], ['image', '图片上传'], ['timeselected', '选区组件']],
       '/react/': ['todo'],
       '/ow/': ['eweb', 'lua'],
       '/javascript/': ['pluginmode', 'mobile'],
       '/mockjs/': ['mockjs', 'demo'],
-      '/other/': ['papper']
+      '/other/': ['paper']
     },
     nav: [
       { text: 'Home', link: '/' },

@@ -89,7 +89,6 @@ export default (url, data = {}, setting = {}) => {
         let responseData = res.data || {}
         clearTimeout(_timer)
         popRequest(_random)
-        console.log(responseData)
         if (!responseData.error) {
           resolve(responseData)
         } else {

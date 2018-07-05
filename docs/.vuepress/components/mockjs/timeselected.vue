@@ -1,9 +1,6 @@
 <template>
   <div class="time-selection">
     <div class="time-selection--header" v-if="showHeader">
-      <slot name="timeSelection_title">
-        <h2>{{title}}</h2>
-      </slot>
     </div>
     <div ref="timeSelectionWrap" class="time-selection-wrap">
       <div class="time-selection--yaxis" ref="timeSelectionYaxis">
@@ -30,18 +27,15 @@
       <div class="time-selection--range" ref="timeSelectionRange"></div>
     </div>
     <div class="time-selection--footer" v-if="showFooter">
-      <slot name="timeSelection_legend">
-        <button class="mr10 btn active" style="padding:10px;margin-left:10px;" @click="_clearData">Clear Data</button>
-        <button class="mr10 btn active" style="padding:10px;margin-left:10px;" @click="_testData">Test Data</button>
-        <button class="mr10 btn active" style="padding:10px;margin-left:10px;" @click="_getData">Get Data</button>
-      </slot>
+      <button class="mr10 btn active" style="padding:10px;margin-left:10px;" @click="_clearData">Clear Data</button>
+      <button class="mr10 btn active" style="padding:10px;margin-left:10px;" @click="_testData">Test Data</button>
+      <button class="mr10 btn active" style="padding:10px;margin-left:10px;" @click="_getData">Get Data</button>
     </div>
   </div>
 </template>
 <script>
-import browser from '../utils/browser'
 export default {
-  name: 'ComponentTimeSelection',
+  name: 'mockjs-timeselected',
   props: {
     rows: {
       type: Array,
@@ -108,7 +102,7 @@ export default {
       },
       isRangeActive: false,
       datas: [],
-      isMobile: browser.versions.mobile
+      isMobile: false
     }
   },
   computed: {
@@ -133,6 +127,10 @@ export default {
       deep: true,
       immediate: true
     }
+  },
+  created() {
+    if (!this.$isServer)
+      this.isMobile = navigator.userAgent.match(/AppleWebKit.*Mobile.*/)
   },
   mounted() {
     if (this.enable) {
@@ -405,7 +403,7 @@ export default {
       this.datas = []
     },
     _testData() {
-      this._setIndexSelected({ Mon: [["9:00", "15:00"]] })
+      this._setIndexSelected({ Mon: [['9:00', '15:00']] })
     },
     _getData() {
       console.log(this.getMergeSelected())
@@ -413,9 +411,9 @@ export default {
   }
 }
 </script>
-<style lang="stylus" scoped>
-@import '../style/mixins'
-@import '../style/variable'
+<style lang="stylus">
+@import '../../style/mixins'
+@import '../../style/variable'
 .time-selection
   & *
     padding 0
