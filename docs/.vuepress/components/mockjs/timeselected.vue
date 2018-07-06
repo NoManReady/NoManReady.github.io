@@ -1,6 +1,6 @@
 <template>
   <div class="time-selection">
-    <div class="time-selection--header" v-if="showHeader">
+    <div class="time-selection--header">
     </div>
     <div ref="timeSelectionWrap" class="time-selection-wrap">
       <div class="time-selection--yaxis" ref="timeSelectionYaxis">
@@ -26,7 +26,7 @@
       </div>
       <div class="time-selection--range" ref="timeSelectionRange"></div>
     </div>
-    <div class="time-selection--footer" v-if="showFooter">
+    <div class="time-selection--footer">
       <button class="mr10 btn active" style="padding:10px;margin-left:10px;" @click="_clearData">Clear Data</button>
       <button class="mr10 btn active" style="padding:10px;margin-left:10px;" @click="_testData">Test Data</button>
       <button class="mr10 btn active" style="padding:10px;margin-left:10px;" @click="_getData">Get Data</button>
@@ -415,6 +415,7 @@ export default {
 @import '../../style/mixins'
 @import '../../style/variable'
 .time-selection
+  margin-top 20px
   & *
     padding 0
     margin 0

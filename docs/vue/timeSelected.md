@@ -418,6 +418,3 @@ _hasInWrap(e) {
 }
 </style>
 ```
-## DEMO
-<br/>
-<mockjs-timeselected :show-header="false"/>
