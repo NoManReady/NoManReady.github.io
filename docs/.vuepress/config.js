@@ -10,10 +10,9 @@ module.exports = {
   themeConfig: {
     sidebarDepth: 1,
     sidebar: {
-      '/vue/': ['axios', 'image', 'timeselected'],
       '/react/': ['todo'],
       '/ow/': ['eweb', 'lua'],
-      '/javascript/': ['pluginmode', 'mobile'],
+      '/javascript/': ['pluginmode', 'mobile', 'axios', 'image', 'timeselected'],
       '/mockjs/': ['mockjs', 'demo'],
       '/other/': ['paper']
     },
@@ -22,7 +21,6 @@ module.exports = {
       {
         text: '文章',
         items: [
-          { text: 'Vue', link: '/vue/' },
           { text: 'Ow', link: '/ow/' },
           { text: 'Javascript', link: '/javascript/' },
           { text: 'Mockjs', link: '/mockjs/' },
