@@ -10,7 +10,7 @@ module.exports = {
   themeConfig: {
     sidebarDepth: 1,
     sidebar: {
-      '/vue/': [['axios', 'Axios配置'], ['image', '图片上传'], ['timeselected', '选区组件']],
+      '/vue/': [['axios', 'Axios配置'], ['image', '图片上传'], 'timeselected'],
       '/react/': ['todo'],
       '/ow/': ['eweb', 'lua'],
       '/javascript/': ['pluginmode', 'mobile'],
