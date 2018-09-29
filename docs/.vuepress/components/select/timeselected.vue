@@ -37,9 +37,8 @@
   </div>
 </template>
 <script>
-import browser from '../../utils/browser'
 export default {
-  name: 'ComponentTimeSelection',
+  name: 'select-timeselected',
   props: {
     // 行头数据（value,label对象）
     rows: {
@@ -145,7 +144,9 @@ export default {
       },
       isRangeActive: false,
       datas: [],
-      isMobile: browser.versions.mobile
+      isMobile: this.$isServer
+        ? false
+        : navigator.userAgent.match(/AppleWebKit.*Mobile.*/)
     }
   },
   computed: {

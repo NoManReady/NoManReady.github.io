@@ -419,4 +419,4 @@ _hasInWrap(e) {
 </style>
 ```
 ## DEMO
-<timeselect-timeselected/>
+<select-timeselected/>
