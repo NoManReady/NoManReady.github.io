@@ -10,11 +10,9 @@ module.exports = {
   themeConfig: {
     sidebarDepth: 1,
     sidebar: {
-      '/react/': ['todo'],
       '/ow/': ['eweb', 'lua'],
       '/javascript/': ['pluginmode', 'mobile', 'axios', 'image', 'timeselected'],
-      '/mockjs/': ['mockjs', 'demo'],
-      '/other/': ['paper']
+      '/mockjs/': ['mockjs', 'demo']
     },
     nav: [
       { text: 'Home', link: '/' },
@@ -36,13 +34,7 @@ module.exports = {
   },
   configureWebpack: (config, isServer) => {
     if (!isServer) {
-      // config.module.rules.unshift(
-      //   ...styleConfig.styleLoaders({
-      //     sourceMap: true,
-      //     usePostCSS: false
-      //   })
-      // )
+      
     }
-    // console.log(config.module.rules)
   }
 }

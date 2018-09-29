@@ -1,9 +1,10 @@
 <template>
-<div class="theme flex-box">
-    <div class="flex-item tc" v-for="itm in items" :key="itm.path" @click="goPath(itm.path)">
-      <a href="javascript:;">{{itm.title}}</a>
-    </div>
-</div>
+  <div class="theme">
+    <p class="mt20" v-for="(itm,index) in items" :key="itm.path">
+      <span class="c-theme">{{index+1}}、</span>
+      <a href="javascript:;" @click="goPath(itm.path)">{{itm.title}}</a>
+    </p>
+  </div>
 </template>
 <script>
 export default {
@@ -11,8 +12,7 @@ export default {
   data() {
     return {}
   },
-  created() {
-  },
+  created() {},
   computed: {
     path() {
       return this.$page.path
@@ -23,13 +23,12 @@ export default {
       })
     }
   },
-  methods:{
-    goPath(path){
-      window.location.href=path
+  methods: {
+    goPath(path) {
+      window.location.href = path
     }
   }
 }
 </script>
 <style lang="stylus" scoped>
-
 </style>
