@@ -12,7 +12,8 @@ module.exports = {
     sidebar: {
       '/ow/': ['eweb', 'lua'],
       '/javascript/': ['pluginmode', 'mobile', 'axios', 'image', 'timeselected'],
-      '/mockjs/': ['mockjs', 'demo']
+      '/mockjs/': ['mockjs', 'demo'],
+      '/vue/': ['config']
     },
     nav: [
       { text: 'Home', link: '/' },
@@ -22,7 +23,7 @@ module.exports = {
           { text: 'Ow', link: '/ow/' },
           { text: 'Javascript', link: '/javascript/' },
           { text: 'Mockjs', link: '/mockjs/' },
-          { text: '其他', link: '/other/' }
+          { text: 'Vue', link: '/vue/' }
         ]
       },
       { text: '开源库', link: '/gist/' }
@@ -34,7 +35,7 @@ module.exports = {
   },
   configureWebpack: (config, isServer) => {
     if (!isServer) {
-      
+
     }
   }
 }
