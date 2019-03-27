@@ -1,18 +1,23 @@
 # 手机适配方案gulp配置
 
 ```
-let del = require('del')
+let gulp = require('gulp')
 let sass = require('gulp-sass')
-let connect = require('connect')
-let http = require('http')
-let path = require('path')
-let serveStatic = require('serve-static')
 let autoprefixer = require('autoprefixer')
+let postcss = require('gulp-postcss')
+let minifyCss = require('gulp-minify-css')
+let minifyJs = require('gulp-minify')
+let babel = require('gulp-babel')
+let del = require('del')
+let Reproxy = require("gulp-connect-reproxy")
+
+let connect = require('gulp-connect')
 
 
 const OPTIONS = {
-  build: path.join(__dirname, '../code/style'),
-  srDir: ['./scss/*.scss'],
+  build: 'dist',
+  cssDir: ['./src/scss/*.scss'],
+  jsDir: ['./src/js/*.js'],
   server: {
     port: 8099,
     base: path.join(__dirname, '../code')
@@ -57,18 +62,71 @@ gulp.task('clean', cb => {
 })
 
 // // 监听编译目录
+// 监听编译目录
 gulp.task('watch', function () {
-  return gulp.watch(OPTIONS.srDir, gulp.parallel('compile'))
+  return gulp.watch(OPTIONS.cssDir, gulp.parallel('compileCss'))
+})
+
+gulp.task('watchjs', function () {
+  return gulp.watch(OPTIONS.jsDir, gulp.parallel('compileJs'))
 })
 
 
-// 创建静态服务
-gulp.task('static', () => {
-  let app = connect()
-  app.use(serveStatic(OPTIONS.server.base))
-  http.createServer(app).listen(OPTIONS.server.port)
+// 创建静态服务(代理服务)
+gulp.task('static', (done) => {
+  connect.server({
+    root: OPTIONS.server.base,
+    port: OPTIONS.server.port,
+    host: '127.0.0.1',
+    livereload: true,
+    middleware: function (connect, options) {
+      options.rule = [/\.[png|jpg|cgi]/]
+      options.server = "192.168.1.1"
+      return [new Reproxy(options)]
+    }
+  })
+  // let app = connect()
+  // app.use(serveStatic(OPTIONS.server.base))
+  // http.createServer(app).listen(OPTIONS.server.port)
+  done()
 })
 
-// // 默认任务
-gulp.task('default', gulp.series('clean', 'compile', gulp.parallel('static', 'watch')))
+// 默认任务
+gulp.task('default',
+  gulp.series('clean', 'compileCss', 'compileJs',
+    gulp.parallel('watch', 'watchjs', 'static')))
+
+
+{
+  "name": "typescript",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "gulp-autoprefixer": "^6.0.0",
+    "gulp-babel": "^8.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-connect": "^5.7.0",
+    "gulp-connect-reproxy": "0.0.98",
+    "gulp-minify": "^3.1.0",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-notify": "^3.2.0",
+    "gulp-postcss": "^8.0.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-uglify": "^3.0.1"
+  },
+  "dependencies": {
+    "connect": "^3.6.6",
+    "del": "^3.0.0",
+    "gulp": "^4.0.0",
+    "gulp-load-plugins": "^1.5.0",
+    "serve-static": "^1.13.2"
+  }
+}
+
 ```

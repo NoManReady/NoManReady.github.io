@@ -1,7 +1,7 @@
 module.exports = {
   title: 'NoManReady',
   description: 'Enjoy Vue',
-  host: '172.30.111.12',
+  host: '127.0.0.1',
   port: '9999',
   head: [
     ['link', { rel: 'icon', href: `/favicon.ico` }],
@@ -11,7 +11,7 @@ module.exports = {
     sidebarDepth: 1,
     sidebar: {
       '/ow/': ['eweb', 'lua'],
-      '/javascript/': ['pluginmode', 'mobile', 'axios', 'image', 'timeselected'],
+      '/javascript/': ['pluginmode', 'mobile', 'axios', 'image', 'timeselected','utils'],
       '/mockjs/': ['mockjs', 'demo'],
       '/vue/': ['config']
     },
