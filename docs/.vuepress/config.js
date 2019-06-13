@@ -11,12 +11,16 @@ module.exports = {
     sidebarDepth: 1,
     sidebar: {
       '/ow/': ['eweb', 'lua'],
-      '/javascript/': ['pluginmode', 'mobile', 'axios', 'image', 'timeselected','utils'],
-      '/mockjs/': ['mockjs', 'demo'],
-      '/vue/': ['config']
+      '/javascript/': ['pluginmode', 'mobile', 'axios', 'image', 'timeselected', 'utils'],
+      '/mockjs/': ['api', 'demo'],
+      '/vue/': ['config'],
+      '/webcomponent/': ['lithtml'],
+      '/structure/': ['sort']
     },
     nav: [
       { text: 'Home', link: '/' },
+      { text: 'WebComponent', link: '/webcomponent/' },
+      { text: 'Structure', link: '/structure/' },
       {
         text: '文章',
         items: [
