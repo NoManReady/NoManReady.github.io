@@ -15,12 +15,14 @@ module.exports = {
       '/mockjs/': ['api', 'demo'],
       '/vue/': ['config'],
       '/webcomponent/': ['lithtml'],
-      '/structure/': ['sort']
+      '/structure/': ['sort'],
+      '/story/': ['Order']
     },
     nav: [
       { text: 'Home', link: '/' },
       { text: 'WebComponent', link: '/webcomponent/' },
       { text: 'Structure', link: '/structure/' },
+      { text: '故事会', link: '/story/' },
       {
         text: '文章',
         items: [
