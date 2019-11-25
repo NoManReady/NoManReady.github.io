@@ -1,22 +1,19 @@
 <template>
   <div class="page">
-    <Content :custom="false"/>
-    <Top/>
+    <Content :custom="false" />
+    <Top />
     <div class="content edit-link" v-if="editLink">
       <a :href="editLink" target="_blank">Edit this page</a>
-      <OutboundLink/>
+      <OutboundLink />
     </div>
     <div class="content page-nav" v-if="prev || next">
       <p class="inner">
-        <span v-if="prev" class="prev">
-          ← <router-link v-if="prev" class="prev" :to="prev.path">
-            {{ prev.title || prev.path }}
-          </router-link>
+        <span class="prev" v-if="prev">
+          ←
+          <router-link :to="prev.path" class="prev" v-if="prev">{{ prev.title || prev.path }}</router-link>
         </span>
-        <span v-if="next" class="next">
-          <router-link v-if="next" :to="next.path">
-            {{ next.title || next.path }}
-          </router-link> →
+        <span class="next" v-if="next">
+          <router-link :to="next.path" v-if="next">{{ next.title || next.path }}</router-link>→
         </span>
       </p>
     </div>
@@ -75,6 +72,32 @@ export default {
           path
         )
       }
+    }
+  },
+  mounted() {
+    // window.addEventListener('load', this._hljs_init, false)
+  },
+  watch: {
+    $page: {
+      handler() {
+        this.$nextTick().then(() => {
+          this._hljs_init()
+        })
+      },
+      immediate: true
+    }
+  },
+  methods: {
+    _hljs_init() {
+      const codes = Array.from(document.querySelectorAll('.page pre>code'))
+      const worker = new Worker('/hight_light_worker.js')
+      worker.onmessage = ({ data }) => {
+        let { content, index } = data
+        codes[index].innerHTML = content
+      }
+      codes.forEach((code, i) => {
+        worker.postMessage({ content: code.textContent || '', index: i })
+      })
     }
   }
 }

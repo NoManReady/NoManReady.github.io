@@ -5,6 +5,7 @@ module.exports = {
   port: '9999',
   head: [
     ['link', { rel: 'icon', href: `/favicon.ico` }],
+    ['link', { rel: 'stylesheet', href: `//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.16.2/build/styles/monokai-sublime.min.css` }],
     ['script', { src: `/plugin.js`, defer: `defer` }]
   ],
   themeConfig: {
@@ -15,8 +16,8 @@ module.exports = {
       '/mockjs/': ['api', 'demo'],
       '/vue/': ['config'],
       '/webcomponent/': ['lithtml'],
-      '/structure/': ['sort'],
-      '/story/': ['Order']
+      '/story/': [''],
+      '/structure/': ['sort', 'designJS']
     },
     nav: [
       { text: 'Home', link: '/' },

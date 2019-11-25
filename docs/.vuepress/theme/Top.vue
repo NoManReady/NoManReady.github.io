@@ -1,7 +1,7 @@
 <template>
-    <div :class="classes" :style="styles" @click="back">
-        <span>Top</span>
-    </div>
+  <div :class="classes" :style="styles" @click="back">
+    <span>Top</span>
+  </div>
 </template>
 <script>
 const prefixCls = 'vuepress'
@@ -69,7 +69,7 @@ export default {
           }
       }
       const difference = Math.abs(from - to)
-      const step = Math.ceil(difference / duration * 50)
+      const step = Math.ceil((difference / duration) * 50)
 
       function scroll(start, end, step) {
         if (start === end) return
@@ -97,28 +97,36 @@ export default {
 }
 </script>
 <style lang="stylus" scoped>
-@import '../style/variable'
-.vuepress 
-    position fixed
-    background $accentColor
-    color #fff
-    padding .8em
-    cursor pointer
-    border-radius .5em
-    width 2em
-    height 2em
-    justify-content center
-    align-items center
-    display none
-    &:hover
-        color darken(#fff,10%)
-        box-shadow 0 0 4px $accentColor
-    &-show
-        display flex
-@media (max-width: $MQNarrow)
-    .vuepress
-        border-radius 50%
-        font-size 80%
-        padding .5em
+@import '../style/variable';
 
+.vuepress {
+  position: fixed;
+  background: $accentColor;
+  color: #fff;
+  padding: 0.8em;
+  cursor: pointer;
+  border-radius: 0.5em;
+  width: 1em;
+  height: 1em;
+  justify-content: center;
+  align-items: center;
+  display: none;
+
+  &:hover {
+    color: darken(#fff, 10%);
+    box-shadow: 0 0 4px $accentColor;
+  }
+
+  &-show {
+    display: flex;
+  }
+}
+
+@media (max-width: $MQNarrow) {
+  .vuepress {
+    border-radius: 50%;
+    font-size: 80%;
+    padding: 0.5em;
+  }
+}
 </style>
