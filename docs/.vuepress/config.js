@@ -13,6 +13,7 @@ module.exports = {
     sidebar: {
       '/ow/': ['eweb', 'lua'],
       '/javascript/': ['pluginmode', 'mobile', 'axios', 'image', 'timeselected', 'utils'],
+      '/css/': ['border_background'],
       '/mockjs/': ['api', 'demo'],
       '/vue/': ['config'],
       '/webcomponent/': ['lithtml'],
@@ -29,6 +30,7 @@ module.exports = {
         items: [
           { text: 'Ow', link: '/ow/' },
           { text: 'Javascript', link: '/javascript/' },
+          { text: 'CSS', link: '/css/' },
           { text: 'Mockjs', link: '/mockjs/' },
           { text: 'Vue', link: '/vue/' }
         ]

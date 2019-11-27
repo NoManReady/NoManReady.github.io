@@ -201,3 +201,33 @@ Etag：URL的Entity Tag，用于标示URL对象是否改变。
 
 [cookie_detail]: https://www.cnblogs.com/kabi/p/6699242.html 'Cookie 详细讲解'
 
+## 函数式
+
+```
+/**
+ * compose函数式
+ * @param {*} f 
+ */
+const compose = (...args) => x => args.reduceRight((value, item) => item(value), x)
+// const f = x => x + 2
+// const g = x => x * 2
+// compose(g, f)(2)
+export default compose
+
+/**
+ * 变量缓存函数式
+ * @param {*} f 
+ */
+const memorize = f => {
+  let _cache = {}
+  return function () {
+    let _cache_str = JSON.stringify(arguments)
+    _cache[_cache_str] = _cache[_cache_str] || f.apply(f, arguments)
+    return _cache[_cache_str]
+  }
+}
+// const fn=(x,y)=>x+y
+// memFn=memorize(fn)
+export default memorize
+```
+
