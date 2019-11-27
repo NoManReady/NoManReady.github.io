@@ -81,7 +81,9 @@ export default {
     $page: {
       handler() {
         this.$nextTick().then(() => {
-          this._hljs_init()
+          if (!this.$isServer) {
+            this._hljs_init()
+          }
         })
       },
       immediate: true

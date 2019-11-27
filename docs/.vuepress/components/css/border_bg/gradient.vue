@@ -8,7 +8,9 @@
       </div>
     </div>
     <div>
-      <div class="card"></div>
+      <div @mouseenter="_show(true)" @mouseleave="_show(false)" class="card">
+        <div :class="{animated:show}" class="wow">NoManReady</div>
+      </div>
     </div>
   </div>
 </template>
@@ -17,7 +19,8 @@ export default {
   name: 'gradient',
   data() {
     return {
-      pWidth: 40
+      pWidth: 40,
+      show: false
     }
   },
   computed: {
@@ -26,7 +29,9 @@ export default {
     }
   },
   created() {
-    this._doAnimate()
+    if (!this.$isServer) {
+      this._doAnimate()
+    }
   },
   methods: {
     _doAnimate() {
@@ -36,6 +41,9 @@ export default {
           this._doAnimate()
         })
       })
+    },
+    _show(flag) {
+      this.show = flag
     }
   }
 }
@@ -44,6 +52,15 @@ export default {
 @import '../../../style/variable';
 
 .box {
+  .wow {
+    opacity: 0;
+    transition: all 0.5s 0.5s ease-in-out;
+  }
+
+  .animated {
+    opacity: 1;
+  }
+
   background-color: rgb(255, 255, 255);
   background-image: url('https://ss1.bdstatic.com/lvoZeXSm1A5BphGlnYG/skin/836.jpg?2');
   display: flex;
