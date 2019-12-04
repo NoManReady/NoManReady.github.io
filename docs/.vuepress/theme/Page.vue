@@ -91,15 +91,17 @@ export default {
   },
   methods: {
     _hljs_init() {
-      const codes = Array.from(document.querySelectorAll('.page pre>code'))
-      const worker = new Worker('/hight_light_worker.js')
-      worker.onmessage = ({ data }) => {
-        let { content, index } = data
-        codes[index].innerHTML = content
-      }
-      codes.forEach((code, i) => {
-        worker.postMessage({ content: code.textContent || '', index: i })
-      })
+      try {
+        const codes = Array.from(document.querySelectorAll('.page pre>code'))
+        const worker = new Worker('/hight_light_worker.js')
+        worker.onmessage = ({ data }) => {
+          let { content, index } = data
+          codes[index].innerHTML = content
+        }
+        codes.forEach((code, i) => {
+          worker.postMessage({ content: code.textContent || '', index: i })
+        })
+      } catch (error) {}
     }
   }
 }

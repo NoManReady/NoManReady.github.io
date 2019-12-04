@@ -5,23 +5,44 @@
         <h2>{{title}}</h2>
       </slot>
     </div>
-    <div ref="timeSelectionWrap" class="time-selection-wrap">
-      <div class="time-selection--yaxis" ref="timeSelectionYaxis" :style="yaxisStyl">
-        <div v-for="(row,index) in rows" :key="row.value" :class="['yaxis-picker',`time-selection--yaxis_item_${index}`]" :style="yaxisItemStyl" @click="_onTableAxisBetweenClick(index,'row',$event)">{{row.label}}</div>
+    <div class="time-selection-wrap" ref="timeSelectionWrap">
+      <div :style="yaxisStyl" class="time-selection--yaxis" ref="timeSelectionYaxis">
+        <div
+          :class="['yaxis-picker',`time-selection--yaxis_item_${index}`]"
+          :key="row.value"
+          :style="yaxisItemStyl"
+          @click="_onTableAxisBetweenClick(index,'row',$event)"
+          v-for="(row,index) in rows"
+        >{{row.label}}</div>
       </div>
-      <div class="time-selection--main" :style="{'margin-left':`${yaxisWidth}px`}">
+      <div :style="{'margin-left':`${yaxisWidth}px`}" class="time-selection--main">
         <table class="time-selection-picker">
           <thead ref="timeSelectionPickerHeader">
             <tr v-if="columns.length">
-              <th v-for="(col,index) in columns" :key="col.value" :class="['header-picker',`time-selection-picker--header_item_${index}`]" :style="{'height':`${headerHeight}px`}" @click="_onTableAxisClick(index,'col',$event)">
-                {{col.label}}
-              </th>
+              <th
+                :class="['header-picker',`time-selection-picker--header_item_${index}`]"
+                :key="col.value"
+                :style="{'height':`${headerHeight}px`}"
+                @click="_onTableAxisClick(index,'col',$event)"
+                v-for="(col,index) in columns"
+              >{{col.label}}</th>
             </tr>
           </thead>
           <tbody ref="timeSelectionArea">
-            <tr v-for="(row,i) in rows" :key="`${row.value}-${rows[i+1].value}`" v-if="i<rows.length-1">
-              <td class="time-selection-picker--bordered" :class="{begin:enable}" v-for="(col,j) in columns" :key="col.value" :data-col="j" :data-row="i" @click="_onTimePickerClick({row:i,col:j,value:[`${row.value}-${rows[i+1].value}`,col.value]})">
-                <div :class="['time-picker',`time-selection-picker--body_item_${j}`,{'is-active':_hasActive(i,j)}]" :style="timeItemStyl"></div>
+            <tr :key="`${row.value}-${rows[i+1].value}`" v-for="(row,i) in rows" v-if="i<rows.length-1">
+              <td
+                :class="{begin:enable}"
+                :data-col="j"
+                :data-row="i"
+                :key="col.value"
+                @click="_onTimePickerClick({row:i,col:j,value:[`${row.value}-${rows[i+1].value}`,col.value]})"
+                class="time-selection-picker--bordered"
+                v-for="(col,j) in columns"
+              >
+                <div
+                  :class="['time-picker',`time-selection-picker--body_item_${j}`,{'is-active':_hasActive(i,j)}]"
+                  :style="timeItemStyl"
+                ></div>
               </td>
             </tr>
           </tbody>
@@ -30,9 +51,9 @@
       <div class="time-selection--range" ref="timeSelectionRange"></div>
     </div>
     <div class="time-selection--footer" v-if="showFooter">
-      <button class="mr10 btn active" style="padding:10px;margin-left:10px;" @click="_clearData">Clear Data</button>
-      <button class="mr10 btn active" style="padding:10px;margin-left:10px;" @click="_testData">Test Data</button>
-      <button class="mr10 btn active" style="padding:10px;margin-left:10px;" @click="_getData">Get Data</button>
+      <button @click="_clearData" class="mr10 btn active" style="padding:10px;margin-left:10px;">Clear Data</button>
+      <button @click="_testData" class="mr10 btn active" style="padding:10px;margin-left:10px;">Test Data</button>
+      <button @click="_getData" class="mr10 btn active" style="padding:10px;margin-left:10px;">Get Data</button>
     </div>
   </div>
 </template>
@@ -608,63 +629,94 @@ export default {
       })
     },
     _getData() {
-      alert(JSON.stringify(this.getMergeSelected()))
+      if (!this.$isServer) {
+        alert(JSON.stringify(this.getMergeSelected()))
+      }
     }
   }
 }
 </script>
 <style lang="stylus">
-@import '../../style/mixins'
-@import '../../style/variable'
-.time-selection
-  margin-top 20px
-  & *
-    padding 0
-    margin 0
-    box-sizing border-box
-  height 100%
-  width 100%
-  position relative
-  display flex
-  flex-direction column
-  clearfix()
-  &--header, &--footer
-    text-align center
-    h2
-      color $textColor
-      font-size 150%
-      margin 0.5em 0
-  &--range
-    position absolute
-    border 2px dashed #b2b2b2
-    z-index 10
-    display none
-  &-wrap
-    clearfix()
-    position relative
-    flex 1 0 0
-    .time-picker, .yaxis-picker
-      width 100%
-      height 100%
-      text-align center
-      color $textColor
-    .header-picker
-      height 32px
-    .time-picker
-      border 1px solid #fff
-      &.is-active
-        background-color $accentColor
-  &--yaxis
-    width 50px
-    float left
-    font-size 12px
-    margin-top 21px
-  &--main
-    margin-left 50px
-  &-picker
-    width 100%
-    border-collapse collapse
-    border-spacing 0
-    &--bordered
-      border 1px solid $borderColor
+@import '../../style/mixins';
+@import '../../style/variable';
+
+.time-selection {
+  margin-top: 20px;
+
+  & * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  height: 100%;
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  clearfix();
+
+  &--header, &--footer {
+    text-align: center;
+
+    h2 {
+      color: $textColor;
+      font-size: 150%;
+      margin: 0.5em 0;
+    }
+  }
+
+  &--range {
+    position: absolute;
+    border: 2px dashed #b2b2b2;
+    z-index: 10;
+    display: none;
+  }
+
+  &-wrap {
+    clearfix();
+    position: relative;
+    flex: 1 0 0;
+
+    .time-picker, .yaxis-picker {
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      color: $textColor;
+    }
+
+    .header-picker {
+      height: 32px;
+    }
+
+    .time-picker {
+      border: 1px solid #fff;
+
+      &.is-active {
+        background-color: $accentColor;
+      }
+    }
+  }
+
+  &--yaxis {
+    width: 50px;
+    float: left;
+    font-size: 12px;
+    margin-top: 21px;
+  }
+
+  &--main {
+    margin-left: 50px;
+  }
+
+  &-picker {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+
+    &--bordered {
+      border: 1px solid $borderColor;
+    }
+  }
+}
 </style>

@@ -1,5 +1,6 @@
 # 手机适配方案gulp配置
 
+## 样式配置文件
 ```
 let gulp = require('gulp')
 let sass = require('gulp-sass')
@@ -130,3 +131,7 @@ gulp.task('default',
 }
 
 ```
+
+## 无线滚动测试
+
+<js-scroll/>

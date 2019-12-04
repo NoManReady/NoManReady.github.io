@@ -44,7 +44,6 @@ export default {
         let _result = Mock.mock(_template)
         this.result = JSON.stringify(_result, null, 4)
       } catch (error) {
-        alert('error tempalte data format.')
       }
     }
   }
