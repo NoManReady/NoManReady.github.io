@@ -96,3 +96,22 @@ export const convertBase64UrlToBlob = (base64, mimeType) => {
 let formData = new window.FormData()
 formData.append('file', _blob)
 ```
+
+## 生成渐进式
+
+```
+https://juejin.im/post/5df184da518825125e1bad11
+npm install imagemin-mozjpeg
+
+const imageminMozjpeg = require('imagemin-mozjpeg');
+const optimiseJPEGImages = () =>
+  imagemin([JPEGImages], output, {
+    plugins: [
+      imageminMozjpeg({
+        quality: 70,
+      }),
+    ]
+  });
+optimiseJPEGImages()
+  .catch(error => console.log(error));
+```
