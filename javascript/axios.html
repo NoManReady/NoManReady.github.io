@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <title>NoManReady | Axios</title>
+    <meta name="description" content="Enjoy Vue">
+  <link rel="icon" href="/favicon.ico">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.16.2/build/styles/monokai-sublime.min.css">
+  <script src="/plugin.js" defer="defer"></script>
+    
+    <link rel="preload" href="/assets/css/styles.f9fabecb.css" as="style"><link rel="preload" href="/assets/js/app.f9fabecb.js" as="script"><link rel="preload" href="/assets/js/17.eb0d8a66.js" as="script"><link rel="prefetch" href="/assets/css/1.styles.fb5360c8.css"><link rel="prefetch" href="/assets/css/10.styles.c2ff9880.css"><link rel="prefetch" href="/assets/css/2.styles.57764f6e.css"><link rel="prefetch" href="/assets/css/3.styles.4b2dffe2.css"><link rel="prefetch" href="/assets/css/4.styles.4a73d6c1.css"><link rel="prefetch" href="/assets/css/5.styles.2a4b22e5.css"><link rel="prefetch" href="/assets/css/6.styles.1c6b640b.css"><link rel="prefetch" href="/assets/css/7.styles.f97b03e2.css"><link rel="prefetch" href="/assets/css/8.styles.e3b1d02a.css"><link rel="prefetch" href="/assets/css/9.styles.e07d14e7.css"><link rel="prefetch" href="/assets/js/1.fb5360c8.js"><link rel="prefetch" href="/assets/js/10.c2ff9880.js"><link rel="prefetch" href="/assets/js/100.3f807d18.js"><link rel="prefetch" href="/assets/js/101.1def8710.js"><link rel="prefetch" href="/assets/js/102.644cf78b.js"><link rel="prefetch" href="/assets/js/103.1088160b.js"><link rel="prefetch" href="/assets/js/104.8c17adfc.js"><link rel="prefetch" href="/assets/js/105.6605686d.js"><link rel="prefetch" href="/assets/js/106.7d240384.js"><link rel="prefetch" href="/assets/js/107.f10caae7.js"><link rel="prefetch" href="/assets/js/108.0828b177.js"><link rel="prefetch" href="/assets/js/109.bd5ee763.js"><link rel="prefetch" href="/assets/js/11.8126a18c.js"><link rel="prefetch" href="/assets/js/110.f4300c1c.js"><link rel="prefetch" href="/assets/js/111.df43f5ad.js"><link rel="prefetch" href="/assets/js/112.98216cba.js"><link rel="prefetch" href="/assets/js/113.6689aa65.js"><link rel="prefetch" href="/assets/js/114.57814195.js"><link rel="prefetch" href="/assets/js/115.a83432c9.js"><link rel="prefetch" href="/assets/js/116.2588f59c.js"><link rel="prefetch" href="/assets/js/117.656fc94d.js"><link rel="prefetch" href="/assets/js/118.3341dde0.js"><link rel="prefetch" href="/assets/js/119.f34aca63.js"><link rel="prefetch" href="/assets/js/12.1621cdf4.js"><link rel="prefetch" href="/assets/js/120.e0d5ddc2.js"><link rel="prefetch" href="/assets/js/121.1266127c.js"><link rel="prefetch" href="/assets/js/122.a024dcbe.js"><link rel="prefetch" href="/assets/js/123.7ca612bc.js"><link rel="prefetch" href="/assets/js/124.3d18eb44.js"><link rel="prefetch" href="/assets/js/125.d46bd679.js"><link rel="prefetch" href="/assets/js/126.75233948.js"><link rel="prefetch" href="/assets/js/127.817987ed.js"><link rel="prefetch" href="/assets/js/128.a2d19497.js"><link rel="prefetch" href="/assets/js/129.6b85f9c5.js"><link rel="prefetch" href="/assets/js/13.7b4a8aea.js"><link rel="prefetch" href="/assets/js/130.743766de.js"><link rel="prefetch" href="/assets/js/131.922ca099.js"><link rel="prefetch" href="/assets/js/132.94ebd0b8.js"><link rel="prefetch" href="/assets/js/133.f59dff8b.js"><link rel="prefetch" href="/assets/js/134.e3d8eaa7.js"><link rel="prefetch" href="/assets/js/135.b617c76d.js"><link rel="prefetch" href="/assets/js/136.778c2d71.js"><link rel="prefetch" href="/assets/js/137.b9af9760.js"><link rel="prefetch" href="/assets/js/138.776e72ef.js"><link rel="prefetch" href="/assets/js/139.744f7325.js"><link rel="prefetch" href="/assets/js/14.0bf32e8a.js"><link rel="prefetch" href="/assets/js/140.cd9e88dd.js"><link rel="prefetch" href="/assets/js/141.9064f98d.js"><link rel="prefetch" href="/assets/js/142.56537ea1.js"><link rel="prefetch" href="/assets/js/143.dd867b7b.js"><link rel="prefetch" href="/assets/js/144.4e82edef.js"><link rel="prefetch" href="/assets/js/145.11e3204f.js"><link rel="prefetch" href="/assets/js/146.96a6d2bc.js"><link rel="prefetch" href="/assets/js/147.495e1f05.js"><link rel="prefetch" href="/assets/js/148.081f81bb.js"><link rel="prefetch" href="/assets/js/149.fbe99358.js"><link rel="prefetch" href="/assets/js/15.880738a4.js"><link rel="prefetch" href="/assets/js/150.8de80a36.js"><link rel="prefetch" href="/assets/js/151.df800fdd.js"><link rel="prefetch" href="/assets/js/152.c0302cb1.js"><link rel="prefetch" href="/assets/js/153.3425371f.js"><link rel="prefetch" href="/assets/js/154.28522127.js"><link rel="prefetch" href="/assets/js/155.bb15ec95.js"><link rel="prefetch" href="/assets/js/156.323d2386.js"><link rel="prefetch" href="/assets/js/157.8bcff0b2.js"><link rel="prefetch" href="/assets/js/158.f5eebb22.js"><link rel="prefetch" href="/assets/js/159.fb3b6a9b.js"><link rel="prefetch" href="/assets/js/16.1361e03b.js"><link rel="prefetch" href="/assets/js/160.aebccb02.js"><link rel="prefetch" href="/assets/js/161.ae882fd0.js"><link rel="prefetch" href="/assets/js/162.f6aad621.js"><link rel="prefetch" href="/assets/js/163.88474095.js"><link rel="prefetch" href="/assets/js/164.40f5e716.js"><link rel="prefetch" href="/assets/js/165.4eaff770.js"><link rel="prefetch" href="/assets/js/166.e980045d.js"><link rel="prefetch" href="/assets/js/167.0747f255.js"><link rel="prefetch" href="/assets/js/168.b8c506a2.js"><link rel="prefetch" href="/assets/js/169.f4e3acba.js"><link rel="prefetch" href="/assets/js/170.dc4e7cb1.js"><link rel="prefetch" href="/assets/js/171.e8b1f2cf.js"><link rel="prefetch" href="/assets/js/172.c25ef782.js"><link rel="prefetch" href="/assets/js/173.34d13f78.js"><link rel="prefetch" href="/assets/js/174.363d0712.js"><link rel="prefetch" href="/assets/js/175.e1d98825.js"><link rel="prefetch" href="/assets/js/176.749257ec.js"><link rel="prefetch" href="/assets/js/177.0736bac4.js"><link rel="prefetch" href="/assets/js/178.9c1e565a.js"><link rel="prefetch" href="/assets/js/179.b64ae924.js"><link rel="prefetch" href="/assets/js/18.06b99f11.js"><link rel="prefetch" href="/assets/js/180.45941eed.js"><link rel="prefetch" href="/assets/js/181.8022037a.js"><link rel="prefetch" href="/assets/js/182.7448dc6f.js"><link rel="prefetch" href="/assets/js/183.21fa459f.js"><link rel="prefetch" href="/assets/js/184.f561fd70.js"><link rel="prefetch" href="/assets/js/185.b37e24c5.js"><link rel="prefetch" href="/assets/js/186.94513afa.js"><link rel="prefetch" href="/assets/js/187.0c8c31e6.js"><link rel="prefetch" href="/assets/js/188.9392892a.js"><link rel="prefetch" href="/assets/js/189.fd65808c.js"><link rel="prefetch" href="/assets/js/19.2929ed9d.js"><link rel="prefetch" href="/assets/js/190.49e437fd.js"><link rel="prefetch" href="/assets/js/191.24d05546.js"><link rel="prefetch" href="/assets/js/192.76a812d2.js"><link rel="prefetch" href="/assets/js/193.120450fc.js"><link rel="prefetch" href="/assets/js/194.4f2cf586.js"><link rel="prefetch" href="/assets/js/195.d7b38f1c.js"><link rel="prefetch" href="/assets/js/196.2ffb1b2c.js"><link rel="prefetch" href="/assets/js/197.c342e977.js"><link rel="prefetch" href="/assets/js/198.62b8087e.js"><link rel="prefetch" href="/assets/js/199.3ed97f42.js"><link rel="prefetch" href="/assets/js/2.57764f6e.js"><link rel="prefetch" href="/assets/js/20.d81fe00e.js"><link rel="prefetch" href="/assets/js/200.442bca17.js"><link rel="prefetch" href="/assets/js/201.0c28ac7d.js"><link rel="prefetch" href="/assets/js/202.05bea935.js"><link rel="prefetch" href="/assets/js/203.60878f7a.js"><link rel="prefetch" href="/assets/js/204.93412f26.js"><link rel="prefetch" href="/assets/js/205.acc8f0ab.js"><link rel="prefetch" href="/assets/js/206.0e3a4157.js"><link rel="prefetch" href="/assets/js/207.9e2e6360.js"><link rel="prefetch" href="/assets/js/208.c5eb34d7.js"><link rel="prefetch" href="/assets/js/209.1c499877.js"><link rel="prefetch" href="/assets/js/21.ede63102.js"><link rel="prefetch" href="/assets/js/210.736cf8c2.js"><link rel="prefetch" href="/assets/js/211.55e4c713.js"><link rel="prefetch" href="/assets/js/212.ddb64fe1.js"><link rel="prefetch" href="/assets/js/213.705f47e1.js"><link rel="prefetch" href="/assets/js/214.9bbffe50.js"><link rel="prefetch" href="/assets/js/215.b6a8c349.js"><link rel="prefetch" href="/assets/js/216.f10c63e0.js"><link rel="prefetch" href="/assets/js/217.aabb62dc.js"><link rel="prefetch" href="/assets/js/218.ec73d82a.js"><link rel="prefetch" href="/assets/js/219.e65cf9a4.js"><link rel="prefetch" href="/assets/js/22.f9f36f9b.js"><link rel="prefetch" href="/assets/js/220.8337648e.js"><link rel="prefetch" href="/assets/js/221.439c4ad7.js"><link rel="prefetch" href="/assets/js/222.1ed886c1.js"><link rel="prefetch" href="/assets/js/223.fa6b8e33.js"><link rel="prefetch" href="/assets/js/224.2f000ca5.js"><link rel="prefetch" href="/assets/js/225.64541fc8.js"><link rel="prefetch" href="/assets/js/226.860fd28c.js"><link rel="prefetch" href="/assets/js/227.38635c84.js"><link rel="prefetch" href="/assets/js/228.262ff671.js"><link rel="prefetch" href="/assets/js/229.7cd0d8b3.js"><link rel="prefetch" href="/assets/js/23.6da479b2.js"><link rel="prefetch" href="/assets/js/230.3b76ebff.js"><link rel="prefetch" href="/assets/js/231.2f1d7671.js"><link rel="prefetch" href="/assets/js/232.29ede68a.js"><link rel="prefetch" href="/assets/js/233.ab25ed54.js"><link rel="prefetch" href="/assets/js/234.d52dc0cb.js"><link rel="prefetch" href="/assets/js/235.e0d57658.js"><link rel="prefetch" href="/assets/js/236.cf7f6ad6.js"><link rel="prefetch" href="/assets/js/237.8f8c275e.js"><link rel="prefetch" href="/assets/js/238.acc91738.js"><link rel="prefetch" href="/assets/js/239.fe06b216.js"><link rel="prefetch" href="/assets/js/24.40fa0acf.js"><link rel="prefetch" href="/assets/js/240.1aa0674a.js"><link rel="prefetch" href="/assets/js/241.98502bef.js"><link rel="prefetch" href="/assets/js/242.95ca31d3.js"><link rel="prefetch" href="/assets/js/243.de7891ed.js"><link rel="prefetch" href="/assets/js/244.65862719.js"><link rel="prefetch" href="/assets/js/245.525e7503.js"><link rel="prefetch" href="/assets/js/246.3c5bf19c.js"><link rel="prefetch" href="/assets/js/247.fa436a8e.js"><link rel="prefetch" href="/assets/js/248.2ab8a8e0.js"><link rel="prefetch" href="/assets/js/249.d03e1fb6.js"><link rel="prefetch" href="/assets/js/25.fdf4a42b.js"><link rel="prefetch" href="/assets/js/250.aa90e97e.js"><link rel="prefetch" href="/assets/js/251.648544c2.js"><link rel="prefetch" href="/assets/js/252.6009a1b5.js"><link rel="prefetch" href="/assets/js/253.b9b711c6.js"><link rel="prefetch" href="/assets/js/254.d0cd4160.js"><link rel="prefetch" href="/assets/js/255.f1227fc2.js"><link rel="prefetch" href="/assets/js/256.966fc256.js"><link rel="prefetch" href="/assets/js/257.4173d110.js"><link rel="prefetch" href="/assets/js/258.d07d2b8d.js"><link rel="prefetch" href="/assets/js/259.1ca17877.js"><link rel="prefetch" href="/assets/js/26.9fcc52ce.js"><link rel="prefetch" href="/assets/js/260.dccb4b19.js"><link rel="prefetch" href="/assets/js/261.141829a8.js"><link rel="prefetch" href="/assets/js/262.c9084611.js"><link rel="prefetch" href="/assets/js/263.3529f99c.js"><link rel="prefetch" href="/assets/js/264.a7c9b7ec.js"><link rel="prefetch" href="/assets/js/265.d664ed18.js"><link rel="prefetch" href="/assets/js/266.caca8306.js"><link rel="prefetch" href="/assets/js/267.68016aaf.js"><link rel="prefetch" href="/assets/js/268.10d8daa9.js"><link rel="prefetch" href="/assets/js/269.f6d2b485.js"><link rel="prefetch" href="/assets/js/27.c005f786.js"><link rel="prefetch" href="/assets/js/270.e6e8f093.js"><link rel="prefetch" href="/assets/js/271.fabbfd28.js"><link rel="prefetch" href="/assets/js/272.195e3c1d.js"><link rel="prefetch" href="/assets/js/273.f763318a.js"><link rel="prefetch" href="/assets/js/274.33c37377.js"><link rel="prefetch" href="/assets/js/275.9704f2ca.js"><link rel="prefetch" href="/assets/js/276.0248b3a6.js"><link rel="prefetch" href="/assets/js/277.a29ca1ca.js"><link rel="prefetch" href="/assets/js/278.9d63e998.js"><link rel="prefetch" href="/assets/js/279.e07bef6c.js"><link rel="prefetch" href="/assets/js/28.78959767.js"><link rel="prefetch" href="/assets/js/280.7524592f.js"><link rel="prefetch" href="/assets/js/281.4074b35c.js"><link rel="prefetch" href="/assets/js/282.2d4551c1.js"><link rel="prefetch" href="/assets/js/283.a8e73d10.js"><link rel="prefetch" href="/assets/js/29.604a1ba7.js"><link rel="prefetch" href="/assets/js/3.4b2dffe2.js"><link rel="prefetch" href="/assets/js/30.cc4bea3a.js"><link rel="prefetch" href="/assets/js/31.164047a1.js"><link rel="prefetch" href="/assets/js/32.c10258f1.js"><link rel="prefetch" href="/assets/js/33.89476f71.js"><link rel="prefetch" href="/assets/js/34.f733da11.js"><link rel="prefetch" href="/assets/js/35.4f5b675b.js"><link rel="prefetch" href="/assets/js/36.552518ce.js"><link rel="prefetch" href="/assets/js/37.d3ee6bb8.js"><link rel="prefetch" href="/assets/js/38.99bb50d2.js"><link rel="prefetch" href="/assets/js/39.ae5bdfb2.js"><link rel="prefetch" href="/assets/js/4.4a73d6c1.js"><link rel="prefetch" href="/assets/js/40.fd098659.js"><link rel="prefetch" href="/assets/js/41.cd2fec5c.js"><link rel="prefetch" href="/assets/js/42.7cc83724.js"><link rel="prefetch" href="/assets/js/43.f7877412.js"><link rel="prefetch" href="/assets/js/44.123aa78e.js"><link rel="prefetch" href="/assets/js/45.867c2d50.js"><link rel="prefetch" href="/assets/js/46.4a236184.js"><link rel="prefetch" href="/assets/js/47.471493ec.js"><link rel="prefetch" href="/assets/js/48.b83f1dd9.js"><link rel="prefetch" href="/assets/js/49.b14caca4.js"><link rel="prefetch" href="/assets/js/5.2a4b22e5.js"><link rel="prefetch" href="/assets/js/50.817b0529.js"><link rel="prefetch" href="/assets/js/51.fc7238cd.js"><link rel="prefetch" href="/assets/js/52.0ca45351.js"><link rel="prefetch" href="/assets/js/53.694a6895.js"><link rel="prefetch" href="/assets/js/54.9f18fac9.js"><link rel="prefetch" href="/assets/js/55.13a334d2.js"><link rel="prefetch" href="/assets/js/56.78fec891.js"><link rel="prefetch" href="/assets/js/57.a627e6fc.js"><link rel="prefetch" href="/assets/js/58.60bbc85a.js"><link rel="prefetch" href="/assets/js/59.f71912a5.js"><link rel="prefetch" href="/assets/js/6.1c6b640b.js"><link rel="prefetch" href="/assets/js/60.291ed059.js"><link rel="prefetch" href="/assets/js/61.51b13c1a.js"><link rel="prefetch" href="/assets/js/62.5f57d67a.js"><link rel="prefetch" href="/assets/js/63.e4702a48.js"><link rel="prefetch" href="/assets/js/64.3bc0ec0d.js"><link rel="prefetch" href="/assets/js/65.2fa22f76.js"><link rel="prefetch" href="/assets/js/66.83766694.js"><link rel="prefetch" href="/assets/js/67.ca2a44cf.js"><link rel="prefetch" href="/assets/js/68.5d733d09.js"><link rel="prefetch" href="/assets/js/69.b652d4df.js"><link rel="prefetch" href="/assets/js/7.f97b03e2.js"><link rel="prefetch" href="/assets/js/70.eb42a6ac.js"><link rel="prefetch" href="/assets/js/71.93102ac6.js"><link rel="prefetch" href="/assets/js/72.4199b3d4.js"><link rel="prefetch" href="/assets/js/73.a5a19bd5.js"><link rel="prefetch" href="/assets/js/74.5d9cecbc.js"><link rel="prefetch" href="/assets/js/75.6252fa0e.js"><link rel="prefetch" href="/assets/js/76.ac491ea8.js"><link rel="prefetch" href="/assets/js/77.9ecb498c.js"><link rel="prefetch" href="/assets/js/78.303b4048.js"><link rel="prefetch" href="/assets/js/79.943dab29.js"><link rel="prefetch" href="/assets/js/8.e3b1d02a.js"><link rel="prefetch" href="/assets/js/80.43c2d293.js"><link rel="prefetch" href="/assets/js/81.26465fd3.js"><link rel="prefetch" href="/assets/js/82.329788b0.js"><link rel="prefetch" href="/assets/js/83.6b97d298.js"><link rel="prefetch" href="/assets/js/84.9cf1c638.js"><link rel="prefetch" href="/assets/js/85.bd470a03.js"><link rel="prefetch" href="/assets/js/86.d625b088.js"><link rel="prefetch" href="/assets/js/87.0526e429.js"><link rel="prefetch" href="/assets/js/88.ee0ca2ff.js"><link rel="prefetch" href="/assets/js/89.9d6f1e9c.js"><link rel="prefetch" href="/assets/js/9.e07d14e7.js"><link rel="prefetch" href="/assets/js/90.900fb962.js"><link rel="prefetch" href="/assets/js/91.e90a821d.js"><link rel="prefetch" href="/assets/js/92.99347a78.js"><link rel="prefetch" href="/assets/js/93.03a984a9.js"><link rel="prefetch" href="/assets/js/94.5656aad2.js"><link rel="prefetch" href="/assets/js/95.f2c85da5.js"><link rel="prefetch" href="/assets/js/96.404c4e81.js"><link rel="prefetch" href="/assets/js/97.234d325c.js"><link rel="prefetch" href="/assets/js/98.0e2791ad.js"><link rel="prefetch" href="/assets/js/99.fe4eaa02.js">
+    <link rel="stylesheet" href="/assets/css/styles.f9fabecb.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div><a href="/" class="router-link-active"><!----><span class="site-name">
+      NoManReady
+    </span></a><div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""><!----></div><nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">Home</a></div><div class="nav-item"><a href="/webcomponent/" class="nav-link">WebComponent</a></div><div class="nav-item"><a href="/structure/" class="nav-link">Structure</a></div><div class="nav-item"><a href="/story/" class="nav-link">故事会</a></div><div class="nav-item"><div class="dropdown-wrapper"><div class="dropdown-title"><span class="title">文章</span><span class="arrow"></span></div><ul class="nav-dropdown"><li class="dropdown-item"><!----><a href="/ow/" class="nav-link">Ow</a></li><li class="dropdown-item"><!----><a href="/javascript/" class="nav-link router-link-active">Javascript</a></li><li class="dropdown-item"><!----><a href="/css/" class="nav-link">CSS</a></li><li class="dropdown-item"><!----><a href="/mockjs/" class="nav-link">Mockjs</a></li><li class="dropdown-item"><!----><a href="/vue/" class="nav-link">Vue</a></li></ul></div></div><div class="nav-item"><a href="/gist/" class="nav-link">开源库</a></div><a href="https://github.com/NoManReady/NoManReady.github.io" target="_blank" rel="noopener" class="github-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header><div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">Home</a></div><div class="nav-item"><a href="/webcomponent/" class="nav-link">WebComponent</a></div><div class="nav-item"><a href="/structure/" class="nav-link">Structure</a></div><div class="nav-item"><a href="/story/" class="nav-link">故事会</a></div><div class="nav-item"><div class="dropdown-wrapper"><div class="dropdown-title"><span class="title">文章</span><span class="arrow"></span></div><ul class="nav-dropdown"><li class="dropdown-item"><!----><a href="/ow/" class="nav-link">Ow</a></li><li class="dropdown-item"><!----><a href="/javascript/" class="nav-link router-link-active">Javascript</a></li><li class="dropdown-item"><!----><a href="/css/" class="nav-link">CSS</a></li><li class="dropdown-item"><!----><a href="/mockjs/" class="nav-link">Mockjs</a></li><li class="dropdown-item"><!----><a href="/vue/" class="nav-link">Vue</a></li></ul></div></div><div class="nav-item"><a href="/gist/" class="nav-link">开源库</a></div><a href="https://github.com/NoManReady/NoManReady.github.io" target="_blank" rel="noopener" class="github-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav><ul class="sidebar-links"><li><a href="/javascript/pluginmode.html" class="sidebar-link">js 插件开发方式</a></li><li><a href="/javascript/mobile.html" class="sidebar-link">手机适配方案gulp配置</a></li><li><a href="/javascript/axios.html" class="active sidebar-link">Axios</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/javascript/axios.html#背景" class="sidebar-link">背景</a></li><li class="sidebar-sub-header"><a href="/javascript/axios.html#解决方案" class="sidebar-link">解决方案</a></li><li class="sidebar-sub-header"><a href="/javascript/axios.html#接下来对-axios-基于上面的准备进行处理" class="sidebar-link">接下来对 axios 基于上面的准备进行处理</a></li><li class="sidebar-sub-header"><a href="/javascript/axios.html#ts封装" class="sidebar-link">ts封装</a></li><li class="sidebar-sub-header"><a href="/javascript/axios.html#使用方法" class="sidebar-link">使用方法</a></li></ul></li><li><a href="/javascript/image.html" class="sidebar-link">图片上传</a></li><li><a href="/javascript/timeselected.html" class="sidebar-link">拖拽选区组件</a></li><li><a href="/javascript/utils.html" class="sidebar-link">js积累</a></li></ul></div><div class="page"><div class="content"><h1 id="axios"><a href="#axios" aria-hidden="true" class="header-anchor">#</a> Axios</h1><h2 id="背景"><a href="#背景" aria-hidden="true" class="header-anchor">#</a> 背景</h2><ul><li>在项目开发中 ajax 请求是必不可缺少</li><li>一部分 ajax 请求不需要 loading 或则请求时间少于多少是不显示 loading</li><li>项目中对请求的同一化处理（错误处理，返回数据格式化处理，loading 处理，token 处理）</li><li>配置基于个人 vue 项目进行配置，已加载 vux 相关组件，会进行一些依赖的 import（可以按需配置）</li></ul><pre class="language-text"><code>import Vue from 'vue'
+import axios from 'axios'
+//项目的一些环境配置参数，读取host
+import config from '@/config'
+//vuex状态管理，这里主要进行对全局loading的控制
+import store from '@/store'
+//vue-router对相应状态码的页面操作（router实例）
+import router from '@/router'
+//console对应封装
+import { log } from '@/utils'
+</code></pre><h2 id="解决方案"><a href="#解决方案" aria-hidden="true" class="header-anchor">#</a> 解决方案</h2><p>对于 axios 的封装中我们定义几个参数进行申明</p><pre class="language-text"><code>// 加载最小时间
+const MINI_TIME = 300
+// 超时时间（超时时间）
+let TIME_OUT_MAX = 5000
+// 环境value
+let _env = process.env.NODE_ENV
+// 请求接口host
+let _apiHost = config.api
+// 请求组（判断当前请求数）
+let _requests = []
+</code></pre><p>一般一个项目中的根 host 和 Content-Type 都是统一的，这里对 axios 进行统一的配置（如果这个后端需要 formData 格式的表单即 content-type='application/x-www-form-urlencoded;charset=utf-8’数据，需要对请求数据进行表单序列化，比较快的方式就是引入 qs 库 qs.stringify 进行处理后传输）</p><pre class="language-text"><code>axios.defaults.headers.common['Content-Type'] = 'application/json'
+axios.defaults.baseURL = _apiHost
+</code></pre><p>一般情况下项目中同一时刻都会有不止一个请求在进行（还没有返回），要判断当前是否还存在进行中的 ajax，就需要对requests 这个数组进行维护；</p><pre class="language-text"><code>/**
+ * 添加请求，显示loading
+ * @param {请求配置} config
+ */
+function pushRequest(config) {
+  log(`${config.url}--begin`)
+  _requests.push(config)
+  Vue.$vux.loading.show({
+    text: 'Loading'
+  })
+  store.dispatch('loading')
+}
+
+/**
+ * 移除请求，无请求时关闭loading
+ * @param {请求配置} config
+ */
+function popRequest(config) {
+  log(`${config.url}--end`)
+  let _index = _requests.findIndex(r =&gt; {
+    return r === config
+  })
+  if (_index &gt; -1) {
+    _requests.splice(_index, 1)
+  }
+  if (!_requests.length) {
+    Vue.$vux.loading.hide(0)
+    store.dispatch('loading', false)
+  }
+}
+</code></pre><h2 id="接下来对-axios-基于上面的准备进行处理"><a href="#接下来对-axios-基于上面的准备进行处理" aria-hidden="true" class="header-anchor">#</a> 接下来对 axios 基于上面的准备进行处理</h2><pre class="language-text"><code>/**
+ * 请求地址，请求数据，是否静默，请求方法
+ */
+export default (url, data = {}, isSilence = false, method = 'POST') =&gt; {
+  let _opts = { method, url }
+  //通用数据的合并（token）
+  let _data = Object.assign({}, data, { token: store.getters.token })
+  const _query = {}
+  for (let _key in _data) {
+    if (_data.hasOwnProperty(_key) &amp;&amp; _data[_key] !== '') {
+      _query[_key] = _data[_key]
+    }
+  }
+  //axios实例请求定时器ID
+  let _timer = null
+  //判断请求类型
+  if (method.toLocaleUpperCase() === 'POST') {
+    _opts.data = _query
+  } else {
+    _opts.params = _query
+  }
+  //返回一个promise
+  return new Promise((resolve, reject) =&gt; {
+    //实例化axios
+    const _instance = axios.create({
+      timeout: TIME_OUT_MAX
+    })
+    //定义请求的唯一标识
+    let _random = { stamp: Date.now(), url: `${_apiHost + url}` }
+    //判断是否静默（静默的话就不加入请求标识队列，不是则申明此请求实例的定时器）
+    if (!isSilence) {
+      _timer = setTimeout(() =&gt; {
+        pushRequest(_random)
+      }, MINI_TIME)
+    }
+    //axios实例发送当前请求
+    //请求完成：1、取消当前请求的定时器；2、在当前请求标识队列中移除当前标识；
+    //成功的话返回统一处理后的数据，失败则对状态码进行判断
+    _instance(_opts)
+      .then(res =&gt; {
+        let responseData = res.data
+        clearTimeout(_timer)
+        popRequest(_random)
+        resolve(res.data)
+      })
+      .catch(res =&gt; {
+        let _response = res.response
+        let _message = null
+        clearTimeout(_timer)
+        popRequest(_random)
+        switch (_response.status) {
+          case 404:
+            _message = '404,错误请求'
+            break
+          case 401:
+            router.push({ path: '/login', query: { redirect: router.currentRoute.fullPath } })
+            _message = '未授权'
+            break
+          case 403:
+            _message = '禁止访问'
+            break
+          case 408:
+            _message = '请求超时'
+            break
+          case 500:
+            _message = '服务器内部错误'
+            break
+          case 501:
+            _message = '功能未实现'
+            break
+          case 503:
+            _message = '服务不可用'
+            break
+          case 504:
+            _message = '网关错误'
+            break
+          default:
+            _message = '未知错误'
+        }
+        if (!isSilence) {
+          Vue.$vux.toast.show({
+            text: _response.data &amp;&amp; _response.data.error ? _response.data.error : _message,
+            type: 'warn',
+            width: '10em'
+          })
+        }
+        reject(res)
+      })
+  })
+}
+</code></pre><p><a href="https://github.com/NoManReady/Tide/blob/master/src/utils/fetch.js" target="_blank" rel="noopener noreferrer">源文件路径</a></p><h2 id="ts封装"><a href="#ts封装" aria-hidden="true" class="header-anchor">#</a> ts封装</h2><pre class="language-text"><code>import axios, { AxiosResponse, AxiosRequestConfig, CancelTokenStatic } from 'axios'
+import { Message, MessageBox } from 'element-ui'
+import qs from 'qs'
+
+const SYS_CANCEL = 'System cancel'
+class Request {
+  protected baseURL: any = process.env.VUE_APP_BASE_URL
+  protected service: any
+  protected pending: Array&lt;{
+    url: string,
+    cancel: Function
+  }&gt; = []
+  protected CancelToken: CancelTokenStatic = axios.CancelToken
+  protected axiosRequestConfig: AxiosRequestConfig = {}
+  protected successCode: Array&lt;number&gt; = [200, 204]
+
+  private static _instance: Request
+
+  private static _token: string
+
+  private constructor() {
+    this.requestConfig()
+    this.service = axios.create(this.axiosRequestConfig)
+    this.interceptorsRequest()
+    this.interceptorsResponse()
+  }
+
+  public static getInstance(): Request {
+    this._instance || (this._instance = new Request())
+    return this._instance
+  }
+  public setToken(token: string): void {
+    Request._token = token
+  }
+  public getToken(): string {
+    return Request._token
+  }
+  public static async resetToken() {
+
+  }
+  protected requestConfig(): void {
+    this.axiosRequestConfig = {
+      // baseURL`将自动加在 `url` 前面，除非 `url` 是一个绝对 URL
+      baseURL: this.baseURL,
+      // `headers` 是即将被发送的自定义请求头
+      headers: {
+        timestamp: new Date().getTime(),
+        'Content-Type': 'application/json'
+      },
+      // transformRequest` 允许在向服务器发送前，修改请求数据
+      transformRequest: [function (data: any) {
+        //对data进行任意转换处理
+        return data;
+      }],
+      // `transformResponse` 在传递给 then/catch 前，允许修改响应数据
+      transformResponse: [function (data: AxiosResponse) {
+        return data
+      }],
+      // `paramsSerializer` 是一个负责 `params` 序列化的函数
+      paramsSerializer: function (params: any) {
+        return qs.stringify(params, { arrayFormat: 'brackets' })
+      },
+      // `timeout` 指定请求超时的毫秒数(0 表示无超时时间)
+      // 如果请求话费了超过 `timeout` 的时间，请求将被中断
+      timeout: 30000,
+      // `withCredentials` 表示跨域请求时是否需要使用凭证
+      withCredentials: false,
+      // `responseType` 表示服务器响应的数据类型，可以是 'arraybuffer', 'blob', 'document', 'json', 'text', 'stream'
+      responseType: 'json',
+      // `xsrfCookieName` 是用作 xsrf token 的值的cookie的名称
+      xsrfCookieName: 'XSRF-TOKEN',
+      // `xsrfHeaderName` 是承载 xsrf token 的值的 HTTP 头的名称
+      xsrfHeaderName: 'X-XSRF-TOKEN',
+      // `maxRedirects` 定义在 node.js 中 follow 的最大重定向数目
+      maxRedirects: 5,
+      // `maxContentLength` 定义允许的响应内容的最大尺寸
+      maxContentLength: 2000,
+      // `validateStatus` 定义对于给定的HTTP 响应状态码是 resolve 或 reject  promise 。如果 `validateStatus` 返回 `true` (或者设置为 `null` 或 `undefined`)，promise 将被 resolve; 否则，promise 将被 rejecte
+      validateStatus: function (status: number) {
+        return status &gt;= 200 &amp;&amp; status &lt; 300
+      },
+      // // `httpAgent` 和 `httpsAgent` 分别在 node.js 中用于定义在执行 http 和 https 时使用的自定义代理。允许像这样配置选项：
+      // // `keepAlive` 默认没有启用
+      // httpAgent: new http.Agent({ keepAlive: true }),
+      // httpsAgent: new https.Agent({ keepAlive: true })
+    }
+  }
+  protected interceptorsRequest(): void {
+    this.service.interceptors.request.use((config: any) =&gt; {
+      if (Request._token) {
+        config.headers['authorization'] = Request._token
+        if (config.url.indexOf('?') &gt; -1) {
+          config.url += `&amp;auth=${Request._token}`
+        } else {
+          config.url += `?auth=${Request._token}`
+        }
+      }
+      this.removePending(config)
+      let { cancel, token } = this.CancelToken.source()
+      config.cancelToken = token
+      this.pending.push({ url: `${config.url}/${JSON.stringify(config.data)}&amp;request_type=${config.method}`, cancel })
+      this.requestLog(config)
+      config.$$b_stamp = new Date().getTime()
+      return config
+    }, (error: any) =&gt; {
+      return Promise.reject(error)
+    })
+  }
+  protected interceptorsResponse(): void {
+    this.service.interceptors.response.use(
+      (response: any) =&gt; {
+        response.config.$$e_stamp = new Date().getTime()
+        this.responseLog(response)
+        this.removePending(response.config)
+        if (this.successCode.indexOf(response.status) === -1) {
+          Message({
+            message: response.data.message || 'Unknow Error',
+            type: 'error',
+            duration: 5 * 1000
+          })
+          if (response.data.code === 401) {
+            MessageBox.confirm(
+              '你已被登出，可以取消继续留在该页面，或者重新登录',
+              '确定登出',
+              {
+                confirmButtonText: '重新登录',
+                cancelButtonText: '取消',
+                type: 'warning'
+              }
+            ).then(() =&gt; {
+              Request.resetToken()
+              location.reload()
+            })
+          }
+          return Promise.reject(new Error(response.message || 'Error'))
+        } else {
+          return response.data
+        }
+      },
+      (error: any) =&gt; {
+        if (error.isAxiosError) {
+          Message({
+            message: error.message || 'Unknow Error',
+            type: 'error',
+            duration: 5 * 1000
+          })
+        }
+        return Promise.reject(error)
+      }
+    )
+  }
+  protected removePending(config: any): void {
+    for (let index = 0; index &lt; this.pending.length; index++) {
+      let p = this.pending[index]
+      if (p.url === `${config.url}/${JSON.stringify(config.data)}&amp;request_type=${config.method}`) {
+        p.cancel(SYS_CANCEL)
+        this.pending.splice(index, 1)
+      }
+    }
+  }
+  public async post(url: string, data: any = {}, config: object = {}): Promise&lt;any&gt; {
+    try {
+      const result = await this.service.post(url, JSON.stringify(data), config)
+      return result.data
+    } catch (error) {
+      console.error(error)
+    }
+  }
+  public async get(url: string, params: any = {}, config: object = {}): Promise&lt;any&gt; {
+    try {
+      await this.service.get(url, params, config)
+    } catch (error) {
+      console.error(error)
+    }
+  }
+  public async put(url: string, data: any = {}, config: object = {}): Promise&lt;any&gt; {
+    try {
+      await this.service.put(url, qs.stringify(data), config)
+    } catch (error) {
+      console.error(error)
+    }
+  }
+  public async delete(url: string, config: object = {}): Promise&lt;any&gt; {
+    try {
+      await this.service.delete(url, config)
+    } catch (error) {
+      console.error(error)
+    }
+  }
+  protected requestLog(request: any): void { }
+  protected responseLog(response: any): void {
+    if (process.env.NODE_ENV === 'development') {
+      const randomColor = `rgba(${Math.round(Math.random() * 255)},${Math.round(
+        Math.random() * 255
+      )},${Math.round(Math.random() * 255)})`
+      console.log(
+        '%c┍------------------------------------------------------------------┑',
+        `color:${randomColor};`
+      )
+      let time = response.config.$$e_stamp - response.config.$$b_stamp
+      let color = 'currentColor'
+      if (time &lt; 500) {
+        color = 'blue'
+      } else if (time &lt; 1000) {
+        color = 'pink'
+      } else if (time &lt; 1500) {
+        color = 'green'
+      } else {
+        color = 'red'
+      }
+      console.log(`%c| 请求耗时：${time}ms`, `color:${color}`)
+      console.log('| 请求地址：', response.config.url)
+      console.log('| 请求参数：', qs.parse(response.config.data))
+      console.log('| 返回数据：', response.data)
+      console.log(
+        '%c┕------------------------------------------------------------------┙',
+        `color:${randomColor};`
+      )
+    }
+  }
+}
+
+export default Request.getInstance()
+</code></pre><h2 id="使用方法"><a href="#使用方法" aria-hidden="true" class="header-anchor">#</a> 使用方法</h2><pre class="language-text"><code>import Request from './utils/request'
+Request.post('auth', {
+  method: 'login',
+  params: {
+    password: 'U2FsdGVkX19QT/rrXNIAKXXg7dp2AZv6VVRCPUde8UE=',
+    username: 'admin',
+    time: '1575429820',
+    encry: true
+  }
+}).then(d =&gt; {
+  Request.setToken(d.sid)
+})
+</code></pre></div><div class="vuepress" style="bottom:1.5em;right:1em;" data-v-795f9381><span data-v-795f9381>Top</span></div><div class="content edit-link"><a href="https://github.com/NoManReady/NoManReady.github.io/edit/dev/docs/javascript/axios.md" target="_blank">Edit this page</a><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></div><div class="content page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/javascript/mobile.html" class="prev">手机适配方案gulp配置</a></span><span class="next"><a href="/javascript/image.html">图片上传</a>→
+      </span></p></div></div></div></div>
+    <script src="/assets/js/app.f9fabecb.js" defer></script><script src="/assets/js/17.eb0d8a66.js" defer></script>
+  </body>
+</html>

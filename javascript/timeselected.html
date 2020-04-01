@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <title>NoManReady | 拖拽选区组件</title>
+    <meta name="description" content="Enjoy Vue">
+  <link rel="icon" href="/favicon.ico">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.16.2/build/styles/monokai-sublime.min.css">
+  <script src="/plugin.js" defer="defer"></script>
+    
+    <link rel="preload" href="/assets/css/styles.f9fabecb.css" as="style"><link rel="preload" href="/assets/js/app.f9fabecb.js" as="script"><link rel="preload" href="/assets/js/22.f9f36f9b.js" as="script"><link rel="preload" href="/assets/css/8.styles.e3b1d02a.css" as="style"><link rel="preload" href="/assets/js/8.e3b1d02a.js" as="script"><link rel="prefetch" href="/assets/css/1.styles.fb5360c8.css"><link rel="prefetch" href="/assets/css/10.styles.c2ff9880.css"><link rel="prefetch" href="/assets/css/2.styles.57764f6e.css"><link rel="prefetch" href="/assets/css/3.styles.4b2dffe2.css"><link rel="prefetch" href="/assets/css/4.styles.4a73d6c1.css"><link rel="prefetch" href="/assets/css/5.styles.2a4b22e5.css"><link rel="prefetch" href="/assets/css/6.styles.1c6b640b.css"><link rel="prefetch" href="/assets/css/7.styles.f97b03e2.css"><link rel="prefetch" href="/assets/css/9.styles.e07d14e7.css"><link rel="prefetch" href="/assets/js/1.fb5360c8.js"><link rel="prefetch" href="/assets/js/10.c2ff9880.js"><link rel="prefetch" href="/assets/js/100.3f807d18.js"><link rel="prefetch" href="/assets/js/101.1def8710.js"><link rel="prefetch" href="/assets/js/102.644cf78b.js"><link rel="prefetch" href="/assets/js/103.1088160b.js"><link rel="prefetch" href="/assets/js/104.8c17adfc.js"><link rel="prefetch" href="/assets/js/105.6605686d.js"><link rel="prefetch" href="/assets/js/106.7d240384.js"><link rel="prefetch" href="/assets/js/107.f10caae7.js"><link rel="prefetch" href="/assets/js/108.0828b177.js"><link rel="prefetch" href="/assets/js/109.bd5ee763.js"><link rel="prefetch" href="/assets/js/11.8126a18c.js"><link rel="prefetch" href="/assets/js/110.f4300c1c.js"><link rel="prefetch" href="/assets/js/111.df43f5ad.js"><link rel="prefetch" href="/assets/js/112.98216cba.js"><link rel="prefetch" href="/assets/js/113.6689aa65.js"><link rel="prefetch" href="/assets/js/114.57814195.js"><link rel="prefetch" href="/assets/js/115.a83432c9.js"><link rel="prefetch" href="/assets/js/116.2588f59c.js"><link rel="prefetch" href="/assets/js/117.656fc94d.js"><link rel="prefetch" href="/assets/js/118.3341dde0.js"><link rel="prefetch" href="/assets/js/119.f34aca63.js"><link rel="prefetch" href="/assets/js/12.1621cdf4.js"><link rel="prefetch" href="/assets/js/120.e0d5ddc2.js"><link rel="prefetch" href="/assets/js/121.1266127c.js"><link rel="prefetch" href="/assets/js/122.a024dcbe.js"><link rel="prefetch" href="/assets/js/123.7ca612bc.js"><link rel="prefetch" href="/assets/js/124.3d18eb44.js"><link rel="prefetch" href="/assets/js/125.d46bd679.js"><link rel="prefetch" href="/assets/js/126.75233948.js"><link rel="prefetch" href="/assets/js/127.817987ed.js"><link rel="prefetch" href="/assets/js/128.a2d19497.js"><link rel="prefetch" href="/assets/js/129.6b85f9c5.js"><link rel="prefetch" href="/assets/js/13.7b4a8aea.js"><link rel="prefetch" href="/assets/js/130.743766de.js"><link rel="prefetch" href="/assets/js/131.922ca099.js"><link rel="prefetch" href="/assets/js/132.94ebd0b8.js"><link rel="prefetch" href="/assets/js/133.f59dff8b.js"><link rel="prefetch" href="/assets/js/134.e3d8eaa7.js"><link rel="prefetch" href="/assets/js/135.b617c76d.js"><link rel="prefetch" href="/assets/js/136.778c2d71.js"><link rel="prefetch" href="/assets/js/137.b9af9760.js"><link rel="prefetch" href="/assets/js/138.776e72ef.js"><link rel="prefetch" href="/assets/js/139.744f7325.js"><link rel="prefetch" href="/assets/js/14.0bf32e8a.js"><link rel="prefetch" href="/assets/js/140.cd9e88dd.js"><link rel="prefetch" href="/assets/js/141.9064f98d.js"><link rel="prefetch" href="/assets/js/142.56537ea1.js"><link rel="prefetch" href="/assets/js/143.dd867b7b.js"><link rel="prefetch" href="/assets/js/144.4e82edef.js"><link rel="prefetch" href="/assets/js/145.11e3204f.js"><link rel="prefetch" href="/assets/js/146.96a6d2bc.js"><link rel="prefetch" href="/assets/js/147.495e1f05.js"><link rel="prefetch" href="/assets/js/148.081f81bb.js"><link rel="prefetch" href="/assets/js/149.fbe99358.js"><link rel="prefetch" href="/assets/js/15.880738a4.js"><link rel="prefetch" href="/assets/js/150.8de80a36.js"><link rel="prefetch" href="/assets/js/151.df800fdd.js"><link rel="prefetch" href="/assets/js/152.c0302cb1.js"><link rel="prefetch" href="/assets/js/153.3425371f.js"><link rel="prefetch" href="/assets/js/154.28522127.js"><link rel="prefetch" href="/assets/js/155.bb15ec95.js"><link rel="prefetch" href="/assets/js/156.323d2386.js"><link rel="prefetch" href="/assets/js/157.8bcff0b2.js"><link rel="prefetch" href="/assets/js/158.f5eebb22.js"><link rel="prefetch" href="/assets/js/159.fb3b6a9b.js"><link rel="prefetch" href="/assets/js/16.1361e03b.js"><link rel="prefetch" href="/assets/js/160.aebccb02.js"><link rel="prefetch" href="/assets/js/161.ae882fd0.js"><link rel="prefetch" href="/assets/js/162.f6aad621.js"><link rel="prefetch" href="/assets/js/163.88474095.js"><link rel="prefetch" href="/assets/js/164.40f5e716.js"><link rel="prefetch" href="/assets/js/165.4eaff770.js"><link rel="prefetch" href="/assets/js/166.e980045d.js"><link rel="prefetch" href="/assets/js/167.0747f255.js"><link rel="prefetch" href="/assets/js/168.b8c506a2.js"><link rel="prefetch" href="/assets/js/169.f4e3acba.js"><link rel="prefetch" href="/assets/js/17.eb0d8a66.js"><link rel="prefetch" href="/assets/js/170.dc4e7cb1.js"><link rel="prefetch" href="/assets/js/171.e8b1f2cf.js"><link rel="prefetch" href="/assets/js/172.c25ef782.js"><link rel="prefetch" href="/assets/js/173.34d13f78.js"><link rel="prefetch" href="/assets/js/174.363d0712.js"><link rel="prefetch" href="/assets/js/175.e1d98825.js"><link rel="prefetch" href="/assets/js/176.749257ec.js"><link rel="prefetch" href="/assets/js/177.0736bac4.js"><link rel="prefetch" href="/assets/js/178.9c1e565a.js"><link rel="prefetch" href="/assets/js/179.b64ae924.js"><link rel="prefetch" href="/assets/js/18.06b99f11.js"><link rel="prefetch" href="/assets/js/180.45941eed.js"><link rel="prefetch" href="/assets/js/181.8022037a.js"><link rel="prefetch" href="/assets/js/182.7448dc6f.js"><link rel="prefetch" href="/assets/js/183.21fa459f.js"><link rel="prefetch" href="/assets/js/184.f561fd70.js"><link rel="prefetch" href="/assets/js/185.b37e24c5.js"><link rel="prefetch" href="/assets/js/186.94513afa.js"><link rel="prefetch" href="/assets/js/187.0c8c31e6.js"><link rel="prefetch" href="/assets/js/188.9392892a.js"><link rel="prefetch" href="/assets/js/189.fd65808c.js"><link rel="prefetch" href="/assets/js/19.2929ed9d.js"><link rel="prefetch" href="/assets/js/190.49e437fd.js"><link rel="prefetch" href="/assets/js/191.24d05546.js"><link rel="prefetch" href="/assets/js/192.76a812d2.js"><link rel="prefetch" href="/assets/js/193.120450fc.js"><link rel="prefetch" href="/assets/js/194.4f2cf586.js"><link rel="prefetch" href="/assets/js/195.d7b38f1c.js"><link rel="prefetch" href="/assets/js/196.2ffb1b2c.js"><link rel="prefetch" href="/assets/js/197.c342e977.js"><link rel="prefetch" href="/assets/js/198.62b8087e.js"><link rel="prefetch" href="/assets/js/199.3ed97f42.js"><link rel="prefetch" href="/assets/js/2.57764f6e.js"><link rel="prefetch" href="/assets/js/20.d81fe00e.js"><link rel="prefetch" href="/assets/js/200.442bca17.js"><link rel="prefetch" href="/assets/js/201.0c28ac7d.js"><link rel="prefetch" href="/assets/js/202.05bea935.js"><link rel="prefetch" href="/assets/js/203.60878f7a.js"><link rel="prefetch" href="/assets/js/204.93412f26.js"><link rel="prefetch" href="/assets/js/205.acc8f0ab.js"><link rel="prefetch" href="/assets/js/206.0e3a4157.js"><link rel="prefetch" href="/assets/js/207.9e2e6360.js"><link rel="prefetch" href="/assets/js/208.c5eb34d7.js"><link rel="prefetch" href="/assets/js/209.1c499877.js"><link rel="prefetch" href="/assets/js/21.ede63102.js"><link rel="prefetch" href="/assets/js/210.736cf8c2.js"><link rel="prefetch" href="/assets/js/211.55e4c713.js"><link rel="prefetch" href="/assets/js/212.ddb64fe1.js"><link rel="prefetch" href="/assets/js/213.705f47e1.js"><link rel="prefetch" href="/assets/js/214.9bbffe50.js"><link rel="prefetch" href="/assets/js/215.b6a8c349.js"><link rel="prefetch" href="/assets/js/216.f10c63e0.js"><link rel="prefetch" href="/assets/js/217.aabb62dc.js"><link rel="prefetch" href="/assets/js/218.ec73d82a.js"><link rel="prefetch" href="/assets/js/219.e65cf9a4.js"><link rel="prefetch" href="/assets/js/220.8337648e.js"><link rel="prefetch" href="/assets/js/221.439c4ad7.js"><link rel="prefetch" href="/assets/js/222.1ed886c1.js"><link rel="prefetch" href="/assets/js/223.fa6b8e33.js"><link rel="prefetch" href="/assets/js/224.2f000ca5.js"><link rel="prefetch" href="/assets/js/225.64541fc8.js"><link rel="prefetch" href="/assets/js/226.860fd28c.js"><link rel="prefetch" href="/assets/js/227.38635c84.js"><link rel="prefetch" href="/assets/js/228.262ff671.js"><link rel="prefetch" href="/assets/js/229.7cd0d8b3.js"><link rel="prefetch" href="/assets/js/23.6da479b2.js"><link rel="prefetch" href="/assets/js/230.3b76ebff.js"><link rel="prefetch" href="/assets/js/231.2f1d7671.js"><link rel="prefetch" href="/assets/js/232.29ede68a.js"><link rel="prefetch" href="/assets/js/233.ab25ed54.js"><link rel="prefetch" href="/assets/js/234.d52dc0cb.js"><link rel="prefetch" href="/assets/js/235.e0d57658.js"><link rel="prefetch" href="/assets/js/236.cf7f6ad6.js"><link rel="prefetch" href="/assets/js/237.8f8c275e.js"><link rel="prefetch" href="/assets/js/238.acc91738.js"><link rel="prefetch" href="/assets/js/239.fe06b216.js"><link rel="prefetch" href="/assets/js/24.40fa0acf.js"><link rel="prefetch" href="/assets/js/240.1aa0674a.js"><link rel="prefetch" href="/assets/js/241.98502bef.js"><link rel="prefetch" href="/assets/js/242.95ca31d3.js"><link rel="prefetch" href="/assets/js/243.de7891ed.js"><link rel="prefetch" href="/assets/js/244.65862719.js"><link rel="prefetch" href="/assets/js/245.525e7503.js"><link rel="prefetch" href="/assets/js/246.3c5bf19c.js"><link rel="prefetch" href="/assets/js/247.fa436a8e.js"><link rel="prefetch" href="/assets/js/248.2ab8a8e0.js"><link rel="prefetch" href="/assets/js/249.d03e1fb6.js"><link rel="prefetch" href="/assets/js/25.fdf4a42b.js"><link rel="prefetch" href="/assets/js/250.aa90e97e.js"><link rel="prefetch" href="/assets/js/251.648544c2.js"><link rel="prefetch" href="/assets/js/252.6009a1b5.js"><link rel="prefetch" href="/assets/js/253.b9b711c6.js"><link rel="prefetch" href="/assets/js/254.d0cd4160.js"><link rel="prefetch" href="/assets/js/255.f1227fc2.js"><link rel="prefetch" href="/assets/js/256.966fc256.js"><link rel="prefetch" href="/assets/js/257.4173d110.js"><link rel="prefetch" href="/assets/js/258.d07d2b8d.js"><link rel="prefetch" href="/assets/js/259.1ca17877.js"><link rel="prefetch" href="/assets/js/26.9fcc52ce.js"><link rel="prefetch" href="/assets/js/260.dccb4b19.js"><link rel="prefetch" href="/assets/js/261.141829a8.js"><link rel="prefetch" href="/assets/js/262.c9084611.js"><link rel="prefetch" href="/assets/js/263.3529f99c.js"><link rel="prefetch" href="/assets/js/264.a7c9b7ec.js"><link rel="prefetch" href="/assets/js/265.d664ed18.js"><link rel="prefetch" href="/assets/js/266.caca8306.js"><link rel="prefetch" href="/assets/js/267.68016aaf.js"><link rel="prefetch" href="/assets/js/268.10d8daa9.js"><link rel="prefetch" href="/assets/js/269.f6d2b485.js"><link rel="prefetch" href="/assets/js/27.c005f786.js"><link rel="prefetch" href="/assets/js/270.e6e8f093.js"><link rel="prefetch" href="/assets/js/271.fabbfd28.js"><link rel="prefetch" href="/assets/js/272.195e3c1d.js"><link rel="prefetch" href="/assets/js/273.f763318a.js"><link rel="prefetch" href="/assets/js/274.33c37377.js"><link rel="prefetch" href="/assets/js/275.9704f2ca.js"><link rel="prefetch" href="/assets/js/276.0248b3a6.js"><link rel="prefetch" href="/assets/js/277.a29ca1ca.js"><link rel="prefetch" href="/assets/js/278.9d63e998.js"><link rel="prefetch" href="/assets/js/279.e07bef6c.js"><link rel="prefetch" href="/assets/js/28.78959767.js"><link rel="prefetch" href="/assets/js/280.7524592f.js"><link rel="prefetch" href="/assets/js/281.4074b35c.js"><link rel="prefetch" href="/assets/js/282.2d4551c1.js"><link rel="prefetch" href="/assets/js/283.a8e73d10.js"><link rel="prefetch" href="/assets/js/29.604a1ba7.js"><link rel="prefetch" href="/assets/js/3.4b2dffe2.js"><link rel="prefetch" href="/assets/js/30.cc4bea3a.js"><link rel="prefetch" href="/assets/js/31.164047a1.js"><link rel="prefetch" href="/assets/js/32.c10258f1.js"><link rel="prefetch" href="/assets/js/33.89476f71.js"><link rel="prefetch" href="/assets/js/34.f733da11.js"><link rel="prefetch" href="/assets/js/35.4f5b675b.js"><link rel="prefetch" href="/assets/js/36.552518ce.js"><link rel="prefetch" href="/assets/js/37.d3ee6bb8.js"><link rel="prefetch" href="/assets/js/38.99bb50d2.js"><link rel="prefetch" href="/assets/js/39.ae5bdfb2.js"><link rel="prefetch" href="/assets/js/4.4a73d6c1.js"><link rel="prefetch" href="/assets/js/40.fd098659.js"><link rel="prefetch" href="/assets/js/41.cd2fec5c.js"><link rel="prefetch" href="/assets/js/42.7cc83724.js"><link rel="prefetch" href="/assets/js/43.f7877412.js"><link rel="prefetch" href="/assets/js/44.123aa78e.js"><link rel="prefetch" href="/assets/js/45.867c2d50.js"><link rel="prefetch" href="/assets/js/46.4a236184.js"><link rel="prefetch" href="/assets/js/47.471493ec.js"><link rel="prefetch" href="/assets/js/48.b83f1dd9.js"><link rel="prefetch" href="/assets/js/49.b14caca4.js"><link rel="prefetch" href="/assets/js/5.2a4b22e5.js"><link rel="prefetch" href="/assets/js/50.817b0529.js"><link rel="prefetch" href="/assets/js/51.fc7238cd.js"><link rel="prefetch" href="/assets/js/52.0ca45351.js"><link rel="prefetch" href="/assets/js/53.694a6895.js"><link rel="prefetch" href="/assets/js/54.9f18fac9.js"><link rel="prefetch" href="/assets/js/55.13a334d2.js"><link rel="prefetch" href="/assets/js/56.78fec891.js"><link rel="prefetch" href="/assets/js/57.a627e6fc.js"><link rel="prefetch" href="/assets/js/58.60bbc85a.js"><link rel="prefetch" href="/assets/js/59.f71912a5.js"><link rel="prefetch" href="/assets/js/6.1c6b640b.js"><link rel="prefetch" href="/assets/js/60.291ed059.js"><link rel="prefetch" href="/assets/js/61.51b13c1a.js"><link rel="prefetch" href="/assets/js/62.5f57d67a.js"><link rel="prefetch" href="/assets/js/63.e4702a48.js"><link rel="prefetch" href="/assets/js/64.3bc0ec0d.js"><link rel="prefetch" href="/assets/js/65.2fa22f76.js"><link rel="prefetch" href="/assets/js/66.83766694.js"><link rel="prefetch" href="/assets/js/67.ca2a44cf.js"><link rel="prefetch" href="/assets/js/68.5d733d09.js"><link rel="prefetch" href="/assets/js/69.b652d4df.js"><link rel="prefetch" href="/assets/js/7.f97b03e2.js"><link rel="prefetch" href="/assets/js/70.eb42a6ac.js"><link rel="prefetch" href="/assets/js/71.93102ac6.js"><link rel="prefetch" href="/assets/js/72.4199b3d4.js"><link rel="prefetch" href="/assets/js/73.a5a19bd5.js"><link rel="prefetch" href="/assets/js/74.5d9cecbc.js"><link rel="prefetch" href="/assets/js/75.6252fa0e.js"><link rel="prefetch" href="/assets/js/76.ac491ea8.js"><link rel="prefetch" href="/assets/js/77.9ecb498c.js"><link rel="prefetch" href="/assets/js/78.303b4048.js"><link rel="prefetch" href="/assets/js/79.943dab29.js"><link rel="prefetch" href="/assets/js/80.43c2d293.js"><link rel="prefetch" href="/assets/js/81.26465fd3.js"><link rel="prefetch" href="/assets/js/82.329788b0.js"><link rel="prefetch" href="/assets/js/83.6b97d298.js"><link rel="prefetch" href="/assets/js/84.9cf1c638.js"><link rel="prefetch" href="/assets/js/85.bd470a03.js"><link rel="prefetch" href="/assets/js/86.d625b088.js"><link rel="prefetch" href="/assets/js/87.0526e429.js"><link rel="prefetch" href="/assets/js/88.ee0ca2ff.js"><link rel="prefetch" href="/assets/js/89.9d6f1e9c.js"><link rel="prefetch" href="/assets/js/9.e07d14e7.js"><link rel="prefetch" href="/assets/js/90.900fb962.js"><link rel="prefetch" href="/assets/js/91.e90a821d.js"><link rel="prefetch" href="/assets/js/92.99347a78.js"><link rel="prefetch" href="/assets/js/93.03a984a9.js"><link rel="prefetch" href="/assets/js/94.5656aad2.js"><link rel="prefetch" href="/assets/js/95.f2c85da5.js"><link rel="prefetch" href="/assets/js/96.404c4e81.js"><link rel="prefetch" href="/assets/js/97.234d325c.js"><link rel="prefetch" href="/assets/js/98.0e2791ad.js"><link rel="prefetch" href="/assets/js/99.fe4eaa02.js">
+    <link rel="stylesheet" href="/assets/css/styles.f9fabecb.css"><link rel="stylesheet" href="/assets/css/8.styles.e3b1d02a.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div><a href="/" class="router-link-active"><!----><span class="site-name">
+      NoManReady
+    </span></a><div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""><!----></div><nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">Home</a></div><div class="nav-item"><a href="/webcomponent/" class="nav-link">WebComponent</a></div><div class="nav-item"><a href="/structure/" class="nav-link">Structure</a></div><div class="nav-item"><a href="/story/" class="nav-link">故事会</a></div><div class="nav-item"><div class="dropdown-wrapper"><div class="dropdown-title"><span class="title">文章</span><span class="arrow"></span></div><ul class="nav-dropdown"><li class="dropdown-item"><!----><a href="/ow/" class="nav-link">Ow</a></li><li class="dropdown-item"><!----><a href="/javascript/" class="nav-link router-link-active">Javascript</a></li><li class="dropdown-item"><!----><a href="/css/" class="nav-link">CSS</a></li><li class="dropdown-item"><!----><a href="/mockjs/" class="nav-link">Mockjs</a></li><li class="dropdown-item"><!----><a href="/vue/" class="nav-link">Vue</a></li></ul></div></div><div class="nav-item"><a href="/gist/" class="nav-link">开源库</a></div><a href="https://github.com/NoManReady/NoManReady.github.io" target="_blank" rel="noopener" class="github-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header><div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">Home</a></div><div class="nav-item"><a href="/webcomponent/" class="nav-link">WebComponent</a></div><div class="nav-item"><a href="/structure/" class="nav-link">Structure</a></div><div class="nav-item"><a href="/story/" class="nav-link">故事会</a></div><div class="nav-item"><div class="dropdown-wrapper"><div class="dropdown-title"><span class="title">文章</span><span class="arrow"></span></div><ul class="nav-dropdown"><li class="dropdown-item"><!----><a href="/ow/" class="nav-link">Ow</a></li><li class="dropdown-item"><!----><a href="/javascript/" class="nav-link router-link-active">Javascript</a></li><li class="dropdown-item"><!----><a href="/css/" class="nav-link">CSS</a></li><li class="dropdown-item"><!----><a href="/mockjs/" class="nav-link">Mockjs</a></li><li class="dropdown-item"><!----><a href="/vue/" class="nav-link">Vue</a></li></ul></div></div><div class="nav-item"><a href="/gist/" class="nav-link">开源库</a></div><a href="https://github.com/NoManReady/NoManReady.github.io" target="_blank" rel="noopener" class="github-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav><ul class="sidebar-links"><li><a href="/javascript/pluginmode.html" class="sidebar-link">js 插件开发方式</a></li><li><a href="/javascript/mobile.html" class="sidebar-link">手机适配方案gulp配置</a></li><li><a href="/javascript/axios.html" class="sidebar-link">Axios</a></li><li><a href="/javascript/image.html" class="sidebar-link">图片上传</a></li><li><a href="/javascript/timeselected.html" class="active sidebar-link">拖拽选区组件</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/javascript/timeselected.html#定义结构" class="sidebar-link">定义结构</a></li><li class="sidebar-sub-header"><a href="/javascript/timeselected.html#逻辑实现" class="sidebar-link">逻辑实现</a></li><li class="sidebar-sub-header"><a href="/javascript/timeselected.html#样式美化" class="sidebar-link">样式美化</a></li><li class="sidebar-sub-header"><a href="/javascript/timeselected.html#demo" class="sidebar-link">DEMO</a></li></ul></li><li><a href="/javascript/utils.html" class="sidebar-link">js积累</a></li></ul></div><div class="page"><div class="content"><h1 id="拖拽选区组件"><a href="#拖拽选区组件" aria-hidden="true" class="header-anchor">#</a> 拖拽选区组件</h1><p>开发中遇到想快速选择某二维坐标中的数据，比如本文的例子：每天的时间点选择。要求如下：</p><ul><li>可以拖拽圈选某个范围的数据，选中的区域高亮显示</li><li>当多选区域范围内全部为选中状态时，标识为反选，其余表示全选该区域</li><li>支持初始化选中数据，是否可选择，行列数据自定义的等
+实现效果如图：</li></ul><p><img src="/img/time.png" alt="timeSelected"></p><p>此栗子由vue组件编写。</p><h2 id="定义结构"><a href="#定义结构" aria-hidden="true" class="header-anchor">#</a> 定义结构</h2><p>1、首先定义一个选区组件TimeSelected.vue,组件结构分为上中下，分别为header、wrap、footer。wrap为选区组件主要区域，其又分为左右结构，分别为Y轴和表格区域，X轴由表格header定义，选择内容块由th定义，所以组件的主要结构如下：</p><pre class="language-text"><code>&lt;template&gt;
+&lt;!-- 定义组件 --&gt;
+  &lt;div class=&quot;time-selection&quot;&gt;
+    &lt;!-- 组件头 --&gt;
+    &lt;div class=&quot;time-selection--header&quot; v-if=&quot;showHeader&quot;&gt;
+      &lt;slot name=&quot;timeSelection_title&quot;&gt;
+        &lt;h2&gt;{{title}}&lt;/h2&gt;
+      &lt;/slot&gt;
+    &lt;/div&gt;
+    &lt;!-- 组件主体 --&gt;
+    &lt;div ref=&quot;timeSelectionWrap&quot; class=&quot;time-selection-wrap&quot;&gt;
+      &lt;!-- Y轴 --&gt;
+      &lt;div class=&quot;time-selection--yaxis&quot; ref=&quot;timeSelectionYaxis&quot;&gt;
+        &lt;div v-for=&quot;(row,index) in rows&quot; :key=&quot;row.value&quot; :class=&quot;['yaxis-picker',`time-selection--yaxis_item_${index}`]&quot; :style=&quot;yaxisItemStyl&quot;&gt;{{row.label}}&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;!-- Table块 --&gt;
+      &lt;div class=&quot;time-selection--main&quot;&gt;
+        &lt;table class=&quot;time-selection-picker&quot;&gt;
+          &lt;!-- X轴 --&gt;
+          &lt;thead ref=&quot;timeSelectionPickerHeader&quot;&gt;
+            &lt;tr v-if=&quot;columns.length&quot;&gt;
+              &lt;th v-for=&quot;(col,index) in columns&quot; :key=&quot;col.value&quot; :class=&quot;['header-picker',`time-selection-picker--header_item_${index}`]&quot;&gt;
+                {{col.label}}
+              &lt;/th&gt;
+            &lt;/tr&gt;
+          &lt;/thead&gt;
+          &lt;!-- 选区区域 --&gt;
+          &lt;tbody ref=&quot;timeSelectionArea&quot;&gt;
+            &lt;tr v-for=&quot;(row,i) in rows&quot; :key=&quot;`${row.value}-${rows[i+1].value}`&quot; v-if=&quot;i&lt;rows.length-1&quot;&gt;
+              &lt;td class=&quot;time-selection-picker--bordered&quot; :class=&quot;{begin:enable}&quot; v-for=&quot;(col,j) in columns&quot; :key=&quot;col.value&quot; :data-col=&quot;j&quot; :data-row=&quot;i&quot; @click=&quot;_onTimePickerClick({row:i,col:j,value:[`${row.value}-${rows[i+1].value}`,col.value]})&quot;&gt;
+                &lt;div :class=&quot;['time-picker',`time-selection-picker--body_item_${j}`,{'is-active':_hasActive(i,j)}]&quot; :style=&quot;timeItemStyl&quot;&gt;&lt;/div&gt;
+              &lt;/td&gt;
+            &lt;/tr&gt;
+          &lt;/tbody&gt;
+        &lt;/table&gt;
+      &lt;/div&gt;
+      &lt;!-- 框选层 --&gt;
+      &lt;div class=&quot;time-selection--range&quot; ref=&quot;timeSelectionRange&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;!-- 组件尾 --&gt;
+    &lt;div class=&quot;time-selection--footer&quot; v-if=&quot;showFooter&quot;&gt;
+      &lt;slot name=&quot;timeSelection_legend&quot;&gt;
+        &lt;h2&gt;{{legend}}&lt;/h2&gt;
+      &lt;/slot&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+</code></pre><h2 id="逻辑实现"><a href="#逻辑实现" aria-hidden="true" class="header-anchor">#</a> 逻辑实现</h2><p>2、逻辑实现，定义组件state，选区实现，初始化数据输入及选择数据输出</p><h3 id="输入"><a href="#输入" aria-hidden="true" class="header-anchor">#</a> 输入</h3><p>2.1、初始化数据输入</p><pre class="language-text"><code>props: {
+    //定义Y轴数据（label为展示，value为实际值）
+    rows: {
+      type: Array,
+      default: () =&gt;
+        Array.from({ length: 25 }).map((_, i) =&gt; ({
+          value: `${i}:00`,
+          label: `${i.toString().padStart(2, '0')}:00`
+        }))
+    },
+    //定义X轴数据（label为展示，value为实际值）
+    columns: {
+      type: Array,
+      default: () =&gt; [
+        { value: 'Mon', label: '星期一' },
+        { value: 'Tue', label: '星期二' },
+        { value: 'Wed', label: '星期三' },
+        { value: 'Thu', label: '星期四' },
+        { value: 'Fri', label: '星期五' },
+        { value: 'Sat', label: '星期六' },
+        { value: 'Sun', label: '星期日' }
+      ]
+    },
+    //初始化选中
+    selections: {
+      type: [Array, Object],
+      default: () =&gt; []
+    },
+    //组件头标题
+    title: {
+      type: String,
+      default: 'PickerComponentTitle'
+    },
+    //组件尾标题
+    legend: {
+      type: String,
+      default: 'PickerComponentLegend'
+    },
+    //单个选项高度
+    itemHeight: {
+      type: Number,
+      default: 20
+    },
+    //是否显示组件头
+    showHeader: {
+      type: Boolean,
+      default: true
+    },
+    //是否显示组件尾
+    showFooter: {
+      type: Boolean,
+      default: true
+    },
+    //是否可编辑
+    enable: {
+      type: Boolean,
+      default: true
+    },
+    //选中数据排列
+    sortDirective: {
+      type: Number,
+      default: 1
+    }
+  }
+</code></pre><h3 id="内置状态"><a href="#内置状态" aria-hidden="true" class="header-anchor">#</a> 内置状态</h3><p>2.2、state定义（组件内部记录状态）</p><pre class="language-text"><code>data() {
+    return {
+      //选择开始点
+      begin: {
+        x: 0,
+        y: 0
+      },
+      //选择结束点
+      end: {
+        x: 0,
+        y: 0
+      },
+      //是否开始选择标识
+      isRangeActive: false,
+      //选中数据集合
+      datas: [],
+      //是否移动端
+      isMobile: browser.versions.mobile
+    }
+  }
+</code></pre><h3 id="事件注册"><a href="#事件注册" aria-hidden="true" class="header-anchor">#</a> 事件注册</h3><p>2.3、定义事件（mounted阶段定义，beforeDestroy阶段取消），pc端mousedown,mousemove,mouseup;mobile端touchstart,toucemove,touchend</p><pre class="language-text"><code>mounted() {
+    if (this.enable) {
+      if (this.isMobile) {
+        document.addEventListener('touchstart', this._onMousedown, false)
+        document.addEventListener('touchmove', this._onMousemove, false)
+        document.addEventListener('touchend', this._onMouseup, false)
+      } else {
+        document.addEventListener('mousedown', this._onMousedown, false)
+        document.addEventListener('mousemove', this._onMousemove, false)
+        document.addEventListener('mouseup', this._onMouseup, false)
+      }
+    }
+  },
+  beforeDestroy() {
+    if (this.enable) {
+      if (this.isMobile) {
+        document.removeEventListener('touchstart', this._onMousedown)
+        document.removeEventListener('touchmove', this._onMousemove)
+        document.removeEventListener('touchend', this._onMouseup)
+      } else {
+        document.removeEventListener('mousedown', this._onMousedown)
+        document.removeEventListener('mousemove', this._onMousemove)
+        document.removeEventListener('mouseup', this._onMouseup)
+      }
+    }
+  }
+</code></pre><h3 id="事件实现"><a href="#事件实现" aria-hidden="true" class="header-anchor">#</a> 事件实现</h3><p>2.4、事件定义及实现</p><pre class="language-text"><code>//判断当前节点是否在可操作选区内
+_hasInWrap(e) {
+      let _timeSelectionWrap = this.$refs.timeSelectionWrap
+      let _timeSelectionYaxis = this.$refs.timeSelectionYaxis
+      let _timeSelectionPickerHeader = this.$refs.timeSelectionPickerHeader
+      let _target = e.target
+      return (
+        this._contains(_timeSelectionWrap, _target) &amp;&amp;
+        !this._contains(_timeSelectionYaxis, _target) &amp;&amp;
+        !this._contains(_timeSelectionPickerHeader, _target)
+      )
+    }
+// 鼠标按下事件，（记录开始点--此时开始点与结束点一致，并开始绘画选区框图，_setRangePosition）
+    _onMousedown(e) {
+      if (!this.isMobile) {
+        e.preventDefault()
+      }
+      if (!this._hasInWrap(e)) {
+        return
+      }
+      this.isRangeActive = true
+      let _timeSelectionRange = this.$refs.timeSelectionRange
+      _timeSelectionRange.style.display = 'block'
+      this.begin.x = e.clientX || e.touches[0].clientX
+      this.begin.y = e.clientY || e.touches[0].clientY
+      this.end.x = e.clientX || e.touches[0].clientX
+      this.end.y = e.clientY || e.touches[0].clientY
+      this._setRangePosition(e)
+    },
+    // 鼠标移动事件，（当处于选区状态时，不断记录更新结束点及绘制框图）
+    _onMousemove(e) {
+      if (!this.isMobile) {
+        e.preventDefault()
+      }
+      if (!this.isRangeActive) {
+        return
+      }
+      if (!this._hasInWrap(e)) {
+        this._onMouseup(e)
+        return
+      }
+      this.end.x = e.clientX || e.touches[0].clientX
+      this.end.y = e.clientY || e.touches[0].clientY
+      this._setRangePosition(e)
+    },
+    // 鼠标放起事件，（记录框选数据_setSelectedItem，并关闭框选区域，重置开始及结束点）
+    _onMouseup(e) {
+      if (!this.isMobile) {
+        e.preventDefault()
+      }
+      // 结束时在范围内
+      if (this._hasInWrap(e)) {
+        this._setSelectedItem(e)
+      }
+      this.isRangeActive = false
+      let _timeSelectionRange = this.$refs.timeSelectionRange
+      _timeSelectionRange.style.display = 'none'
+      this.begin = { x: 0, y: 0 }
+      this.end = { x: 0, y: 0 }
+    },
+</code></pre><h3 id="选中单元格及记录数据"><a href="#选中单元格及记录数据" aria-hidden="true" class="header-anchor">#</a> 选中单元格及记录数据</h3><p>2.5、设置选中单元格</p><pre class="language-text"><code>// 设置选中单元格数据（判断每个单元格所在区域是否在选区区域内，及单元格在选框的上下左右方向，然后判断选框区域内的单元格是否全部选中--是否具有is-active类，是：清除datas中的数据；否：新增的数据加入datas；然后由vue的数据驱动更新dom更新）
+    _setSelectedItem(e) {
+      let _timeSelectionArea = this.$refs.timeSelectionArea
+      let _tds = _timeSelectionArea.querySelectorAll('td')
+      let _filterTds = Array.from(_tds).filter(td =&gt; {
+        let _range = td.getBoundingClientRect()
+        let _x1 = _range.left
+        let _x2 = _x1 + _range.width
+        let _y1 = _range.top
+        let _y2 = _y1 + _range.height
+        let _bx1 = this.begin.x
+        let _bx2 = this.end.x
+        let _by1 = this.begin.y
+        let _by2 = this.end.y
+        if (_bx1 &gt; _bx2) {
+          ;[_bx1, _bx2] = [_bx2, _bx1]
+        }
+        if (_by1 &gt; _by2) {
+          ;[_by1, _by2] = [_by2, _by1]
+        }
+        if (_x2 &lt; _bx1 || _x1 &gt; _bx2 || _y2 &lt; _by1 || _y1 &gt; _by2) {
+          return false
+        }
+        return true
+      })
+      let _isAllActive = _filterTds.every(td =&gt; {
+        let _classList = td
+          .querySelector('div')
+          .getAttribute('class')
+          .split(' ')
+        return _classList.includes('is-active')
+      })
+      let _selections = [...this.datas]
+      if (_isAllActive) {
+        _filterTds.forEach(td =&gt; {
+          let _value = `${td.dataset.row}-${td.dataset.col}`
+          let _index = _selections.findIndex(s =&gt; s === _value)
+          if (_index &gt;= 0) {
+            _selections.splice(_index, 1)
+          }
+        })
+      } else {
+        _filterTds.forEach(td =&gt; {
+          _selections.push(`${td.dataset.row}-${td.dataset.col}`)
+        })
+      }
+      this.datas = [...new Set(_selections)].sort()
+    }
+</code></pre><h3 id="设置选框"><a href="#设置选框" aria-hidden="true" class="header-anchor">#</a> 设置选框</h3><p>2.6、设置框选框位置</p><pre class="language-text"><code>// 设置选框的position
+    _setRangePosition(e) {
+      let _timeSelectionRange = this.$refs.timeSelectionRange
+      let _timeSelectionArea = this.$refs.timeSelectionArea
+      let _opt = _timeSelectionArea.getBoundingClientRect()
+      let _x = e.clientX || e.touches[0].clientX
+      let _y = e.clientY || e.touches[0].clientY
+      let _left = 0
+      let _top = 0
+      if (_x &lt; this.begin.x) {
+        _left = _x - _opt.left
+      } else {
+        _left = this.begin.x - _opt.left
+      }
+      if (_y &lt; this.begin.y) {
+        _top = _y - _opt.top
+      } else {
+        _top = this.begin.y - _opt.top
+      }
+      // 50为yaxis边距，32为header边距
+      _timeSelectionRange.style.left = `${_left + 50}px`
+      _timeSelectionRange.style.top = `${_top + 32}px`
+      _timeSelectionRange.style.width = `${Math.abs(_x - this.begin.x)}px`
+      _timeSelectionRange.style.height = `${Math.abs(_y - this.begin.y)}px`
+    }
+</code></pre><h2 id="样式美化"><a href="#样式美化" aria-hidden="true" class="header-anchor">#</a> 样式美化</h2><p>3、样式美化</p><pre class="language-text"><code>&lt;style lang=&quot;scss&quot; scoped&gt;
+@import '../style/utils/_mixins.scss';
+@import '../style/utils/_variable.scss';
+.time-selection {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  @extend %clearfix;
+  &amp;--header,
+  &amp;--footer {
+    text-align: center;
+    h2 {
+      color: $--color-text-regular;
+      font-size: 150%;
+      margin: 0.5em 0;
+    }
+  }
+  &amp;--header {
+  }
+  &amp;--footer {
+  }
+  &amp;--range {
+    position: absolute;
+    border: 2px dashed #b2b2b2;
+    z-index: 10;
+    display: none;
+  }
+  &amp;-wrap {
+    @extend %clearfix;
+    position: relative;
+    flex: 1 0 0;
+    .time-picker,
+    .yaxis-picker {
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      color: $--color-text-regular;
+    }
+    .header-picker {
+      height: 32px;
+    }
+    .time-picker {
+      border: 1px solid #fff;
+      &amp;.is-active {
+        background-color: $--color-success;
+      }
+    }
+  }
+  &amp;--yaxis {
+    width: 50px;
+    float: left;
+    font-size: 12px;
+    margin-top: 21px;
+  }
+  &amp;--main {
+    margin-left: 50px;
+  }
+  &amp;-picker {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    &amp;--bordered {
+      border: 1px solid $--border-color-base;
+    }
+  }
+}
+&lt;/style&gt;
+</code></pre><h2 id="demo"><a href="#demo" aria-hidden="true" class="header-anchor">#</a> DEMO</h2><div class="time-selection"><div class="time-selection--header"><h2>PickerComponentTitle</h2></div><div class="time-selection-wrap"><div class="time-selection--yaxis" style="width:50px;margin-top:22px;"><div class="yaxis-picker time-selection--yaxis_item_0" style="height:20px;line-height:20px;">00:00</div><div class="yaxis-picker time-selection--yaxis_item_1" style="height:20px;line-height:20px;">01:00</div><div class="yaxis-picker time-selection--yaxis_item_2" style="height:20px;line-height:20px;">02:00</div><div class="yaxis-picker time-selection--yaxis_item_3" style="height:20px;line-height:20px;">03:00</div><div class="yaxis-picker time-selection--yaxis_item_4" style="height:20px;line-height:20px;">04:00</div><div class="yaxis-picker time-selection--yaxis_item_5" style="height:20px;line-height:20px;">05:00</div><div class="yaxis-picker time-selection--yaxis_item_6" style="height:20px;line-height:20px;">06:00</div><div class="yaxis-picker time-selection--yaxis_item_7" style="height:20px;line-height:20px;">07:00</div><div class="yaxis-picker time-selection--yaxis_item_8" style="height:20px;line-height:20px;">08:00</div><div class="yaxis-picker time-selection--yaxis_item_9" style="height:20px;line-height:20px;">09:00</div><div class="yaxis-picker time-selection--yaxis_item_10" style="height:20px;line-height:20px;">10:00</div><div class="yaxis-picker time-selection--yaxis_item_11" style="height:20px;line-height:20px;">11:00</div><div class="yaxis-picker time-selection--yaxis_item_12" style="height:20px;line-height:20px;">12:00</div><div class="yaxis-picker time-selection--yaxis_item_13" style="height:20px;line-height:20px;">13:00</div><div class="yaxis-picker time-selection--yaxis_item_14" style="height:20px;line-height:20px;">14:00</div><div class="yaxis-picker time-selection--yaxis_item_15" style="height:20px;line-height:20px;">15:00</div><div class="yaxis-picker time-selection--yaxis_item_16" style="height:20px;line-height:20px;">16:00</div><div class="yaxis-picker time-selection--yaxis_item_17" style="height:20px;line-height:20px;">17:00</div><div class="yaxis-picker time-selection--yaxis_item_18" style="height:20px;line-height:20px;">18:00</div><div class="yaxis-picker time-selection--yaxis_item_19" style="height:20px;line-height:20px;">19:00</div><div class="yaxis-picker time-selection--yaxis_item_20" style="height:20px;line-height:20px;">20:00</div><div class="yaxis-picker time-selection--yaxis_item_21" style="height:20px;line-height:20px;">21:00</div><div class="yaxis-picker time-selection--yaxis_item_22" style="height:20px;line-height:20px;">22:00</div><div class="yaxis-picker time-selection--yaxis_item_23" style="height:20px;line-height:20px;">23:00</div><div class="yaxis-picker time-selection--yaxis_item_24" style="height:20px;line-height:20px;">23:59</div></div><div class="time-selection--main" style="margin-left:50px;"><table class="time-selection-picker"><thead><tr><th class="header-picker time-selection-picker--header_item_0" style="height:32px;">星期一</th><th class="header-picker time-selection-picker--header_item_1" style="height:32px;">星期二</th><th class="header-picker time-selection-picker--header_item_2" style="height:32px;">星期三</th><th class="header-picker time-selection-picker--header_item_3" style="height:32px;">星期四</th><th class="header-picker time-selection-picker--header_item_4" style="height:32px;">星期五</th><th class="header-picker time-selection-picker--header_item_5" style="height:32px;">星期六</th><th class="header-picker time-selection-picker--header_item_6" style="height:32px;">星期日</th></tr></thead><tbody><tr><td data-col="0" data-row="0" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_0" style="height:19px;line-height:19px;"></div></td><td data-col="1" data-row="0" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_1" style="height:19px;line-height:19px;"></div></td><td data-col="2" data-row="0" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_2" style="height:19px;line-height:19px;"></div></td><td data-col="3" data-row="0" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_3" style="height:19px;line-height:19px;"></div></td><td data-col="4" data-row="0" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_4" style="height:19px;line-height:19px;"></div></td><td data-col="5" data-row="0" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_5" style="height:19px;line-height:19px;"></div></td><td data-col="6" data-row="0" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_6" style="height:19px;line-height:19px;"></div></td></tr><tr><td data-col="0" data-row="1" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_0" style="height:19px;line-height:19px;"></div></td><td data-col="1" data-row="1" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_1" style="height:19px;line-height:19px;"></div></td><td data-col="2" data-row="1" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_2" style="height:19px;line-height:19px;"></div></td><td data-col="3" data-row="1" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_3" style="height:19px;line-height:19px;"></div></td><td data-col="4" data-row="1" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_4" style="height:19px;line-height:19px;"></div></td><td data-col="5" data-row="1" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_5" style="height:19px;line-height:19px;"></div></td><td data-col="6" data-row="1" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_6" style="height:19px;line-height:19px;"></div></td></tr><tr><td data-col="0" data-row="2" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_0" style="height:19px;line-height:19px;"></div></td><td data-col="1" data-row="2" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_1" style="height:19px;line-height:19px;"></div></td><td data-col="2" data-row="2" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_2" style="height:19px;line-height:19px;"></div></td><td data-col="3" data-row="2" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_3" style="height:19px;line-height:19px;"></div></td><td data-col="4" data-row="2" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_4" style="height:19px;line-height:19px;"></div></td><td data-col="5" data-row="2" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_5" style="height:19px;line-height:19px;"></div></td><td data-col="6" data-row="2" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_6" style="height:19px;line-height:19px;"></div></td></tr><tr><td data-col="0" data-row="3" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_0" style="height:19px;line-height:19px;"></div></td><td data-col="1" data-row="3" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_1" style="height:19px;line-height:19px;"></div></td><td data-col="2" data-row="3" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_2" style="height:19px;line-height:19px;"></div></td><td data-col="3" data-row="3" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_3" style="height:19px;line-height:19px;"></div></td><td data-col="4" data-row="3" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_4" style="height:19px;line-height:19px;"></div></td><td data-col="5" data-row="3" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_5" style="height:19px;line-height:19px;"></div></td><td data-col="6" data-row="3" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_6" style="height:19px;line-height:19px;"></div></td></tr><tr><td data-col="0" data-row="4" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_0" style="height:19px;line-height:19px;"></div></td><td data-col="1" data-row="4" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_1" style="height:19px;line-height:19px;"></div></td><td data-col="2" data-row="4" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_2" style="height:19px;line-height:19px;"></div></td><td data-col="3" data-row="4" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_3" style="height:19px;line-height:19px;"></div></td><td data-col="4" data-row="4" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_4" style="height:19px;line-height:19px;"></div></td><td data-col="5" data-row="4" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_5" style="height:19px;line-height:19px;"></div></td><td data-col="6" data-row="4" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_6" style="height:19px;line-height:19px;"></div></td></tr><tr><td data-col="0" data-row="5" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_0" style="height:19px;line-height:19px;"></div></td><td data-col="1" data-row="5" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_1" style="height:19px;line-height:19px;"></div></td><td data-col="2" data-row="5" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_2" style="height:19px;line-height:19px;"></div></td><td data-col="3" data-row="5" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_3" style="height:19px;line-height:19px;"></div></td><td data-col="4" data-row="5" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_4" style="height:19px;line-height:19px;"></div></td><td data-col="5" data-row="5" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_5" style="height:19px;line-height:19px;"></div></td><td data-col="6" data-row="5" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_6" style="height:19px;line-height:19px;"></div></td></tr><tr><td data-col="0" data-row="6" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_0" style="height:19px;line-height:19px;"></div></td><td data-col="1" data-row="6" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_1" style="height:19px;line-height:19px;"></div></td><td data-col="2" data-row="6" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_2" style="height:19px;line-height:19px;"></div></td><td data-col="3" data-row="6" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_3" style="height:19px;line-height:19px;"></div></td><td data-col="4" data-row="6" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_4" style="height:19px;line-height:19px;"></div></td><td data-col="5" data-row="6" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_5" style="height:19px;line-height:19px;"></div></td><td data-col="6" data-row="6" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_6" style="height:19px;line-height:19px;"></div></td></tr><tr><td data-col="0" data-row="7" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_0" style="height:19px;line-height:19px;"></div></td><td data-col="1" data-row="7" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_1" style="height:19px;line-height:19px;"></div></td><td data-col="2" data-row="7" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_2" style="height:19px;line-height:19px;"></div></td><td data-col="3" data-row="7" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_3" style="height:19px;line-height:19px;"></div></td><td data-col="4" data-row="7" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_4" style="height:19px;line-height:19px;"></div></td><td data-col="5" data-row="7" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_5" style="height:19px;line-height:19px;"></div></td><td data-col="6" data-row="7" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_6" style="height:19px;line-height:19px;"></div></td></tr><tr><td data-col="0" data-row="8" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_0" style="height:19px;line-height:19px;"></div></td><td data-col="1" data-row="8" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_1" style="height:19px;line-height:19px;"></div></td><td data-col="2" data-row="8" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_2" style="height:19px;line-height:19px;"></div></td><td data-col="3" data-row="8" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_3" style="height:19px;line-height:19px;"></div></td><td data-col="4" data-row="8" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_4" style="height:19px;line-height:19px;"></div></td><td data-col="5" data-row="8" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_5" style="height:19px;line-height:19px;"></div></td><td data-col="6" data-row="8" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_6" style="height:19px;line-height:19px;"></div></td></tr><tr><td data-col="0" data-row="9" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_0" style="height:19px;line-height:19px;"></div></td><td data-col="1" data-row="9" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_1" style="height:19px;line-height:19px;"></div></td><td data-col="2" data-row="9" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_2" style="height:19px;line-height:19px;"></div></td><td data-col="3" data-row="9" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_3" style="height:19px;line-height:19px;"></div></td><td data-col="4" data-row="9" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_4" style="height:19px;line-height:19px;"></div></td><td data-col="5" data-row="9" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_5" style="height:19px;line-height:19px;"></div></td><td data-col="6" data-row="9" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_6" style="height:19px;line-height:19px;"></div></td></tr><tr><td data-col="0" data-row="10" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_0" style="height:19px;line-height:19px;"></div></td><td data-col="1" data-row="10" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_1" style="height:19px;line-height:19px;"></div></td><td data-col="2" data-row="10" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_2" style="height:19px;line-height:19px;"></div></td><td data-col="3" data-row="10" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_3" style="height:19px;line-height:19px;"></div></td><td data-col="4" data-row="10" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_4" style="height:19px;line-height:19px;"></div></td><td data-col="5" data-row="10" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_5" style="height:19px;line-height:19px;"></div></td><td data-col="6" data-row="10" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_6" style="height:19px;line-height:19px;"></div></td></tr><tr><td data-col="0" data-row="11" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_0" style="height:19px;line-height:19px;"></div></td><td data-col="1" data-row="11" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_1" style="height:19px;line-height:19px;"></div></td><td data-col="2" data-row="11" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_2" style="height:19px;line-height:19px;"></div></td><td data-col="3" data-row="11" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_3" style="height:19px;line-height:19px;"></div></td><td data-col="4" data-row="11" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_4" style="height:19px;line-height:19px;"></div></td><td data-col="5" data-row="11" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_5" style="height:19px;line-height:19px;"></div></td><td data-col="6" data-row="11" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_6" style="height:19px;line-height:19px;"></div></td></tr><tr><td data-col="0" data-row="12" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_0" style="height:19px;line-height:19px;"></div></td><td data-col="1" data-row="12" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_1" style="height:19px;line-height:19px;"></div></td><td data-col="2" data-row="12" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_2" style="height:19px;line-height:19px;"></div></td><td data-col="3" data-row="12" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_3" style="height:19px;line-height:19px;"></div></td><td data-col="4" data-row="12" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_4" style="height:19px;line-height:19px;"></div></td><td data-col="5" data-row="12" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_5" style="height:19px;line-height:19px;"></div></td><td data-col="6" data-row="12" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_6" style="height:19px;line-height:19px;"></div></td></tr><tr><td data-col="0" data-row="13" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_0" style="height:19px;line-height:19px;"></div></td><td data-col="1" data-row="13" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_1" style="height:19px;line-height:19px;"></div></td><td data-col="2" data-row="13" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_2" style="height:19px;line-height:19px;"></div></td><td data-col="3" data-row="13" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_3" style="height:19px;line-height:19px;"></div></td><td data-col="4" data-row="13" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_4" style="height:19px;line-height:19px;"></div></td><td data-col="5" data-row="13" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_5" style="height:19px;line-height:19px;"></div></td><td data-col="6" data-row="13" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_6" style="height:19px;line-height:19px;"></div></td></tr><tr><td data-col="0" data-row="14" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_0" style="height:19px;line-height:19px;"></div></td><td data-col="1" data-row="14" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_1" style="height:19px;line-height:19px;"></div></td><td data-col="2" data-row="14" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_2" style="height:19px;line-height:19px;"></div></td><td data-col="3" data-row="14" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_3" style="height:19px;line-height:19px;"></div></td><td data-col="4" data-row="14" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_4" style="height:19px;line-height:19px;"></div></td><td data-col="5" data-row="14" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_5" style="height:19px;line-height:19px;"></div></td><td data-col="6" data-row="14" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_6" style="height:19px;line-height:19px;"></div></td></tr><tr><td data-col="0" data-row="15" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_0" style="height:19px;line-height:19px;"></div></td><td data-col="1" data-row="15" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_1" style="height:19px;line-height:19px;"></div></td><td data-col="2" data-row="15" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_2" style="height:19px;line-height:19px;"></div></td><td data-col="3" data-row="15" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_3" style="height:19px;line-height:19px;"></div></td><td data-col="4" data-row="15" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_4" style="height:19px;line-height:19px;"></div></td><td data-col="5" data-row="15" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_5" style="height:19px;line-height:19px;"></div></td><td data-col="6" data-row="15" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_6" style="height:19px;line-height:19px;"></div></td></tr><tr><td data-col="0" data-row="16" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_0" style="height:19px;line-height:19px;"></div></td><td data-col="1" data-row="16" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_1" style="height:19px;line-height:19px;"></div></td><td data-col="2" data-row="16" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_2" style="height:19px;line-height:19px;"></div></td><td data-col="3" data-row="16" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_3" style="height:19px;line-height:19px;"></div></td><td data-col="4" data-row="16" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_4" style="height:19px;line-height:19px;"></div></td><td data-col="5" data-row="16" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_5" style="height:19px;line-height:19px;"></div></td><td data-col="6" data-row="16" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_6" style="height:19px;line-height:19px;"></div></td></tr><tr><td data-col="0" data-row="17" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_0" style="height:19px;line-height:19px;"></div></td><td data-col="1" data-row="17" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_1" style="height:19px;line-height:19px;"></div></td><td data-col="2" data-row="17" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_2" style="height:19px;line-height:19px;"></div></td><td data-col="3" data-row="17" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_3" style="height:19px;line-height:19px;"></div></td><td data-col="4" data-row="17" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_4" style="height:19px;line-height:19px;"></div></td><td data-col="5" data-row="17" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_5" style="height:19px;line-height:19px;"></div></td><td data-col="6" data-row="17" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_6" style="height:19px;line-height:19px;"></div></td></tr><tr><td data-col="0" data-row="18" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_0" style="height:19px;line-height:19px;"></div></td><td data-col="1" data-row="18" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_1" style="height:19px;line-height:19px;"></div></td><td data-col="2" data-row="18" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_2" style="height:19px;line-height:19px;"></div></td><td data-col="3" data-row="18" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_3" style="height:19px;line-height:19px;"></div></td><td data-col="4" data-row="18" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_4" style="height:19px;line-height:19px;"></div></td><td data-col="5" data-row="18" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_5" style="height:19px;line-height:19px;"></div></td><td data-col="6" data-row="18" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_6" style="height:19px;line-height:19px;"></div></td></tr><tr><td data-col="0" data-row="19" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_0" style="height:19px;line-height:19px;"></div></td><td data-col="1" data-row="19" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_1" style="height:19px;line-height:19px;"></div></td><td data-col="2" data-row="19" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_2" style="height:19px;line-height:19px;"></div></td><td data-col="3" data-row="19" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_3" style="height:19px;line-height:19px;"></div></td><td data-col="4" data-row="19" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_4" style="height:19px;line-height:19px;"></div></td><td data-col="5" data-row="19" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_5" style="height:19px;line-height:19px;"></div></td><td data-col="6" data-row="19" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_6" style="height:19px;line-height:19px;"></div></td></tr><tr><td data-col="0" data-row="20" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_0" style="height:19px;line-height:19px;"></div></td><td data-col="1" data-row="20" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_1" style="height:19px;line-height:19px;"></div></td><td data-col="2" data-row="20" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_2" style="height:19px;line-height:19px;"></div></td><td data-col="3" data-row="20" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_3" style="height:19px;line-height:19px;"></div></td><td data-col="4" data-row="20" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_4" style="height:19px;line-height:19px;"></div></td><td data-col="5" data-row="20" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_5" style="height:19px;line-height:19px;"></div></td><td data-col="6" data-row="20" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_6" style="height:19px;line-height:19px;"></div></td></tr><tr><td data-col="0" data-row="21" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_0" style="height:19px;line-height:19px;"></div></td><td data-col="1" data-row="21" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_1" style="height:19px;line-height:19px;"></div></td><td data-col="2" data-row="21" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_2" style="height:19px;line-height:19px;"></div></td><td data-col="3" data-row="21" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_3" style="height:19px;line-height:19px;"></div></td><td data-col="4" data-row="21" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_4" style="height:19px;line-height:19px;"></div></td><td data-col="5" data-row="21" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_5" style="height:19px;line-height:19px;"></div></td><td data-col="6" data-row="21" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_6" style="height:19px;line-height:19px;"></div></td></tr><tr><td data-col="0" data-row="22" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_0" style="height:19px;line-height:19px;"></div></td><td data-col="1" data-row="22" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_1" style="height:19px;line-height:19px;"></div></td><td data-col="2" data-row="22" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_2" style="height:19px;line-height:19px;"></div></td><td data-col="3" data-row="22" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_3" style="height:19px;line-height:19px;"></div></td><td data-col="4" data-row="22" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_4" style="height:19px;line-height:19px;"></div></td><td data-col="5" data-row="22" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_5" style="height:19px;line-height:19px;"></div></td><td data-col="6" data-row="22" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_6" style="height:19px;line-height:19px;"></div></td></tr><tr><td data-col="0" data-row="23" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_0" style="height:19px;line-height:19px;"></div></td><td data-col="1" data-row="23" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_1" style="height:19px;line-height:19px;"></div></td><td data-col="2" data-row="23" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_2" style="height:19px;line-height:19px;"></div></td><td data-col="3" data-row="23" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_3" style="height:19px;line-height:19px;"></div></td><td data-col="4" data-row="23" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_4" style="height:19px;line-height:19px;"></div></td><td data-col="5" data-row="23" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_5" style="height:19px;line-height:19px;"></div></td><td data-col="6" data-row="23" class="time-selection-picker--bordered begin"><div class="time-picker time-selection-picker--body_item_6" style="height:19px;line-height:19px;"></div></td></tr><!----></tbody></table></div><div class="time-selection--range"></div></div><div class="time-selection--footer"><button class="mr10 btn active" style="padding:10px;margin-left:10px;">Clear Data</button><button class="mr10 btn active" style="padding:10px;margin-left:10px;">Test Data</button><button class="mr10 btn active" style="padding:10px;margin-left:10px;">Get Data</button></div></div></div><div class="vuepress" style="bottom:1.5em;right:1em;" data-v-795f9381><span data-v-795f9381>Top</span></div><div class="content edit-link"><a href="https://github.com/NoManReady/NoManReady.github.io/edit/dev/docs/javascript/timeselected.md" target="_blank">Edit this page</a><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></div><div class="content page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/javascript/image.html" class="prev">图片上传</a></span><span class="next"><a href="/javascript/utils.html">js积累</a>→
+      </span></p></div></div></div></div>
+    <script src="/assets/js/app.f9fabecb.js" defer></script><script src="/assets/js/22.f9f36f9b.js" defer></script><script src="/assets/js/8.e3b1d02a.js" defer></script>
+  </body>
+</html>
